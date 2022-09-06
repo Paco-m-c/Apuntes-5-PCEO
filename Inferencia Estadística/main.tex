@@ -1,0 +1,48 @@
+\documentclass[openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{amstext} 
+\usepackage{array}   
+\newcolumntype{C}{>{$}c<{$}} 
+
+
+\input{structure}
+\usepackage{geometry}
+\geometry{
+    top=3cm,
+    bottom=3cm,
+    left=3cm,
+    right=3cm,
+    headheight=14pt, 
+    footskip=1.4cm,
+    headsep=10pt,
+}
+\usepackage{graphicx}
+\title{Apuntes de Inferencia Estadística}
+\author{Paco Mora}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Tema 2}
+
+\begin{exercise}
+    \textbf{Ejercicio 1.a)}
+
+    Los valores que puede tomar el vector son
+    $$ \{(0,0,0),(1,0,0),(0,1,0),(0,0,1),(1,1,0),(1,0,1),(0,1,1),(1,1,1)\} $$
+
+    Donde tenemos que:
+    $$ P(X_1=0,X_2=0,X_3=0) = P(X=0)^3 = (1-p)^3 $$
+    $$ P(X_1=1,X_2=0,X_3=0) = p(1-p)^2 = P(X_1=0,X_2=1,X_3=0) = P(X_1=0,X_2=0,X_3=1)$$
+    $$ P(X_1=1,X_2=1,X_3=0) = p^2(1-p) = P(X_1=1,X_2=0,X_3=1) = P(X_1=0,X_2=1,X_3=1) $$
+    $$ P(X_1=1,X_2=1,X_3=1) = p^3 $$
+
+    Es fácil comprobar que la suma de todas las probabilidades es 1.
+
+\end{exercise}
+
+\end{document}
