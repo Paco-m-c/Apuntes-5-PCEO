@@ -1,0 +1,62 @@
+\documentclass[openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage{amstext} 
+\usepackage{array}   
+\newcolumntype{C}{>{$}c<{$}} 
+
+
+\input{structure}
+\usepackage{geometry}
+\geometry{
+    top=3cm,
+    bottom=3cm,
+    left=3cm,
+    right=3cm,
+    headheight=14pt, 
+    footskip=1.4cm,
+    headsep=10pt,
+}
+\usepackage{graphicx}
+\title{Ejemplos PIA}
+\author{Paco Mora}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Sustituciones} 
+
+$$ \lambda y.(yz)[y/z] $$
+$$ \lambda a.(yz)[a/y][y/z] $$
+$$ \lambda a.(az)[y/z] $$
+
+$$ (\lambda y.x (\lambda x.x)z )[\lambda v.vy / z] $$
+$$ \lambda a. (x(\lambda x.x)z) [a / y][(\lambda v.vy / z)] $$
+$$ \lambda a. (x(\lambda x.x)z) [\lambda v.vy / z] $$
+$$ \lambda a.x(\lambda x.x)(\lambda v.vy) $$
+
+
+//Así sería paso a paso pero es un lío
+$$ (\lambda y.(\lambda f.fx)y)[fy / x] $$
+$$ \lambda a.((\lambda f.fx)y)[a /y][fy /x] $$
+$$ \lambda a.((\lambda f.fx)a) [fy /x] $$
+$$ \lambda a.((\lambda f.fx)[fy  /x])(a [fy /x]) $$
+$$ \lambda a.\lambda b.(fx)[b /f][fy /x] $$
+$$ \lambda a.(\lambda b.(bx)[fy (x)])a $$
+$$ \lambda a.(\lambda b.b(fy))a $$
+
+//Se puede hacer a troncho más fácil
+$$ (\lambda y.(\lambda f.fx)y)[fy / x] $$
+$$ (\lambda a.(\lambda b.bx)a)[fy / x] $$
+$$ \lambda a.(\lambda b.b(fy))a $$
+
+\textbf{Alfa, beta y eta reducción }
+
+$$ (\lambda x.\lambda z.x+z)y \xrightarrow{/beta} \lambda z.y+z $$
+
+$$ (\lambda x.\lambda z.x+z)z \xrightarrow{/beta} \lambda a.z+a $$
+
+\end{document}
