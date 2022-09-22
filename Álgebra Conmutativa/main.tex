@@ -23,11 +23,13 @@
 \author{Paco Mora}
 \date{\today}
 
+\setcounter{secnumdepth}{0}
 \begin{document}
-
 \maketitle
 
-\chapter{Tema 1. Apuntes extra}
+\tableofcontents
+
+\chapter{Tema 1}
 
 \begin{exercise}
     \textbf{Ejercicio Propuesto}
@@ -106,4 +108,492 @@ La siguiente proposición generaliza el ejercicio anterior.
 
 
 $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),\ IJ=(8),\ I\cap J = (4) $)
+
+
+\begin{example}
+    \textbf{Aplicación del teorema de la correspondencia}
+
+    Los ideales de $ \mathbb{Z}_{n} $ están en correspondencia con los divisores positivos de $ n $.
+
+    $$ \mathcal{L}(\mathbb{Z}_{n}) \to \{d>0:\ d/n\} $$
+
+    Pero los ideales de $ \mathbb{Z}_{n} $ son isomorfos a $ \{I \unlhd \mathbb{Z}\ :\ n\mathbb{Z} \subset  I\}$ por el teorema de la correspondencia, entonces:
+    $$\{I \unlhd \mathbb{Z}\ :\ n\mathbb{Z} \subset  I\} = \{d\mathbb{Z} \unlhd \mathbb{Z}:\ n\mathbb{Z} \subset  d\mathbb{Z}\} = \{d\mathbb{Z}:\ d|n\}\cong \{d>0:\ d/n\}$$
+\end{example}
+
+\begin{proposition}
+    \textbf{Proposición 1.31 extendido} (la prueba es la de los apuntes)
+    Sean $ A,B_1,...,B_n $ anillos y sean $ g_{i}:A\to B_i $ homomorf. de anillos.
+    \begin{enumerate}
+        \item $ \phi:A\to B_1\times ...\times B_n $, dado por $ \phi(a) = (g_1(a),...,g_n(a)) $ es un homomorf. de anillos con núcleo $ \bigcap_{i=1}^{n}\operatorname{Ker}(g_i) $
+        \item Se los $ \operatorname{Ker}(g_i) $ son comaximales dos a dos, entonces se verifica:
+            \begin{enumerate}
+                \item $ \operatorname{Im}(\phi) = \operatorname{Im}(g_1)\times...\times \operatorname{Im}(g_n)$
+                \item $ \operatorname{Ker}(\phi) = \operatorname{Ker}(g_1)\cdots \operatorname{Ker}(g_n) $
+                \item Se tiene un isom. de anillos: $ \dfrac{A}{\operatorname{Ker}(g_1)\cdots\operatorname{Ker}(g_n)} \cong \operatorname{Im}(g_1) \times ...\times \operatorname{Im}(g_n) $
+            \end{enumerate} 
+    \end{enumerate}
+
+\end{proposition}
+
+\begin{demonstration}    
+    1.
+    $$ \operatorname{Ker}(\phi) = \{a \in A:\ (g_1(a),...,g_n(a)) = (0,...,0)\} = \{a \in A:\ g_i(a) = 0\ \forall i \} = \cap_{i=1}^{n}\operatorname{Ker}(g_i)$$
+    2.
+    
+    Si los $ \operatorname{Ker}(g_i) $ son comaximales dos a dos entonces:
+    $$ \operatorname{Ker} (\phi) = \operatorname{Ker}(g_1)\cdots \operatorname{Ker}(g_n) $$
+
+    Con lo que tenemos 2b).
+
+    2.a
+
+    Si $ (b_1,...,b_n)  \in \operatorname{Im}(\phi) \implies (b_1,...,b_n) = \phi(a) = (g_1(a),...,g_n(a))$ para algún $ a \in A \implies b_i \in \operatorname{Im}(g_i)\ \forall i$. Por tanto, $ (b_1,...,b_n) \in \operatorname{Im}(g_1)\times...\times \operatorname{Im}(g_n) $
+
+    Si probamos ahora que $ (0,...,x_i,0,...,0) \in \operatorname{Im}(\phi)\ \forall  x_i \in \operatorname{Im}(g_i) $, entonces toda $n$-upla $(x_1,...,x_n) \in \operatorname{Im}(\phi)  $ en $ \operatorname{Im}(\phi_1)\times...\times \operatorname{Im}(\phi_n) $ comaximales dos a dos.
+
+    $$ \operatorname{Ker}(g_i) + \left( \cap_{j\ne i} \operatorname{Ker}(g_j) = A \implies 1 = a+b,\ a \in \operatorname{Ker}(g_i),\ b \in \cap_{j\ne i} \operatorname{Ker}(g_j) \right) $$
+
+    Como $ x \in \operatorname{Im}(g_i) \implies \exists u \in A:\ g_i(u) = x_i $, entonces:
+    $$ x_i = 1\cdot x_i = (a+b) g_i(u) = g_i((a+b)u) $$
+
+    Luego entonces:
+    $$ \phi(bu) = (g_1(bu),...,g_i(bu),...,g_n(bu)) = (0,...,0,g_i(bu),0,...,0) $$
+    $$ x_i = g_i(u) = g_i(au+bu) = \cancel{g_i(a)g_i(u)}+g_i(bu) $$
+    
+    Con lo que queda demostrado 2.b.
+    2.c.
+
+    Basta utilizar 2.a), 2.b) y el primer teorema de isomorfía.
+
+\end{demonstration}
+
+\begin{definition}
+    \textbf{Conjunto inductivo}
+
+    Un \textbf{conjunto inductivo} es un conjunto ordenado $ S $ tal que todo subconjunto totalmente ordenado no vacío tiene un acota superior en $ S $
+\end{definition}
+
+\begin{lemma}
+    \textbf{Lema de Zorn}
+
+    Todo conjunto inductivo no vacío tiene un elemento maximal.
+\end{lemma}
+
+\begin{demonstration}
+    Fijemos $ I  \trianglelefteq A,\ I \ne A $ ideal propio.
+    $$ S_{I} = \{ J\trianglelefteq A:\ J \text{ ideal propio e }I \subset  J  \} $$
+
+    $ S_{I} $ es inductivo y $ \ne \emptyset (I \in S_{I})$
+
+    Sea $ Y $ un subconjunto totalmente ordenado $ \ne \emptyset $ de $ S_{I} $. Tomo $ m = \bigcup_{J \in T} J $. Porbemos que $ m $ es un ideal propio tal que $ I \subset  m $. Lo que implica que $ m \in S_{I} $.
+
+    Sean $ a,b \in m \implies \left\{
+    \begin{array}{l}
+        a \in \bigcup_{J \in T}J \iff \exists J \in T:\ a \in J\\
+        b \in \bigcup_{J \in T}J \iff \exists J' \in T:\ b \in J'\\
+    \end{array}
+    \right.
+    $ 
+
+    Si tomamos por ejemplo que $ J \subset  J' $, entonces $ a,b \in J' \implies a-b \in J' \implies a-b \in m $
+
+    Notemos entonces que un elemento maximal de $ S_{I} $ es también un ideal maximal.
+\end{demonstration}
+
+
+\begin{exercise}
+    $ I,P \unlhd A,   $ siendo $ P $ primo.  Probar que existe un primo minimal sobre $ I $, pongamos $ q $ tal que $ q \subset P $
+\end{exercise}
+
+\begin{lemma}
+    \textbf{Lema de Krull}
+
+    $ A $ anillo, $ I \unlhd $ A y $ S \subset A $ un subconjunto multiplicativo. Suponemos que $ I \cap S = \emptyset $ y consideremos $ \mathcal{L}_{I,S} = \{J \unlhd A:\ I \subset  J,\ J \cap S = \emptyset\} $. Se verifica:
+    \begin{enumerate}
+        \item $ \mathcal{L}_{I,S}  $ es un conjunto inductivo.
+        \item Cualquier elemento maximal de $ \mathcal{L}_{I,S} $ es un ideal primo.
+    \end{enumerate}
+
+\end{lemma}
+
+\begin{demonstration}
+    1.
+
+    Hemos de probar que si $ \mathcal{J} \subset \mathcal{I}_{I,S}  $ es un subconjunto totalmente ordenado $ \ne \emptyset \implies $ tiene una cota superior en $ \mathcal{L}_{I,S} $.
+    
+    Habría que comprobar que $ \widetilde{J} = \bigcup_{J \in \mathcal{J}}J $ es un ideal.
+
+    Como tenemos que $ I \subset  \widetilde{J} $ y $ S \cap \widetilde{J} = S \cap (\bigcup J) = \bigcup_{J \in \mathcal{J}} (S\cap J) = \emptyset $
+
+    Entonces $ \widetilde{J} $ es una cota superior de $ \mathcal{J} $ en $ \mathcal{L}_{I,S} $.\\
+    2.
+
+    Sean $ a,b \in A $ tales que $ ab \in P $. Por reducc. al absurdo, supongamos que $ a \not \in P $ y $ b \not \in P $. Entonces:
+    $$ \left\{
+    \begin{array}{l}
+        P \subsetneq P + (a)\\
+        P \subsetneq P + (b)
+    \end{array}
+    \right\} \implies P+(a),P+(b) \not \in \mathcal{L}_{I,S} \iff \left\{
+    \begin{array}{l}
+        (P+(a)) \cap S \ne \emptyset\\
+        (P+(b)) \cap S \ne \emptyset
+    \end{array}
+    \right\} $$
+
+    Sean entonces $ s \in (P+(a)) \cap S  $ y $ s' \in (P+(b))\cap S $. Entonces:
+    $$ \left\{
+    \begin{array}{l}
+        s = p+ar\\
+        s'=p'+br'
+    \end{array}
+    \right.\hspace{10mm} p,p' \in P,\ r,r' \in A $$
+
+    $$ ss' = (p+ar)(p'+br') = pp'+pbr' + arp' + abrr' \in P \implies P \cap S \ne \emptyset $$
+
+    Con lo que llegamos a una contradicción
+\end{demonstration}
+
+
+\begin{proposition}
+    Sea $ A  $ un anillo e $ I \unlhd A $ un ideal \textbf{propio}. Son equivalentes:
+    \begin{enumerate}
+        \item Si $ a \in A $ y $ a^{n} \in I $, para algún $ n>0 $, entonces $ a \in I $
+        \item Śi $ a \in A $ y $ a^2 \in I $, entonces $ a \in I $
+        \item $ I $ es una intersección de ideales primos.
+        \item $ I $ es la intersección de los ideales primos minimales sobre $ I $.
+    \end{enumerate}
+
+\end{proposition}
+
+\begin{demonstration}
+    $ 1\implies 2. $
+
+    Directa.\\
+    $ 2\implies 1 $
+
+    Si $ n = 1 \implies a'=a \in I$, podemos suponer que $ a \not \in I $ y que existe $ n > 1 $, $ a^{n} \in I $ tal que $ a^{n-1}\not \in I $. Entonces tenemos:
+    $$ (a^{n-1})^2 = a^{2n-2} = \underbrace{a^{n}}_{\in I}\underbrace{a^{n-2}}_{\in A} \implies (a^{n-1})^2 \in I \implies a^{n-1} \in I$$
+
+    Con lo que tenemos una contradicción y $ a \in I $.\\
+    $ 4\implies 3. $
+
+    Directa.\\
+    $ 3\implies 4. $
+
+    Supongamos que $ \exists (P_{\lambda})_{\lambda \in \Lambda} $ ideales primos tales que $ I = \bigcap_{\lambda \in \Lambda}P_{\lambda} $
+
+    $$ \forall  \lambda \in \Lambda,\ I \subset P_{\lambda} \implies\footnote{Por el último ejercicio propuesto.} \exists q_{\lambda} \text{ primo minimal sobre $ I $ tal que } I \subset  q_{\lambda} \subset  P_{\lambda}\implies  $$
+    $$ \implies I \subset  \bigcap_{\lambda \in \Lambda} q_{\lambda} \subset  \bigcap_{\lambda \in \Lambda} P_{\lambda} = I \implies I = \cap _{\lambda \in q_{\lambda}}  $$
+    $$ I \subset  \bigcap _{\substack{q \in \operatorname{Spec}(A)\\ q\ minimal\ I}} q \subset  \bigcap _{\lambda \in \Lambda}q _{\lambda} = I $$
+
+    Con lo que tenemos 4.\\
+    $ 3\implies 2. $
+
+    Si $ a ^2 \in I = \bigcap_{\lambda \in \Lambda}P_{\lambda} \iff a^2 \in P_{\lambda},\ \forall  \lambda \in \Lambda \implies a \in P_{\lambda},\ \forall \lambda \in \Lambda \iff a \in \bigcap _{\lambda \in \Lambda }P_{\lambda } = I $\\
+    $ 1\implies 4. $
+
+    Sean $ \mathcal{Q} = \{\text{ideales primos minimales sobre }I\} $. Queremos probar que $ I = \cap_{Q \in \mathcal{Q}}Q $.  La inclusión $ \subset  $ es directa.
+
+    Supongamos ahora que $ I\subsetneq \bigcap _{Q \in \mathcal{Q}}Q \implies  $ tomamos $ x \in \cap_{Q \in \mathcal{Q}}Q  $ tal que $  x \not \in I $.
+
+    Como $ x \not \in I \implies x^{n}\not \in I,\ \forall n \geq  0$. Aplicamos ahora el lema de Krull con $ I $ y $ S = \{x^{n}:\ n\geq  0\} $. 
+
+    Entonces $ \mathcal{L}_{I,S} = \{J \unlhd A:\ I \subset  J,\ J \cap S = \emptyset\} $ tiene un elemento maximal, pongamos $ P $, que es primo. Entonces:
+    $$ \left\{
+    \begin{array}{l}
+        S \cap P = \emptyset\\
+        I \subset  P 
+    \end{array}
+    \right\} \implies\footnote{Por el ejercicio de nuevo.} \exists Q \text{ primo minimal sobre } I:\ I \subset  Q' \subset  P \implies S \cap Q' = \emptyset$$
+
+    Con lo que llegamos a una contradicción porque $ x \in Q' $
+
+\end{demonstration}
+
+\begin{definition}
+    \textbf{Ideal radical}
+
+    Un ideal que cumpla las condiciones de la anterior proposición se dice que es \textbf{radical}.
+
+\end{definition}
+
+
+\begin{definition}
+    \textbf{Radical de un ideal}
+
+    Sea $ I \unlhd A $ ideal propio, $ \sqrt{I}:= \{x \in A:\ x^{n}\in I,\ \text{ para algún }n>0\} $
+\end{definition}
+
+\begin{proposition}
+    \textbf{Sustituye al Corolario 1.4.6}
+
+    Dado $ I \unlhd A $ ideal propio, el subconjunto $ \sqrt{I}  $ es un ideal radical de $ A $ y puede ser descrito por cada una de las siguientes formas equivalentes:
+    \begin{enumerate}
+        \item El menor ideal radical que contiene a $ I $.
+        \item La intersección de todos los ideales radicales que contienen a $ I $.
+        \item La intersección de todos los ideales primos que contienen a $ I $.
+        \item La intersección de todos los ideales primos minimales que contienen a $ I $.
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{demonstration}
+    Vemos primero que $ \sqrt{I} $ es un ideal radical de $ A $.
+
+    Hemos de probar:
+    $$ \left\{
+    \begin{array}{l}
+        \left.
+        \begin{array}{l}
+            a)\ x+y \in \sqrt{I}\ \forall x,y \in \sqrt{I}\\
+            b)\  ax \in \sqrt{ I}\ \forall x \in \sqrt{I},\ a \in A
+        \end{array}
+        \right\}\ ideal\\
+        c)\ Si\ a^{n}\in \sqrt{I},\ con\ n>0 \implies a \in \sqrt{I}
+    \end{array}
+    \right. $$
+
+    Vemos en primer lugar b):
+
+    $$(ax)^{n} = a^{n}x^{n} \implies (Como\  x^{n} \in I,\ a^{n}x^{n}\in I) \implies (ax)^{n} \in I \implies ax \in \sqrt{I} $$
+
+    a) se demuestra utilizando el binomio de Newton:
+    $$ a,x \in \sqrt{I} \implies \exists m,n>0:\ x^{m} \in I,\ y^{n} \in I $$
+
+    Sin pérdida de generalidad, supongamos $ m = n $
+    $$ (x+y)^{2n} = \sum\limits_{i=0}^{2n} \binom{2n}{i} x^{i}y^{2n-i} \in I \implies x+y \in I $$
+
+    Para ver c), sea ahora $ a^{n}\in \sqrt{I} \implies \exists m >0:\ (a^{n})^{m} \in I \implies a^{nm}\in I \implies a \in \sqrt{I} $.
+
+    Con lo que $ \sqrt{I} $ es un ideal radical.\\
+    1.
+
+    Sea $ J \unlhd A$ ideal radical y propio tal que $ I \subset J $. Queremos ver que $ \sqrt{I}\subset J $.
+
+    Sea $ x \in \sqrt{I} \implies \exists n> 0:\ x^{n}\in I\implies x^{n}\in J \implies_{J\ radical}x \in J $\\
+    2.
+
+    Es consecuencia inmediata de 1.\\
+    3.
+
+    Sea $ \mathcal{V}(I) = \{P \in \operatorname{Spec}(A):\ I \subset P\}\implies? \sqrt{I} = \bigcap_{P \in \mathcal{V}(I)}P $.
+
+    La inclusión $ \subset  $ es directa con la afirmación 1 y por ser la intersección un ideal radical. Para la otra, sabemos que $ \sqrt{I} =  $ intersección de los ideales primos minimales sobre $ \sqrt{I} $. Entonces:
+    $$ \sqrt{I} = \bigcap _{\substack{Q \in \operatorname{Spec}(A)\\ Q\ minimal / \sqrt{I}}} Q \supseteq \bigcap_{P \in \mathcal{V}(I)}P  $$
+
+    Luego ya tenemos la igualdad.\\
+    4.
+
+    Se demuestra aplicando el ejercicio.
+
+\end{demonstration}
+
+\begin{example}
+    Tomamos el caso $ (I) = 0 $
+    $$ \sqrt{(0)} = \{x \in A:\ x^{n} = 0\} = \{\text{nilpotentes de } A\} =: \operatorname{Nil}(A) $$
+
+    \begin{enumerate}
+        \item $ \operatorname{Nil}(A) $ es el menor ideal radical de $ A $ 
+        \item $ \operatorname{Nil}(A) $ es la intersección de todos los ideales radicales de $ A $.
+        \item $ \operatorname{Nil}(A) $ es la intersección de todos los ideales primos de $ A $.
+        \item $ \operatorname{Nil}(A) = \bigcap_{P \in \operatorname{MinSpec}(A)}P$
+    \end{enumerate}
+\end{example}
+
+\section{Ejercicios}
+
+
+\setcounter{ex}{1}
+\begin{exercise}
+    $$ x,y \in \mathcal{U}(A)\implies xyy ^{-1}x ^{-1} = 1 \implies xy \in \mathcal{U}(A) $$
+
+    $$  xy \in \mathcal{U}(A  ) \implies \exists w \in A:\ xyw = 1 \implies \left\{
+    \begin{array}{l}
+        x ^{-1}= yw \\
+        y ^{-1} = wx
+    \end{array}
+    \right. $$
+
+\end{exercise}
+
+
+\begin{exercise}
+
+    \begin{flushright}
+        \textbf{En este ejercicio hay una errata, está por solucionar}
+    \end{flushright}
+
+    Sabemos que en un anillo finito, las unidades y los elementos cancelables son los mismos. Luego $ |\mathcal{U}(\mathbb{Z}_{n})| = |\{cancelables\}|$. Además sabemos que $ |\{divisores\ de\ cero\}| = n - |\mathcal{U}(\mathbb{Z}_{n})|  $ . Además sabemos que:
+    $$ |\mathcal{U}(\mathbb{Z})_{n}| = \phi(n ) = p_1^{\alpha_1-1}\cdots p_{r}^{\alpha_{r}-1} (p_1-1)\cdots (p_{r}-1) $$
+
+    Entonces,
+    $$ |\{divisores\ de\ cero\}| = p_1^{\alpha_1-1} \cdots p_{r}^{\alpha_{r}-1} (p_1\cdots p_{r}- \prod_{i=1}^{r}(p_i-1)) $$
+
+    Vemos entonces el cardinal de $ \operatorname{Nil}(\mathbb{Z}_{n}) $:
+
+    $$ \overline{k} = k+n\mathbb{Z} \in  \operatorname{Nil}(\mathbb{Z})_{n} \iff \text{todos los $  p_i$ dividen a }k $$
+    $$ \overline{k} \in \operatorname{Nil}(\mathbb{Z})_{n} \iff \exists t>0:\ \overline{k}^{t} = \overline{0}\ en\ \mathbb{Z}_{n}\iff \exists t>0:\ n/k^{t} \implies \text{todos los $ p_i $ dividen a }k$$
+
+    Recíprocamente:
+    $$ k = p_1^{\beta_1}\cdots p_{r}^{\beta_{r}},\ con\ 0<\beta_i \leq  \alpha_i\ \forall i = 1,...,r $$
+
+    $$ |\operatorname{Nil}(\mathbb{Z})_{n}| = \alpha_1\cdots \alpha_{r} $$
+\end{exercise}
+
+
+\begin{exercise}
+    $$ \mathcal{U}(\mathbb{Z}_{24}) = \{\overline{k}:\ \operatorname{mcd}(k,n) = 1\} = \{cancelables\} = \{\overline{1},\overline{5},\overline{7},\overline{11},\overline{13},\overline{17},\overline{19},\overline{23}\} $$
+    $$ \{\text{divisores de cero}\} = \mathbb{Z}_{24} \setminus \mathcal{U}(\mathbb{Z}_{24}) $$
+
+
+\end{exercise}
+
+\setcounter{ex}{5}
+
+\begin{exercise}
+    $  $
+    
+    Recordemos primero que $ p \in A $ es primo sii $ (p) $ es un ideal primo.
+
+    $ f:A \to B\ homomorf $. Si $ a $ satisface $ (P) $,¿ $ f(a) $ cumple $ (P) $?
+    
+    \begin{flushright}
+        \textbf{Apartado a)}
+    \end{flushright}
+    
+    Si $ a \in \mathcal{U}(A) \implies \exists a ^{-1} \in A:\ a\cdot a ^{-1} = 1 \implies f(a)f(a ^{-1}) = f(1) = 1 \implies f(a) \in \mathcal{U}(B)$.
+
+\begin{flushright}
+    \textbf{Apartado b)}
+\end{flushright}
+
+    % Encontraremos un contraejemplo, sea $ f: \mathbb{Z} \to \mathbb{Z}_{6} $ con la proyección canónica, basta tomar $ a = 3 $
+
+
+Tomando $ \mathbb{Z} \to \dfrac{\mathbb{Z}[X]}{(2x)} $ homomorfismo inyectivo. El 2 es cancelable en $ \mathbb{Z} $ pero no lo es en el anillo destino.
+
+
+\begin{flushright}
+    \textbf{Apartado c)}
+\end{flushright}
+
+Sea $ a \in A $ divisor de 0 $ \implies \exists b \in A \setminus \{0\}:\ ab = 0 \implies f(a)f(b) = 0  $
+
+Cuando $ f $ es inyectiva: sí, porque $ f(b)  \ne 0 $. En otro caso:
+
+Sean $ m,n > 1,\ mn\mathbb{Z} \subset  n\mathbb{Z} \implies  $ tomamos un homomorfismo de anillos suprayectivo:
+
+$$ \dfrac{\mathbb{Z}}{mn\mathbb{Z}} \to \mathbb{Z}\dfrac{\mathbb{Z}}{n\mathbb{Z}} $$
+
+Tomando $ m $, $ n $ tales que $ \operatorname{mcd}(n,m) = 1 $ tenemos que $ \overline{m} $ es divisor de cero pero su imagen, $ [m] \in \mathcal{U}(\mathbb{Z}_{n}) $
+
+\begin{flushright}
+    \textbf{Apartado d)}
+\end{flushright}
+
+Si $ a \in A $, existe un exponente $ n > 0 $ tal que  $ a^{n} = 0 \implies f(a)^{n} = f(a^{n}) = 0 $, entonces $ f(a) $ es nilpotente.
+
+\begin{flushright}
+    \textbf{Apartado e)}
+\end{flushright}
+
+De forma parecida al apartado anterior, vemos que si $ e = e^2  $ en $ A $, al aplicar $ f $ tenemos que $ f(e) = f(e)^2 \implies f(e) $ es idempotente.
+
+\begin{flushright}
+    \textbf{Apartado f)}
+\end{flushright}
+
+Basta tomar la inclusión de $ \mathbb{Z}  $ en $ \mathbb{Q} $ para tener un contraejemplo (no suprayectivo). Para el caso suprayectivo planteamos un ejercicio:
+
+\textbf{Ejercicio:} Sea $ \overline{k} = kp^{t}\mathbb{Z} $ es irreducible en $ \mathbb{Z}_{p^{t}} \iff \overline{k} = \overline{p} \overline{u}$, siendo $ \overline{u} \in \mathcal{U}(\mathbb{Z}_{p^{t}}) $. Más generalmente: Sea $A $ un anillo y  $ p \in A $ tales que $ (p)  $ es el único ideal maximal de $ A $- Entonces los elementos irreducibles de $ A $ son los de la forma $ pu $, siendo $ u \in \mathcal{U}(A) $ ($ p $ es el único irreducible de $ A $ salvo asociados)
+
+Construimos en base a este ejercicio el homomorfismo suprayectivo formado por la proyección $ \mathbb{Z} \to \mathbb{Z}_{p^{t}} $. Dado $ q \ne p $ primo, su imagen es $ \overline{q} \in \mathcal{U}(\mathbb{Z}_{p^{t}}) \implies \overline{q}  $ no es irreducible.
+
+\begin{flushright}
+    \textbf{Apartado g)}
+\end{flushright}
+
+\textbf{Ejercicio:} Sea $ A $ un dominio y $ p \in A $. Si $ p $ es primo entonces es irreducible. Cuando $ A $ es un DIP, se verifica también el recíproco.
+
+Como los contraejemplos del apartado anterior parten de $ \mathbb{Z} $ y los irreducibles y los primos son iguales en $ \mathbb{Z} $, podemos usar los mismos contraejemplos en este apartado.
+
+\hrulefill
+
+Vamos a resolver ahora el primero de los ejercicios planteados:
+
+\textbf{Ejercicio:} Sea $ \overline{k} = kp^{t}\mathbb{Z} $ es irreducible en $ \mathbb{Z}_{p^{t}} \iff \overline{k} = \overline{p} \overline{u}$, siendo $ \overline{u} \in \mathcal{U}(\mathbb{Z}_{p^{t}}) $. Más generalmente: Sea $A $ un anillo y  $ p \in A $ tales que $ (p)  $ es el único ideal maximal de $ A $- Entonces los elementos irreducibles de $ A $ son los de la forma $ pu $, siendo $ u \in \mathcal{U}(A) $ ($ p $ es el único irreducible de $ A $ salvo asociados)
+
+Dado $ p = ab $, veamos si $ p $ es irreducible. Supongamos que $ a \not \in \mathcal{U}(A) \implies (a) \unlhd A \implies (a) \subset  (p)\ \text{porque $ (p) $ es el único ideal maximal.} \implies a= pa',\ siendo\ a' \in A $
+
+$$  \implies p = ab = pa'b \iff p(1-a'b) = 0 \left\{
+\begin{array}{l}
+    1-a'b \in \mathcal{U}(A) \text{ no, porque implicaría}\\ \hspace{5mm} \text{una contradicción } (p=0) \\
+    1-a'b \not \in \mathcal{U}(A)
+\end{array}
+\right. $$
+
+$$ 1-a'b \not \in \mathcal{U}(A) \implies (1-a'b) \subset (p),\ \text{pero no puede darse $(a'b) \subset (p)$, porque tendríamos }$$
+$$ 1 = 1-a'b+a'b \in (p) \implies a'b \in \mathcal{U}(A) \implies b \in \mathcal{U}(A)$$
+
+Sea $ q \in A $ irreducible $ \implies q \not \in \mathcal{U}(A) \iff (q) \unlhd A\ (y\ propio)\ \implies (q) \subset (p) \implies q=pu$, para algún $ u \in A $
+
+\hrulefill
+
+Vemos ahora los recíprocos.
+
+\begin{flushright}
+    \textbf{Apartado a)}
+\end{flushright}
+
+La inclusión de $ \mathbb{Z} $ a $ \mathbb{Q} $ y tomando $ a = f(a) = 3 $ tenemos un contraejemplo no suprayectivo, para el sobre, tomamos la proyecctión de $ \mathbb{Z} $ en $ \mathbb{Z}_{3} $.
+
+\begin{flushright}
+    \textbf{Apartados b,c)}
+\end{flushright}
+
+Basta aplicar el contrarrecíproco de $ f(a)\ cancelable \implies a\ cancelable $ y $ f(a)\ divisor\ de\ 0 \implies a\ divisor\ de\ 0 $
+
+\begin{flushright}
+    \textbf{Apartado d)}
+\end{flushright}
+
+$ f(a) $ es nilpotente  $\iff f(a) $ tal que $ \exists n>0 $ tal que $ f(a)^{n} = 0 \implies f(a^{n}) = 0\iff a^{n} \in \operatorname{Ker}(f) $.
+
+Si $ f $ es inyectiva, sí se cumple la cadena de sii.
+
+Si $ f $ es sobre, tomamos el contraejemplo de la proyección de $ \mathbb{Z} $ en $ \mathbb{Z}_{n} $ con un producto de primos
+
+\begin{flushright}
+    \textbf{Apartado e)}
+\end{flushright}
+
+De forma parecida al apartado anterior:
+
+$$ f(a) = f(a^2)\iff a-a^2 \in \operatorname{Ker}(f) $$
+
+Si $ f $ es inyectiva, sí se cumple. 
+
+En el caso sobre, tomamos la proyección de $ \mathbb{Z} $ en $ \mathbb{Z}_{6} $, entonces 7 no es idempotente y $ f(7) = \overline{1} $ no lo es.
+
+\begin{flushright}
+    \textbf{Apartado f)}
+\end{flushright}
+
+
+% $ a $ no puede ser una unidad, porque lo sería también $ f(a) $.
+
+% Análogamente $ a $ no puede ser 0, porque lo sería también $ f(a) $.
+
+% Si $ a=bc \implies f(a) = f(b)f(c) \implies f(b) \in \mathcal{U}(B)\ \acute o f(c) \in \mathcal{U}(B)$
+
+Para el caso sobre, tomamos la aplicación $ \mathbb{Z} \to \mathbb{Z}_{p^{t}} $ y el elemento $ (p^{t}+1)p \leadsto \overline{p} $
+
+La idea para obtener el caso inyectivo es tomar un elemento como $ 2\cdot 3 $ no irreducible, y llevar uno de sus factores a una unidad. Tomamos la aplicación:
+$$ \mathbb{Z} \hookrightarrow \mathbb{Z}\left[\dfrac{1}{2}\right] = \{q \in \mathbb{Q}:\ q = \dfrac{m}{2^{r}},\ m \in \mathbb{Z},\ r\geq  0\} $$
+
+Dejamos como ejercicio ver que 3 es irreducible en $ \mathbb{Z}[1/2] $
+
+\end{exercise}
 \end{document}
