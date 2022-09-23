@@ -59,6 +59,15 @@ $$ (\lambda x.\lambda z.x+z)y \xrightarrow{\beta} \lambda z.y+z $$
 
 $$ (\lambda x.\lambda z.x+z)z \xrightarrow{\beta} \lambda a.z+a $$
 
+$$ (\lambda x.x (\lambda y.xyy)x)(\lambda z.\lambda w.z) \xrightarrow{\beta} (\lambda z.\lambda w. z)(\lambda y.(\lambda z.\lambda w.z)yy)(\lambda z.\lambda w.z) $$
+$$ \xrightarrow{\beta} (\lambda z.\lambda w.)(\lambda  y.(\lambda w.y)y) (\lambda z.\lambda w.z) \xrightarrow{\beta} (\lambda  z.\lambda w.z)(\lambda y.y)(\lambda z.\lambda w .z) \xrightarrow{\beta} (\lambda w.(\lambda y.y) )(\lambda z.\lambda w.z) \xrightarrow{\beta} \lambda y.y$$
+\vspace{5mm} Vemos ahora un ejemplo en el que hay que usar renombramiento:
+$$ (\lambda ab. ab) (\lambda x.bx) c \xrightarrow{\beta} (\lambda z.(\lambda x.bx)z)c \xrightarrow{\beta} (\lambda z.bz)c \xrightarrow{\beta} bc $$
 
+$$ (\lambda x.(\lambda y.x) y(\lambda z.z))(\lambda y.yz) $$
+Vamos a ver el orden normal y el aplicativo. Empezamos por el normal:
+$$ (\lambda y.y\lambda y.yz)y(\lambda z.z) \xrightarrow{\beta} (\lambda y.yz)(\lambda z.z) \xrightarrow{\beta}(\lambda z.z)z \xrightarrow{\beta} z $$
+Y el aplicativo:
+$$ (\lambda x.x(\lambda z.z))(\lambda y.yz) \xrightarrow{\beta} (\lambda y.yz)(\lambda z.z) \xrightarrow{\beta}(\lambda z.z)z \xrightarrow{\beta} z $$
 
 \end{document}
