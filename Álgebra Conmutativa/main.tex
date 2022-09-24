@@ -126,7 +126,7 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
     Sean $ A,B_1,...,B_n $ anillos y sean $ g_{i}:A\to B_i $ homomorf. de anillos.
     \begin{enumerate}
         \item $ \phi:A\to B_1\times ...\times B_n $, dado por $ \phi(a) = (g_1(a),...,g_n(a)) $ es un homomorf. de anillos con núcleo $ \bigcap_{i=1}^{n}\operatorname{Ker}(g_i) $
-        \item Se los $ \operatorname{Ker}(g_i) $ son comaximales dos a dos, entonces se verifica:
+        \item Si los $ \operatorname{Ker}(g_i) $ son comaximales dos a dos, entonces se verifica:
             \begin{enumerate}
                 \item $ \operatorname{Im}(\phi) = \operatorname{Im}(g_1)\times...\times \operatorname{Im}(g_n)$
                 \item $ \operatorname{Ker}(\phi) = \operatorname{Ker}(g_1)\cdots \operatorname{Ker}(g_n) $
@@ -139,29 +139,28 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
 \begin{demonstration}    
     1.
     $$ \operatorname{Ker}(\phi) = \{a \in A:\ (g_1(a),...,g_n(a)) = (0,...,0)\} = \{a \in A:\ g_i(a) = 0\ \forall i \} = \cap_{i=1}^{n}\operatorname{Ker}(g_i)$$
-    2.
+    2.\\2.b
     
     Si los $ \operatorname{Ker}(g_i) $ son comaximales dos a dos entonces:
     $$ \operatorname{Ker} (\phi) = \operatorname{Ker}(g_1)\cdots \operatorname{Ker}(g_n) $$
 
-    Con lo que tenemos 2b).
-
+    Con lo que tenemos 2b).\\
     2.a
 
     Si $ (b_1,...,b_n)  \in \operatorname{Im}(\phi) \implies (b_1,...,b_n) = \phi(a) = (g_1(a),...,g_n(a))$ para algún $ a \in A \implies b_i \in \operatorname{Im}(g_i)\ \forall i$. Por tanto, $ (b_1,...,b_n) \in \operatorname{Im}(g_1)\times...\times \operatorname{Im}(g_n) $
 
-    Si probamos ahora que $ (0,...,x_i,0,...,0) \in \operatorname{Im}(\phi)\ \forall  x_i \in \operatorname{Im}(g_i) $, entonces toda $n$-upla $(x_1,...,x_n) \in \operatorname{Im}(\phi)  $ en $ \operatorname{Im}(\phi_1)\times...\times \operatorname{Im}(\phi_n) $ comaximales dos a dos.
+    Si probamos ahora que $ (0,...,x_i,0,...,0) \in \operatorname{Im}(\phi)\ \forall  x_i \in \operatorname{Im}(g_i) $, entonces toda $n$-upla $(x_1,...,x_n) \in \operatorname{Im}(\phi)  $ en $ \operatorname{Im}(\phi_1)\times...\times \operatorname{Im}(\phi_n) $. Como los núcleos son comaximales dos a dos.
 
     $$ \operatorname{Ker}(g_i) + \left( \cap_{j\ne i} \operatorname{Ker}(g_j) = A \implies 1 = a+b,\ a \in \operatorname{Ker}(g_i),\ b \in \cap_{j\ne i} \operatorname{Ker}(g_j) \right) $$
 
-    Como $ x \in \operatorname{Im}(g_i) \implies \exists u \in A:\ g_i(u) = x_i $, entonces:
+    Como $ x_i \in \operatorname{Im}(g_i) \implies \exists u \in A:\ g_i(u) = x_i $, entonces:
     $$ x_i = 1\cdot x_i = (a+b) g_i(u) = g_i((a+b)u) $$
 
     Luego entonces:
     $$ \phi(bu) = (g_1(bu),...,g_i(bu),...,g_n(bu)) = (0,...,0,g_i(bu),0,...,0) $$
     $$ x_i = g_i(u) = g_i(au+bu) = \cancel{g_i(a)g_i(u)}+g_i(bu) $$
     
-    Con lo que queda demostrado 2.b.
+    Con lo que queda demostrado 2.b.\\
     2.c.
 
     Basta utilizar 2.a), 2.b) y el primer teorema de isomorfía.
@@ -171,7 +170,7 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
 \begin{definition}
     \textbf{Conjunto inductivo}
 
-    Un \textbf{conjunto inductivo} es un conjunto ordenado $ S $ tal que todo subconjunto totalmente ordenado no vacío tiene un acota superior en $ S $
+    Un \textbf{conjunto inductivo} es un conjunto ordenado $ S $ tal que todo subconjunto totalmente ordenado no vacío tiene una cota superior en $ S $
 \end{definition}
 
 \begin{lemma}
@@ -284,9 +283,9 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
 
     Supongamos que $ \exists (P_{\lambda})_{\lambda \in \Lambda} $ ideales primos tales que $ I = \bigcap_{\lambda \in \Lambda}P_{\lambda} $
 
-    $$ \forall  \lambda \in \Lambda,\ I \subset P_{\lambda} \implies\footnote{Por el último ejercicio propuesto.} \exists q_{\lambda} \text{ primo minimal sobre $ I $ tal que } I \subset  q_{\lambda} \subset  P_{\lambda}\implies  $$
-    $$ \implies I \subset  \bigcap_{\lambda \in \Lambda} q_{\lambda} \subset  \bigcap_{\lambda \in \Lambda} P_{\lambda} = I \implies I = \cap _{\lambda \in q_{\lambda}}  $$
-    $$ I \subset  \bigcap _{\substack{q \in \operatorname{Spec}(A)\\ q\ minimal\ I}} q \subset  \bigcap _{\lambda \in \Lambda}q _{\lambda} = I $$
+    $$ \forall  \lambda \in \Lambda,\ I \subset P_{\lambda} \implies\footnote{Por el último ejercicio propuesto.} \exists Q_{\lambda} \text{ primo minimal sobre $ I $ tal que } I \subset  Q_{\lambda} \subset  P_{\lambda}\implies  $$
+    $$ \implies I \subset  \bigcap_{\lambda \in \Lambda} Q_{\lambda} \subset  \bigcap_{\lambda \in \Lambda} P_{\lambda} = I \implies I = \cap _{\lambda \in Q_{\lambda}}  $$
+    $$ I \subset  \bigcap _{\substack{Q \in \operatorname{Spec}(A)\\ Q\ minimal\ I}} Q \subset  \bigcap _{\lambda \in \Lambda}Q _{\lambda} = I $$
 
     Con lo que tenemos 4.\\
     $ 3\implies 2. $
@@ -329,7 +328,7 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
 \begin{proposition}
     \textbf{Sustituye al Corolario 1.4.6}
 
-    Dado $ I \unlhd A $ ideal propio, el subconjunto $ \sqrt{I}  $ es un ideal radical de $ A $ y puede ser descrito por cada una de las siguientes formas equivalentes:
+    Dado $ I \properideal A $ ideal propio, el subconjunto $ \sqrt{I}  $ es un ideal radical de $ A $ y puede ser descrito por cada una de las siguientes formas equivalentes:
     \begin{enumerate}
         \item El menor ideal radical que contiene a $ I $.
         \item La intersección de todos los ideales radicales que contienen a $ I $.
@@ -360,7 +359,7 @@ $ IJ \subset I \cap J $ (estricto en general: $ A = \mathbb{Z},\ I =(2),\ J=(4),
     $$(ax)^{n} = a^{n}x^{n} \implies (Como\  x^{n} \in I,\ a^{n}x^{n}\in I) \implies (ax)^{n} \in I \implies ax \in \sqrt{I} $$
 
     a) se demuestra utilizando el binomio de Newton:
-    $$ a,x \in \sqrt{I} \implies \exists m,n>0:\ x^{m} \in I,\ y^{n} \in I $$
+    $$ y,x \in \sqrt{I} \implies \exists m,n>0:\ x^{m} \in I,\ y^{n} \in I $$
 
     Sin pérdida de generalidad, supongamos $ m = n $
     $$ (x+y)^{2n} = \sum\limits_{i=0}^{2n} \binom{2n}{i} x^{i}y^{2n-i} \in I \implies x+y \in I $$
@@ -537,7 +536,7 @@ $$  \implies p = ab = pa'b \iff p(1-a'b) = 0 \left\{
 $$ 1-a'b \not \in \mathcal{U}(A) \implies (1-a'b) \subset (p),\ \text{pero no puede darse $(a'b) \subset (p)$, porque tendríamos }$$
 $$ 1 = 1-a'b+a'b \in (p) \implies a'b \in \mathcal{U}(A) \implies b \in \mathcal{U}(A)$$
 
-Sea $ q \in A $ irreducible $ \implies q \not \in \mathcal{U}(A) \iff (q) \unlhd A\ (y\ propio)\ \implies (q) \subset (p) \implies q=pu$, para algún $ u \in A $
+Sea $ q \in A $ irreducible $ \implies q \not \in \mathcal{U}(A) \iff (q) \properideal A \implies (q) \subset (p) \implies q=pu$, para algún $ u \in A $
 
 \hrulefill
 
