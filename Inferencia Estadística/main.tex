@@ -169,4 +169,26 @@ Mirar los apuntes de Lorencio
 % Con esta observación demostramos las siguientes propiedades:
 
 
+\section*{Teorema de Wald}
+
+ \subsection*{Consistencia}
+ Sea $ X \sim F(\cdot ,\theta),\ \theta \in \Theta, \hat{\theta}_n $ es estimador de $ \theta $, definimos las siguientes operaciones:
+ $$ P_{\theta_0}(\hat{\theta}_n \in A ) := P(\hat{\theta}_n\in A| \theta = \theta_0) $$
+$$ E[\hat{\theta}_n] = \idotsint\limits_{\psi}^{}\hat{\theta}_n(x)L(x,\theta_0)dx $$
+
+Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \hat{\theta}_n\xrightarrow{P_{\theta_0}} \theta_0\ \text{(convergencia en probabilidad)},\ \forall \theta_0 \in \Theta $
+
+\begin{flushright}
+    \textbf{Observación}
+\end{flushright}
+
+Si $ \Theta $ es finito y $ \hat{\theta}_n $ es estimador de $ \theta $ entonces se da la consistencia del estadístico si y solo si:
+$$ \lim_{n \to \infty}P_{\theta_0}(\hat{\theta}_n=\theta_0)=1,\ \forall \theta_0 \in \Theta $$
+
+\begin{theorem}
+    Sea $ X $ variable aleatoria con función de distribución $ F(\cdot ,\theta) $ para $ \theta \in \Theta $, siendo $ \Theta $ un conjunto infinito. Supongamos que se verifica:
+    \begin{enumerate}
+        \item (A1) El soporte de $ F(\cdot ,\theta) $
+    \end{enumerate}
+\end{theorem}
 \end{document}
