@@ -172,23 +172,112 @@ Mirar los apuntes de Lorencio
 \section*{Teorema de Wald}
 
  \subsection*{Consistencia}
- Sea $ X \sim F(\cdot ,\theta),\ \theta \in \Theta, \hat{\theta}_n $ es estimador de $ \theta $, definimos las siguientes operaciones:
+ Sea $ X \sim F(\cdot ,\theta),\ \theta \in \Theta, \hat{\theta}_n $ estimador de $ \theta\ \forall n \in \mathbb{N} $, definimos las siguientes operaciones:
  $$ P_{\theta_0}(\hat{\theta}_n \in A ) := P(\hat{\theta}_n\in A| \theta = \theta_0) $$
-$$ E[\hat{\theta}_n] = \idotsint\limits_{\psi}^{}\hat{\theta}_n(x)L(x,\theta_0)dx $$
+$$ E_{\theta_0}[\hat{\theta}_n] = \idotsint\limits_{\psi}^{}\hat{\theta}_n(x)L(x,\theta_0)dx $$
 
 Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \hat{\theta}_n\xrightarrow{P_{\theta_0}} \theta_0\ \text{(convergencia en probabilidad)},\ \forall \theta_0 \in \Theta $
 
-\begin{flushright}
-    \textbf{Observación}
-\end{flushright}
+% \begin{flushright}
+%     \textbf{Observación}
+% \end{flushright}
 
-Si $ \Theta $ es finito y $ \hat{\theta}_n $ es estimador de $ \theta $ entonces se da la consistencia del estadístico si y solo si:
-$$ \lim_{n \to \infty}P_{\theta_0}(\hat{\theta}_n=\theta_0)=1,\ \forall \theta_0 \in \Theta $$
+\begin{proposition}
+    Si $ \Theta $ es finito y $ \hat{\theta}_n $ es estimador de $ \theta $ entonces se da la consistencia del estadístico si y solo si:
+    $$ \lim_{n \to \infty}P_{\theta_0}(\hat{\theta}_n=\theta_0)=1,\ \forall \theta_0 \in \Theta $$
+    
+    Es decir,
+    $$ \hat{\theta}_{n} \xrightarrow{P_{\theta_0}} \theta_0\ \forall \theta \in \Theta \iff \lim_{n \to \infty}P_{\theta_0}(\hat{\theta}_{n}=\theta_0 )=1$$
+    
+\end{proposition}
+
+\begin{demonstration}
+    $  $\\
+    $ \impliedby $
+
+    Trivial.\\
+    $ \implies $
+
+    Si $ \hat{\theta}_{n} $ es el EMV de $ \theta $, tomará un valor aislado dentro de $ \Theta $.
+    
+    Si $ \hat{\theta}_{n} \xrightarrow{P_{\theta_0}} \theta_0 $, tomando $ \varepsilon $ suficientemente pequeño, $ \hat{\theta}_{n} $ solo puede tomar el valor de $ \theta_0   $, luego $ \lim_{n \to \infty}P_{\theta_0}(\hat{\theta}_{n} = \theta_0) = 1 $
+
+
+\end{demonstration}
+
+\begin{proposition}
+    \textbf{Desigualdad de Jensen}
+
+    Sea $ X $ v.a. y $ g $ una función cóncava, entonces $ E[g(X)]<E(E[X]) $ siempre que las esperanzas anteriores existan.
+\end{proposition}
+
+\begin{proposition}
+    \textbf{Ley fuerte de Kolmogorov}
+
+    Sea $ \{X_n\}_{n=1}^{\infty} $ sucesión de v.v.a.a. independientes, idénticamente distribuidas y con media finita. Entonces:
+    $$ \sum\limits_{i=1}^{n} \dfrac{X_i}{n} \xrightarrow{c.s.} E[X] $$
+\end{proposition}
+
+\begin{lemma}
+    Sean $ \{A_n\},\ \{B_n\} $ con $ \lim_{n \to \infty}\{P(A_n)\} = \lim_{n \to \infty} \{P(B_n)\} = 1 $, entonces:
+    $$ \lim_{n \to \infty} P(A_n \cap B_n) = 1 $$
+\end{lemma}
+
+\begin{demonstration}
+    $$ P(A_n \cap B_n) = P(A_n) + P(B_n) - P(A_n \cup B_n) $$
+    
+    Pero tenemos:
+    $$ 1 \geq\ P(A_n\cup B_n) \geq P(A_n) \to 1 $$
+    
+    Luego $ \lim_{n \to \infty}P(A_n \cap B_n) = 1 $ y tenemos que:
+    $$ P(A_n \cap B_n) = P(A_n) + P(B_n) - P(A_n \cup B_n) = 1 +1-1 =1 $$
+
+\end{demonstration}
+
 
 \begin{theorem}
     Sea $ X $ variable aleatoria con función de distribución $ F(\cdot ,\theta) $ para $ \theta \in \Theta $, siendo $ \Theta $ un conjunto infinito. Supongamos que se verifica:
-    \begin{enumerate}
-        \item (A1) El soporte de $ F(\cdot ,\theta) $
-    \end{enumerate}
+    \begin{itemize}
+        \item (A1) El soporte de $ F(\cdot ,\theta) $ es común para todo $ \theta \in \Theta $.
+        \item (A2) $ E_{\theta_0}\left[\log{\dfrac{f}{X,\theta}}\right] $ existe y es finita para todo $ \theta,\ \theta_0 \in \Theta$
+        
+    \end{itemize}
+    Si para todo $ n \in \mathbb{N} $ y $ (X_1,...,X_n) $ m.a.s de $ X $ existe el $ \operatorname{EMV}(\hat{\theta}_{n}) $ de $ \theta $ y es único entonces $ \hat{\theta}_{n} $ es un estimador consistente del parámetro $ \theta $.
 \end{theorem}
+\begin{demonstration}
+    Utilizaremos la Desigualdad de Jensen, tomaremos $ g = \log{} $ y la v.a. $ \dfrac{f(X,\theta)}{f(X,\theta_0)} $. La Desigualdad de Jensen entonces nos dice:
+    $$ E_{\theta_0}\left[\log{\left(\dfrac{f(X,\theta)}{f(X,\theta_0)}\right)}\right] < \log{\left(  E_{\theta_0}\left[\dfrac{f(X,\theta)}{f(X,\theta_0)}\right]\right)} $$
+
+    Pero notemos que:
+    $$   E_{\theta_0}\left[\dfrac{f(X,\theta)}{f(X,\theta_0)}\right] = \int\limits_{}^{} \dfrac{f(x,\theta)}{f(x,\theta_0)}f(x,\theta_0)dx =_{(A1)} 1 $$
+
+    Luego tenemos que:
+    $$ E_{\theta_0}\left[\log{\left(\dfrac{f(X,\theta)}{f(X,\theta_0)}\right)}\right] < 0 $$
+
+    Usaremos ahora la ley fuerte de Kolmogorov a la sucesión $ \left\{\log{\left(  \dfrac{f(X_n,\theta)}{f(X_n,\theta_0)}\right)}\right\}_{n} $ y utilizando que la convergencia casi segura es más fuerte que la convergencia en probabilidad, tenemos :
+    $$\dfrac{\log{\left( \dfrac{L(\mathbb{X},\theta)}{L(\mathbb{X},\theta_0)} \right)}}{n} =  \sum\limits_{i=1}^{n} \dfrac{\log{\left( \dfrac{f(x_i,\theta)}{f(x_i,\theta_0)} \right)}}{n} \xrightarrow{P_{\theta_0}} E_{\theta_0}\left[\log{\left(\dfrac{f(X,\theta)}{f(X,\theta_0)}\right)}\right] < 0 $$
+
+    Como a partir de cierto $ n $ el logaritmo de la izquierda será negativo podemos tomar:
+    $$ \lim_{n \to \infty}P_{\theta_0} \left( \log{ \dfrac{L(\mathbb{X},\theta)}{L(\mathbb{X},\theta_0  )}}<0 \right) = \lim_{n \to \infty}P_{\theta_0} (L(\mathbb{X},\theta)<L(\mathbb{X},\theta_0)) = 1$$
+
+    Como el espacio paramétrico es finito, utilizaremos la equivalencia para la definición de consistencia y buscaremos el límite:
+    $$ \lim_{n \to \infty} P_{\theta_0}(\hat{\theta}_{n} = \theta_0 ) $$
+
+    Estudiamos ahora el suceso $ \{\hat{\theta}_{n}(x) = \theta_0\} = \bigcap _{\substack{\theta \in \Theta\\\theta\ne \theta_0}} \{L(\mathbb{X},\theta) < L(X,\theta_0)\} $
+
+    El suceso es intersección finita de sucesos cuya probabilidad tienen límite 1. Utilizando el lema llegamos a:
+    $$ \lim_{n \to \infty}P(\hat{\theta}_{n} = \theta_0 ) = 1 $$
+\end{demonstration}
+
+
+\begin{example}
+    $ X \sim \mathcal{U}(\theta,\theta+1),\ \theta \in \mathbb{R},\ X_1,...,X_n$ m.a.s de $ X $, $ (f(x,\theta) = 1,\ si\ x \in (\theta,\theta+1)) $. Buscar el EMV de $ \theta $.
+
+    $$ L(\mathbb{X},\theta) = 1\ si\ (x_i \in (\theta,\theta+1),\ i = 1,...,n) \iff (\theta < x_{1:n}\ y\ x_{n:n}< \theta+1) \iff (x_{n:n}-1 < \theta < x_{1:n}) $$
+
+    En $ \alpha (x_{n:n}-1)+(1-\alpha)x_{1:n} $ se alcanza el máximo de $ L(\mathbb{X},\theta)\ \forall\ \alpha \in (0,1) $
+\end{example}
+
+
+
 \end{document}

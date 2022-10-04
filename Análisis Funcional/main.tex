@@ -182,6 +182,8 @@
 
 \end{demonstration}
 
+
+
 \begin{theorem}
     \textbf{(de la base hilbertiana)}
 
@@ -198,12 +200,75 @@
 \end{theorem}
 
 \begin{demonstration}
-    Te la miras en el libro, crack. (puede entrar en el examen)
+    Recomiendo mirar el libro.
+    $ 1 \iff 2 $
+
+    Por la definición.\\
+    $ 2 \implies 3 $
+
+    Por la desigualdad de Bessel.
+
+    Sea $ M_n = span \{u_1,u_2,...,u_n\} $, sabemos que $ \overline{\bigcup_{n=1}^{\infty}M_n} = H $ y que:
+    $$ \forall x \in H,\ P_{M_n}(x) = \sum\limits_{i=1}^{n}<x,u_i>u_i $$
+    $$ \|x\|^2 = \underbrace{dist(x,M_n)^2}_{=: \delta_n \to 0 } + \sum\limits_{i=1}^{n}|<x,u_i>|^2 $$
+    $$ \forall\ \varepsilon >0,\ \exists x_{\varepsilon} \in \bigcup_{i=1}^{\infty} M_n:\ \|x-x_{\varepsilon}\| < \varepsilon,\ x_{\varepsilon} = \sum\limits_{i=1}^{n}c_iu_i \in M_{P} $$
+    $$ \delta_{p} = d(x,M_{p}) \leq \|x-x_{\varepsilon}\| < \varepsilon $$
+    $ 3 \implies 4 $\\
+
+    Continuidad del producto escalar\\
+    $ 4 \implies 5 $
+    
+    Directo.\\
+    $ 5 \implies 2 $
+
+    Por la desigualdad de Bessel.
 \end{demonstration}
 
 \begin{definition}
     A una base como la anterior se le llama \textbf{base hilbertiana}. A los coeficientes se les llama coeficientes de Fourier.
 \end{definition}
+
+\begin{lemma}
+    Si $ (E,\|\cdot \|) $ es un espacio de Banach con una base algebraica numerable, entonces $ E $ es finito dimensional. 
+    
+    Para $ E $ no completo, no es cierto.
+\end{lemma}
+
+Aquí falta un teorema que ha dictado y no me ha dado tiempo a copiar.
+
+% Teorema que se acaba de inventar
+% Dado u producto escalar en el pro
+% El coeficiente del termino de grado $n$ en $phi_{n}$ puede tomarse siempre positivo y si asi se hace la sucesión $phi_{n}$ esta unívocamente determinada.
+
+\begin{theorem}
+    Sea $ <\cdot > $ un producto escalar en $ C([a,b]) $ con $ \|\cdot \|_{\infty} $ más fina que $ \|\cdot \|_{\infty} $. Sea $ \{\phi_{n}: n = 0,1,2,\dots\}  $ la sucesión de polinomios ortonormales. Entonces:
+    $$ f = \sum\limits_{n=0}^{\infty}<f,\phi_n>\phi_n\ \forall f \in C[a,b] $$
+
+    $$ \forall \varepsilon>0\ \exists N_{\varepsilon} \implies \left\|f - \sum\limits_{n=0}^{\infty}<f,\phi_{n}>\phi_n\right\|_{<\cdot >} < \varepsilon$$
+\end{theorem}
+
+
+\subsection{Series de Fourier}
+
+\begin{definition}
+    Un polinomio trigonométrico es una función de la forma
+    $$ h(t) = \sum\limits_{n=0}^{m} \alpha_n \cos(nt)+\beta_n \sin(nt),\ \alpha_n,\beta_n \in \mathbb{R},\ m = 0,1,2,... $$
+
+\end{definition}
+
+\begin{lemma}
+    Si $ h_1,h_2 $ son polinomios trigonométricos, su producto también lo es.
+\end{lemma}
+
+\begin{lemma}
+    $ f: [- \pi, \pi] \to \mathbb{R},\ \varepsilon>0 $, entonces existe un polinomio trigonométrico $ q_{\varepsilon} $ tal que:
+    $$ \int\limits_{-\pi}^{\pi}|f(t)-q_{\varepsilon}(t)|^2 dt < \varepsilon $$
+\end{lemma}
+
+\begin{exercise}
+    $$ u_0(t) = \dfrac{1}{\sqrt{2\pi}},\ u_{2n+1}(t) = \dfrac{1}{\sqrt{pi}} \cos(nt),\ u_{2m}(t) = \dfrac{1}{\sqrt{pi}} \sin(mt),\ m = 1,2,... $$
+    Es ortonormal en $ (C[a,b],\langle\cdot \rangle) $
+\end{exercise}
 
 
 \end{document}

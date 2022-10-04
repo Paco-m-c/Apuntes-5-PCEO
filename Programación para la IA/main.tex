@@ -70,4 +70,22 @@ $$ (\lambda y.y\lambda y.yz)y(\lambda z.z) \xrightarrow{\beta} (\lambda y.yz)(\l
 Y el aplicativo:
 $$ (\lambda x.x(\lambda z.z))(\lambda y.yz) \xrightarrow{\beta} (\lambda y.yz)(\lambda z.z) \xrightarrow{\beta}(\lambda z.z)z \xrightarrow{\beta} z $$
 
+$$ a(\lambda x. (\lambda y.y)a)((\lambda z.z)b) $$
+Puede parecer que hay 3 $ \beta  $-redex, pero solo hay dos, la anterior expresión es equivalente a:
+$$ (a(\lambda x. (\lambda y.y)a))((\lambda z.z)b) $$
+Y las $ \beta $-redex son:
+$$ (a(\lambda x. (\lambda y.y\underline{)}a))((\lambda z.z\underline{)}b) \xrightarrow{\beta} a(\lambda x.a)((\lambda z.z)b) \xrightarrow{\beta} a(\lambda x.a)b $$
+Ambos órdenes llevan al mismo resultado.
+
+\subsubsection*{Resolución Ej 11 Hoja 2}
+
+Quitando los paréntesis que no hacen falta queda:
+$$ (\lambda x.\lambda y.sum y((\lambda z.mul x z)3))7\  5 $$ 
+Utilizando orden normal
+$$ \xrightarrow{\beta} (\lambda y. sum\ y((\lambda z. mul\ 7\ z)3))5 \xrightarrow{\beta} sum\ 5((\lambda z.mul\ 7\ z)3) \xrightarrow{\beta} sum\ 5 (mul\ 7\ 3) $$
+$$ \xrightarrow{\delta} sum\ 5\ 21 \xrightarrow{\delta}26 $$
+Vemos ahora el orden aplicativo:
+$$ \xrightarrow{\beta} (\lambda x.\lambda y.sum\ y(mul\ x\ 3))7\ 5\xrightarrow{\beta} (\lambda y.sum\ y(mul\ 7\ 3))5 \xrightarrow{\delta} (\lambda  y.sum\ y 21)5 \xrightarrow{\beta} sum\ 5\ 21 \xrightarrow{\delta} 26 $$
+
+
 \end{document}
