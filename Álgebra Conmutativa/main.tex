@@ -1311,6 +1311,186 @@ Luego podemos hacer una proposición equivalente a la anterior cambiando la cond
 
 \end{demonstration}
 
+\setcounter{propositiont}{4}
+%2.5
+\begin{proposition}
+    Si $ A $ es noetheriano, de cualquier subconjunto $ X \subseteq A $ se puede extraer un subconjunto finito (minimal) $ X_0 $ tal que $ (X) = (X_0) $
+\end{proposition}
 
+\begin{demonstration}
+    $$ \Omega = \{I = (X'):\ X' \subseteq  X,\  X'\ finito\} $$
+    $$ \mathcal{L}(A)\ noetheriano \implies \exists I_0 = (X_0)\text{ elemento maximal de } \Omega \implies X \subseteq\footnote{Ejercicio} I_0 = (X_0) $$
+\end{demonstration}
+
+%2.6
+\begin{proposition}
+    Si $ D $ es un dominio noetheriano $ \implies D $ es un dominio de factorización (posiblemente no única)
+
+\end{proposition}
+
+\begin{demonstration}
+    Supongamos que no es así, luego $ \exists a \in A \setminus (\mathcal{U}(A) \cup \{0\}) $ que no es producto de irreducibles $ \implies \Omega \ne \emptyset \implies \exists (b) \in \Omega:\ (b) $ es maximal en $ \Omega \implies b $ no es irreducible $ \iff_{\mathcal{L}(A)\ noeth} \exists x,y \in A \setminus \mathcal{U}(A):\ xy=b$. Entonces:
+
+    $$ \left\{
+    \begin{array}{l}
+        (b) \subsetneq (x)\\
+        (b) \subsetneq (y)\\
+    \end{array}
+    \right\} \implies (x) ,(y) \not \in \Omega \implies  $$
+
+    $ \implies  x$ e $ y $  son producto finito de irreducibles $ \implies b=xy$ también lo es, luego hemos llegado a una contradicción. 
+\end{demonstration}
+
+%2.7
+\begin{proposition}
+    Si $ A $ es noetherianos, entonces todo ideal contiene un producto finito de ideales principales
+\end{proposition}
+
+
+\begin{demonstration}
+    Supongamos que no es cierto $ \iff \exists I \unlhd A:\ I $ no contiene ningún producto finito de ideales primos.
+    $$ \emptyset \ne \Omega = \{I' \unlhd A:\ I' \text{ no contiene ningún producto finito de ideales primos}\} $$
+
+    Como es $ \Omega \ne \emptyset $, podemos tomar $ I_0 \in \Omega  $ maximal $ \implies I_0 $ no es primo $ \iff \exists\ a,b \in A \setminus I_0:\ ab \in I_0 \implies  $
+    $$ \implies \left\{
+    \begin{array}{l}
+        I_0 \subsetneq I_0+(a)\\
+        I_0 \subsetneq I_0+(b)
+    \end{array}
+    \right\} \implies I_0+(a) ,\ I_0+(b) \not \in \Omega \implies \exists P_1,...,P_{r}, Q_1,...,Q_{s}  $$
+
+    De forma que $ P_i,Q_i $ son ideales primos tales que $ P_1\cdots P_{r}\subseteq I_0+(a)  $ y $ Q_1\cdots Q_{s} I_0+(b) \implies P_1\cdots P_{r}Q_{1}\cdots Q_{s} \subseteq  (I_0+(a))(I_0+(b))\subseteq I_0$
+\end{demonstration}
+
+\begin{theorem}
+    \textbf{De la base de Hilbert}
+
+    Sea $ A  $ un anillo y $ n > 0 $ un entero. Las siguientes afirmaciones son equivalentes:
+    \begin{enumerate}
+        \item $ A $ es noetheriano.
+        \item $ A[X_1,...,X_n] $ es noetheriano.
+    \end{enumerate}
+\end{theorem}
+
+\begin{demonstration}
+    $ 2\implies 1 $
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+
+    $$ I \unlhd A \implies I[X] \unlhd A[X],\ A \cap I[X] = I $$
+
+    Sea $ I_0 \subseteq I_1 \subseteq ...  $ una cadena ascendente de ideales de $ A \implies I_0[X] \subseteq I_1[X] \subseteq ... $ es una cadena en $ A[X] \implies_{A[X]\ noetheriano} \exists m>0 :\ I_{m}[X] = I_{m+k}[X]\ \forall k\geq  0 \implies_{ver\ obs.} A \cap I_{m}[X] = A \cap I_{m+k}[X]\ \forall k \geq  0$ 
+    
+    \noindent$ 1 \implies 2 $
+
+    Basta probarla cuando $ n = 1,\ A[X_1,...,X_n] \cong A[X_1,...,X_{n-1}][X_n] $
+
+    Vamos a probar que $ A[X] $ es noetheriano. Supongamos que no lo es $ \implies \exists I \unlhd A[X]:\ I $ no es f.g. $ \implies $ elegimos $ f_{1} \in I \setminus \{0\} $ con grado máximo $ (n_1) $ y ponemos $ b_1$ como el coeficiente principal de $ f_{1} $:
+
+    $ (0) \subsetneq (f_{1}) \subsetneq I \implies $ tomo $ f_{2} \in I \setminus (f_{1})$ con grado mínimo $ (n_1 \geq  n_2)  $ y ponemos $ b_2  $ el coeficiente prinicpal de $ f_{2} $. Entonces $ (f_{1},f_{2}) \subsetneq I \implies  $ tomo $ f_{3} \in I \setminus (f_{1},f_{2}) $ con grado mínimo $ n_3 (\geq  n_2 \geq  n_1) $ y tomamos $ b_3$ el coeficiente principal de $ f_{3} $ ...
+
+    Probaremos entonces que la cadena $ (b_1) \subseteq (b_1,b_2) \subseteq (b_1,b_2,b_3) $ es una cadena \textbf{estrictamente} ascendente, lo que nos llevará a una contradicción.
+
+    Si $ (b_1,...,b_{k-1}) = (b_1,...,b_{k})  \implies b_{k} = a_1b_1+...+a_{k-1}b_{k-1}$ para ciertos $ a_i \in A $, entonces:
+    $$ g:= f_{k} a_1X^{n_{k}-n_1}f_{1} -...-a_{k-1}X^{n_{k}-n_{k-1}}f_{k} \in I $$
+    $$ 0 = b_{k}-a_1b_1-...-a_{k-1}b_{k-1}  \text{ es el coeficiente prinicpal de $ X^{n_{k}} $ en $g  $} $$
+
+    Si fuese $ g \in (f_{1},...,f_{k-1}) \implies f_{k} = g+ \sum\limits_{i=1}^{k-1} a_iX^{n_{k}-n_i}f_{i} $
+    
+    Por tanto $ g \not \in (f_{1},..,f_{k-1}) $
+
+    $ b_{k} $ es el coeficiente principal de $ f_{k}\ \forall k\geq  1 \implies g \in I \setminus(f_{1},...,f_{k-1})$ y $ \operatorname{def}(g) < \operatorname{deg}(f_{k}) $
+\end{demonstration}
+
+\setcounter{propositiont}{11}
+\begin{theorem}
+    \textbf{Cohen}
+
+    Sea $ A $ un anillos. Son equivalentes:
+    
+    \begin{enumerate}
+        \item $ A $ es noetheriano.
+        \item Todo ideal primo es f.g.
+    \end{enumerate}
+\end{theorem}
+
+\begin{flushright}
+    \textbf{Notación}
+\end{flushright}
+
+Si $ I \ideal A $ y $ X \subseteq A \implies (I:X) = \{a \in A:\ aX \subseteq I\} $. Además, $ (I:X) $ es un ideal e $ I \subseteq (I:X) $
+
+Además, $ (I:x) = (I:\{x\}) $
+
+\begin{demonstration}
+    $ 2\implies 1 $
+
+    Supongamos que $ A $ no es noetheriano $ \implies I \ideal A:\ I $ no es f.g. $  \implies \Omega = \{I' \ideal A:\ I'\ no\ es\ f.g.\} \ne \emptyset $
+
+    ¿Toda cadena $ (I_{\lambda })_{\lambda  \in \Lambda } $ en $ \Omega $ tiene una cota superior en $ \Omega $?
+    $$ J:= \bigcup_{\lambda  \in \Lambda }I_{\lambda } $$
+
+    Si $ J = (a_1,...,a_m  ) \implies \exists \mu \in \Lambda :\ a_1,...,a_m \in I_{\mu} \implies (I_{mu} \subseteq ) J \subseteq  I_{\mu} \implies J = I_{\mu} \implies I_{\mu}\ f.g.\ (contradicci\acute on) $
+
+    Por el lema de Zorn, $ \exists P \in \Omega $, elemento maximal. Demostraremos que $ P $ es un ideal primo (lo que nos llevará a una contradicción).
+
+    Supongamos que $ P $ no es primo, sean $ a,b \in A \setminus P $ y $ ab \in P $
+    $$ \implies \left\{
+    \begin{array}{l}
+        P \subsetneq P+(a)\\
+        y\\
+        b \in (P:(a)) = (P:a) 
+    \end{array}
+    \right\} \implies P \subsetneq (P:(a)) \implies$$
+
+    $$ \implies P + (a), (P:a) \not \in \Omega \implies P+(a) = (p_1+r_1a,...,p_{s}r_{s}a),\ p_i \in P,\ r_i \in A\ (P:a) = (q_1,...,q_{s})$$ 
+     $$\implies ? P = (p_1,...,p_{s},aq_1,...,aq_{s})\ (\implies\ \text{contradicción})$$
+
+     Sea $ p \in P \implies p = b_1(p_1+r_1a)+...+b_{s}(p_{s}+r_{s}a)\implies p = \sum\limits_{i=1}^{s}b_ip_i + a \sum\limits_{i=1}^{s}b_i{r_i} (*) \implies a \sum\limits_{i=1}^{s}b_ir_i \in P \iff \sum\limits_{i=1}^{s} b_ir_i \in (P:a) = (q_1,...,q_{t}) \implies \sum\limits_{i=1}^{s}b_ir_i = \sum\limits_{j=1}^{t}c_jq_j  \implies $ (falta el final, consultar apuntes de Alberto del Valle)
+\end{demonstration}
+
+\begin{theorem}
+    $  $
+
+    Sea $ A $ anillo y $ n>0 $ un entero. Son equivalentes:
+    \begin{enumerate}
+        \item $ A $ es noetheriano.
+        \item $ A[[X_1,...,X_n]] $ noetheriano.
+    \end{enumerate}
+
+\end{theorem}
+
+\begin{demonstration}
+    $ 2\implies1 $
+
+    Como en el caso de polinomios (teorema de la base de Hilbert)
+
+    \noindent$ 1\implies 2 $
+
+    Es la reducción al caso $ n = 1 $ como en polinomios (Si $ n>1,\ A[[X_1,...,X_n]]\cong A[[X_1,...,X_{n-1}]][X_n] $).
+
+    Vamos a probar que $ A[[X]] $ es noetheriano.
+
+    Sea $ P \ideal A[[X]] $ un ideal primo $ \implies I_0 = \{a \in A:\ a = f(0),\ para\ alguna\ \subseteq f \in I\} \implies I_0 \ideal A \implies_{A\ noeth.} I_0 = (b_1,...,b_n)$.
+
+    Como $ b_i \in I_0 \implies $ podemos fijar $ f_{i} \in P:\ f_i(0) =b_i\ \forall i = 1,...,n$
+
+    Tenemos entonces dos casos posibles:
+    \begin{enumerate}
+        \item $ X \in P \implies P = (f_1,...,f_{m},X)$. Justificamos esta igualdad:
+
+        El lado $ \supseteq $ es directo. Sea ahora $ f \in P \implies f = \underbrace{f(0)}_{\in I_0}+Xg(X) $ con $ f(0) = a_1b_1+...+a_nb_n $ con los $ a_i \in A $. Entonces $ f = a_1b_1+...+a_nb_n+Xg(X) $
+        \item $ X \not \in P  $. Probaremos entonces que $ P = (f_{1,...,f_{n}}) $.
+        \item 
+        De nuevo el lado $ \supseteq  $ es directo. Sea $ f \in P \implies f(0) \in I_0 \implies f(0) = a^{0}_1b_1+...+a^{0}_nb_n$. Entonces $g = f - \sum\limits_{i=1}^{n} a_i^{0}f_{i} \implies$ tiene término independiente nulo $ \implies g = Xg_1(X) \in P \implies_{X \not \in P}\  g_1 \in P $
+
+        Si $ g_{1}(0) = \sum\limits_{i=1}^{n}a_i^{1}b_i \implies g_{1} - \sum\limits_{i=1}^{n} a_i^{1}f_i $ es un polinomio en $ P $ con término indep. nulo. $ \implies g_{1}-\sum\limits_{i=1}^{n}a_i^{1}f_{i} = Xg_{2} \implies g_1 = \sum\limits_{i=1}^{n}a^{1}f_{i} + g_2 $. Con $ g_2 $ múltiplo de $ X $, $ g_2 = Xg_3 \implies g_3 \in P $ 
+
+        Con lo que queda una suma infinita:
+        $$ \sum\limits_{i=0}^{n}a^{0}_{i}f_i + \sum\limits_{i=1}^{n}a_i^{1}Xf_{i}+ \sum\limits_{i=1}^{n}a_i^{2}X^2f_{i}+... = \sum\limits_{i=1}^{n}h_i(X)f_i $$
+    \end{enumerate}
+
+\end{demonstration}
 
 \end{document}
