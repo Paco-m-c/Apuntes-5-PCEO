@@ -1225,7 +1225,7 @@ Probar que $ \pi \circ i  $ es un isomorfismo de anillos.
 
 Se han cambiado algunas definiciones respecto a los apuntes de Alberto del Valle.
 
-\section*{Anillos noetherianos y artinianos}
+\section{Anillos noetherianos y artinianos}
 
 
 \begin{definition}
@@ -1303,13 +1303,19 @@ Luego podemos hacer una proposición equivalente a la anterior cambiando la cond
     
     Pero sabemos que $ \Sigma = \{x_{F}:  F \subseteq S\ finito\} $, luego $ \Sigma $ tiene un elemento maximal: $ \exists F' \subseteq  S $ finito tal que $ x_{F'} = \bigvee_{s \in F'} s  $ es maximal en $ \Sigma $.
     
-    Se trata de probar que $ x = x_{F'} $, sea $ t \in S $ arbitrario $ \implies$
+    Se trata de probar que $ x = x_{F'} $, sea $ s \in S $ arbitrario $ \implies$
     $$F'' = F' \cup \{s\} \implies x_{F'} = \bigvee_{s \in F'} s \leq  x_{F''} = \bigvee_{s \in F''} s \implies_{x_{F'}\ maximal}  $$
     $$ \implies x_{F'} = x_{F''} \implies t \leq  x_{F'}\ \forall t \in S \implies x_{F'}\leq x = \bigvee_{s \in S}s \leq  x_{F'} $$
     
 
 
 \end{demonstration}
+
+\begin{definition}
+    \textbf{Anillo noetheriano}
+
+    Cuando un anillo $ A $ cumple las condiciones (las tres) de la proposición anterior se dice que es \textbf{noetheriano}.
+\end{definition}
 
 \setcounter{propositiont}{4}
 %2.5
@@ -1343,7 +1349,7 @@ Luego podemos hacer una proposición equivalente a la anterior cambiando la cond
 
 %2.7
 \begin{proposition}
-    Si $ A $ es noetherianos, entonces todo ideal contiene un producto finito de ideales principales
+    Si $ A $ es noetheriano, entonces todo ideal contiene un producto finito de ideales principales
 \end{proposition}
 
 
@@ -1492,5 +1498,245 @@ Además, $ (I:x) = (I:\{x\}) $
     \end{enumerate}
 
 \end{demonstration}
+
+\begin{definition}
+    \textbf{Dimensión de Krull}
+
+    Sea $ A  $ un anillo. Se llama \textbf{dimensión de Krull} de $ A $ al número $ n \in \mathbb{N} \cup \{x\}$ tal que:
+    $$ \operatorname{dim}(A) = \operatorname{Kdim}A = \sup \{n \in \mathbb{N}:\ \text{existe una cadena } P_0 \subsetneq P_1 \subsetneq ... \subsetneq P_n\ en\ \operatorname{Spec}(A)\}$$
+\end{definition}
+
+\begin{proposition}
+    Si $ A $ es una anillo artiniano entonces:
+    \begin{enumerate}
+        \item $ \operatorname{Spec}(A) = \operatorname{MaxSpec}(A) $, osea todo ideal primo es maximal, o '' $ A $ tiene dimensión $ \operatorname{dim}(A) = 0 $.
+        \item $ \operatorname{Spec}(A) = \operatorname{MaxSpec}(A) $ es finito.
+        \item $ J:= \operatorname{Jac}(A) = \operatorname{Nil}(A) $ es \textbf{nilpotente}
+    \end{enumerate}
+    (no esta copiado entero)
+\end{proposition}
+
+\begin{demonstration}
+    \noindent 1.
+
+    $ P \in \operatorname{Spec}(A) \implies \dfrac{A}{P} $ dominio artiniano y por el ejemplo 2.4.3 tenemos que $ A/P $ es cuerpo $ \iff P \in \operatorname{MaxSpec}(A)$  
+
+    \noindent 2.
+
+    Definimos:
+
+    $$ \Omega = \{I \properideal A :\ I = \text{ intersección finita de ideales maximales}\} $$
+
+    Tenemos que $ \Omega \ne \emptyset $ porque $ A $ tiene un ideal maximal $ \implies \exists I_0 \in \Omega$ minimal $ \implies I_0 = M_1 \cap ... \cap M_{r} $.
+
+    Sea entonces $ M \in \operatorname{MaxSpec}(A) \implies I_0 \cap M \in \Omega \implies $
+    $$ \implies \left\{
+    \begin{array}{l}
+        I_0 \cap M \in \Omega \\
+        I_0 \cap M \in I_0
+    \end{array}
+    \right\} \implies_{I_0\ minimal} I_0 \cap M = I_0 \iff I_0 \subseteq  M  $$
+
+    $$  M_1\cdots M_r \subseteq M_1 \cap ... \cap M_{r} = I_0 \subseteq M \implies_{ M\ primo} \exists j :\ M_j \subseteq M \implies $$  
+    $$ \implies_{M_j\ maximal} M_j = M \implies \operatorname{MaxSpec}(A ) = \{M_1,...,M_{r}\}$$
+
+    \noindent 3.
+
+    Como $ A $ es artiniano y se tiene la cadena descendente $ J \supseteq J^2 \supseteq J^3 \supseteq ... \implies \exists m \in \mathbb{Z}^{+}$ (minimal) con $ J^{m} = J^{m+k}\ \forall\  k\geq  0 $. Definimos $ I:= J^{m}\ (I^2 = I) $.
+
+    Supongamos que $ I \ne 0 \implies  $
+    $$ \emptyset \ne \Omega' := \{K \ideal A:\ KI \ne 0,\ K \subseteq I\} \ni I$$
+
+    $ \implies \Omega' $ tiene un elemento minimal $ K_0 $ tal que $ K_0I \ne 0 \implies \exists x \in K_0 :\ xI \ne 0 \implies$
+
+    $$ \left\{
+    \begin{array}{l}
+        (x)I \ne 0 \implies (x) \in \Omega'\\
+        (x) \subseteq  K_0\ minimal
+    \end{array}
+    \right\} \implies (x) = K_0  $$
+
+    Entonces $ xI \ne 0 \implies 0 \ne xI = xI^2 = (xI)I \implies xI \in \Omega'  $ y se tiene $ xI_{\in \Omega'} \subseteq (x) = K_0 \implies_{K_0\ minimal\ en\ \Omega'}\ xI = (x) = K_0$
+
+    Entonces $ x \in xI \implies x = xy $ para cierto $ y \in I $, luego $ x = xy = xy^2 = ... = xy^{n}\ \forall  n > 0$ y además $ y \in I \subseteq  J(A) = \operatorname{Nil}(A) \implies \exists n> 0:\ y^{n} = 0 $. Entonces $ x = 0 $, lo que nos lleva a una contradicción.
+
+    \noindent 4.
+
+    $ J = M_1 \cap ... \cap M_{r} $, donde $ \operatorname{MaxSpec}(A) = \{M_1,...,M_{r}\} $. Como cada $ M_i $ son maximales, los $ M_i $ son comaximales dos a dos. Por tanto, tenemos que:
+    $$ J = M_1 \cap ... M_{r} = M_1 \cdots M_{r} \implies 0 = J^{m} = M_1^{m}\cdots M_{r}^{m} $$
+
+
+\end{demonstration}
+
+\begin{theorem}
+    \textbf{(Akizuki)}
+
+    Sea $ A $ un anillo. Son equivalentes:
+    \begin{enumerate}
+        \item $ A $ es artiniano.
+        \item $ A $ es noetheriano y $ \operatorname{dim}(A) = 0 $.
+    \end{enumerate}
+\end{theorem}
+
+Aún no tenemos todos los conceptos necesarios para demostrar este teorema, nos dejaremos algún detalle sin resolver.
+
+\begin{demonstration}
+    
+    \noindent$ 1\implies 2 $
+
+    Ya hemos visto que $ \operatorname{dim}(A) = 0 $. Queda pendiente probar que $ A $ es noetheriano.
+
+    \noindent $ 2\implies 1 $
+
+    Sabemos que $ \implies \operatorname{MaxSpec}(A) = \operatorname{Spec}(A) = \operatorname{MinSpec}(A) \implies\footnote{Ejercicio 2.7} $ este conjunto es finito.
+
+    Si tomamos $ \operatorname{Spec}(A) = \{M_1,...,M_{r}\} $ tenemos que $ J := J(A) = \operatorname{Nil}(A) = M_1\cap ... \cap M_{r} = M_1\cdots M_{r} $ (ya que los elementos son maximales dos a dos).
+
+    Por ser $ A $ noetheriano, $ J $ es f.g y como también es nil (todos sus elementos son nipotentes), tenemos que $ J $ es nilpotente (ejercicio 2.4) $ \iff\ \exists  m > 0 $ (minimal) tal que $ J^{m} = 0 \implies 0 = M_1^{m}\cdots M_{r}^{m}$
+
+    Utilizando ahora el teorema chino de los restos (la versión general de esta asignatura), tenemos que
+
+    $$ 
+    \begin{aligned}
+        \phi: & A & \to & \dfrac{A}{M_1^{m}} \times ... \times \dfrac{A}{M^{m}_r}\\ 
+        & a & \hookrightarrow & (\overline{a},...,\overline{a})
+    \end{aligned}
+    $$
+    es un isomorfismo de anillos.
+
+    Entonces $ A  $ es artiniano $ \iff\ \dfrac{A}{M^{m}_{i}}$ es artiniano $ \forall i = 1,...,r $ 
+
+    Afirmamos ahora que $ A/M^{m}_{i} $ es un anillo local (noetheriano) con $ M_i/M^{m}_{i} $ como único ideal maximal ( = primo).
+
+    Basta con ver que es el único ya que usando el teorema de correspondencia podremos ver que es maximal.
+
+    Sea $ M / M_i^{m} $ un ideal maximal de $ A / M_i^{m} (\implies M \in \operatorname{MaxSpec}(A)) \implies  M_i^{m} \subseteq M \implies_{M\ primo} M_i \subseteq  M \implies_{M_i\ maximal}M_i = M$
+
+    La prueba entonces queda reducida a probar que si $ A $ es un anillo noetheriano local con $ \operatorname{dim}(A) = 0 $ (y $ M $ como único ideal maximal), entonces $ A $ es artiniano.
+
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+    $ M $ es nilpotente $ \iff \exists q > 0\ (minimal)$ tal que $ M^{q} = 0 $
+    
+    \begin{flushright}
+    \textbf{Observación}
+\end{flushright}
+
+$ M $ es f.g. $ \implies $ fijo $ \{x_1,...,x_{d}\} $ conjunto de generadores de $ M \implies_{ejerc.} M^{t} = (x_{i_1},...,x_{i_{t}}:\ i_1,...,i_{t} \in \{1,2,...,d\})$
+
+\textbf{Crucial:} Cada cociente $ M^{t} / M^{t+1} $ ( en particular $ M^{q-1} = M^{q-1} / M^{q} $) es un $ A /M $-esp. vectorial con $ \{\overline{x_{i_1},...,x_{i_{t}}}\} $ como conjunto de generadores. Definimos entonces:
+
+$$ 
+\begin{aligned}
+    \dfrac{A}{M} \times \dfrac{M^{t}}{M^{t+1}} &  \to &  \dfrac{M^{t}}{M^{t+1}}\\
+    (a+m,y+m^{t+1}) & \hookrightarrow & ay+m^{t+1}
+\end{aligned}
+$$
+
+Probad que está bien definida y transforma $ M^{t} / M^{t+1} $ es un $ A /M $-esp. vectorial.
+
+Además, si $ y \in M^{t} \implies y= \sum\limits_{}^{}a_ix_{i_1}\cdots x_{i_{t}} \implies y+M^{t+1} = \sum\limits_{}^{} a_{i}+m (x_{i_{1}\cdots x_{i_{t}}M^{t+1}}) \implies M^{t / M^{t+1}}$ está generado como $ A / M  $-esp. vectorial por $ \{\overline{x_{i_1}\cdots x_{i_{t}}}\} $
+
+Entonces cada $ M^{t} / M^{t+1} $ es un $ \dfrac{A}{M} $-esp. vectorial de dimensión finita.
+
+Entonces $ M^{q} = 0 \ne M^{q-1} $. Probaremos por inducción en $ q\geq  1 $ que $ A  $ es artiniano.
+
+Si $ q = 1 \implies M = 0 \implies A = A / M  $ es un cuerpo y terminamos.
+
+Sea $ q > 1 $ y lo suponemos cierto para $ q -1 \implies A /M^{q-1}$ es artiniano.
+
+Sea $ I_0 \supseteq I_1 \supseteq ... \supseteq I_n \supseteq...$ una cadena descendente de ideales de $ A $. Entonces:
+$$ \left\{
+\begin{array}{ll}
+    \dfrac{I_0+M^{q-1}}{m^{q-1}} \supseteq \dfrac{I_1+^{q-1}}{m^{q-1}} \supseteq ...& \text{se estaciona por ser $ A / M^{q-1} $ artiniano}\\ 
+    I_0 \cap M^{q-1} \supseteq I_1 \cap M^{q-1 } \supseteq ... & \text{se estaciona por ser $  M^{q-1}$ un $ A /M $-esp. vectorial de dimensión finita}
+\end{array}
+\right. $$
+
+Entonces $ \exists s > 0 $ tal que:
+$$ 
+\left\{
+    \begin{array}{l}
+    I_{s}+M^{q-1} = I_{s+k} + M^{q-1}\\
+    I_{s}\cap M^{q-1} = I_{s+k} \cap M^{q-1}\\
+\end{array}
+\right\} \forall k \geq  0
+$$
+
+Se trata ahora de probar que si $ I,J \ideal A:\ I \supseteq J $ y se tiene
+$$ \left\{
+    \begin{array}{l}
+        I + M^{q-1} = J+M^{q-1}\\
+    I \cap  M^{q-1} = J\cap M^{q-1}\\
+\end{array}
+\right. \implies? I =  J$$
+
+Sea $ y \in I \subseteq  I + M^{q-1}= J+ M ^{q-1} \implies y = z+h $ donde $ h \in M^{q-1},\ z \in J \implies h = \underbrace{y}_{\in I}-\underbrace{z}_{\in J \subseteq I} \implies h \in I \cap M^{q-1} = J \cap M^{q-1} \implies h \in J \implies y = z+h \in J  $
+
+\end{demonstration}
+
+
+\section{Ejercicios}
+
+\setcounter{ex}{0}
+\begin{exercise}
+    \begin{flushright}
+        \textbf{Apartado c)}
+    \end{flushright}
+    $$ X \subseteq  (X) \implies_{2.1.b)} (I: (X)) \subseteq  (I:X) $$
+
+    Probamos que $ (I:X) \subseteq  (I:(X)) $.
+
+    Sea $ a \in (I:X) \iff ax \in I\ \forall x \in X $.
+
+    Quiero probar que si $ z \in (X) \implies az \in I $:
+    $$ z \in (X) \iff z = \sum\limits_{i=1}^{n}b_ix_i\ (b_i \in A,x_i \in X) \implies az = \sum\limits_{i=1}^{n}b_iax \implies az \in I$$
+
+
+    \begin{flushright}
+        \textbf{Apartado e)}
+    \end{flushright}
+    
+    \noindent 1.
+
+    Sea $ a \in A $:
+    $$ a \in ((I:X):Z) \iff aZ \subseteq  (I:X) \iff az \in (I:X)\ \forall z \in Z \iff (az)X \subseteq I\ \forall  z \in Z  $$
+    $$ (az)x = a(zx) \in I\ \forall z \in Z,\ \forall x \in X \iff aw \in I\ \forall w \in X\cdot Z = Z\cdot X \iff a \in (I:X\cdot Z)$$
+
+    \begin{flushright}
+        \textbf{Apartado f)}
+    \end{flushright}
+    Sea $ a \in A $:
+    $$ a \in (I: \bigcup_{t} X_{t}) \iff az \in I\ \forall  z \in \bigcup_{t}X_{t}\iff az \in I\ \forall z \in X_{t} \text{ con }t \in T \text{ arbitrario} $$
+    $$ \iff a \in (I:X_{t})\ \forall t \in T \iff a \in \bigcap_{t \in T} (I:X_{t})$$
+
+    \noindent 2.
+
+    Sabemos que $ \sum\limits_{t \in T}^{} J_{t} = \left( \bigcup_{t \in T}J_{t} \right) $ y aplicando el apartado c) y el caso anterior:
+    $$ \left(I: \sum\limits_{t \in T}^{} J_{t}\right) = \left(I : ( \bigcup_{t \in T} J_{t})\right) = \left( I : \bigcup_{t \in T} J_{t} \right) ) \bigcap_{t \in T}(I:J_{t}) $$
+
+
+
+
+\end{exercise}
+
+\begin{exercise}
+    Hay una errata en el tercer caso del a). El enunciado correcto es:
+    $$ \left(\dfrac{J}{I}\right) \left(\dfrac{J'}{I}\right) = \dfrac{JJ'+I}{I} $$
+
+
+\end{exercise}
+
+\begin{exercise}
+    \noindent $ \supseteq $
+
+    Directa. Basta con ver que el conjunto de generadores de $ (X\cdot Y) $ está contenido en $ (X)(Y) $, que es directo.
+
+    \noindent $ \subseteq  $
+
+    $ (X)(Y) = ((X)\cdot (Y)) \implies $ sus elementos son las sumas $ \sum\limits_{i=1}^{n}z_iw_i   $ donde $ z_i \in (X),\ w_i \in (Y) $. Entonces $ z_i \in (X) \implies z_i = \sum\limits_{j=1}^{m_i}a_{ij}x_j $ donde $ a_{ij} \in A,\ x_j \in X $ y $ w_{j} \in (Y) \implies w_i = \sum\limits_{k=1}^{q_{i}}b_{ik} y_{k} $, donde $ b_{ik} \in A,\ y_{k}\in Y $ $ \implies z_iw_i = \sum\limits_{j,k}^{} a_{ij}b_{ik}x_jy_{k} \in (X\cdot Y) $
+
+\end{exercise}
 
 \end{document}
