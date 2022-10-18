@@ -315,6 +315,7 @@ Vemos primero un primer teorema de representación.
 %2 t skolin (tambien coincide sobre idk)
 
 \begin{demonstration}
+
     Lo vemos para el caso separable.
 
     Tomemos una base hilbertiana $ \{e_n\} $ de $ H $ y tomemos $ (v_n) \subseteq  B_{H} $.
@@ -380,6 +381,7 @@ Las demostraciones de los teoremas se pueden encontrar en el libro General Topol
 
 
 \begin{demonstration}
+    
     Para $ y  $ fijo la apliación $ x \hookrightarrow B(x,y) $ es lineal continuo. Por el teorema de Riesz, $ \exists z \in H $ tal que $ B(x,y) = <x,z> \forall x \in H $ y sea $ T $ la forma lineal que da el teorema de Riesz. 
 
     Tenemos que $ T(H) $ es un subespacio de $ H $. Veamos que $ T(H) = H $ y esto dará la prueba de nuevo por el teorema de Riesz. Demostremos varias cosas:
@@ -404,7 +406,7 @@ Las demostraciones de los teoremas se pueden encontrar en el libro General Topol
 
 \noindent Para esta sección consideraremos $ \Omega $ un subconjunto de $ \mathbb{R}^{n} $ abierto y acotado.
 
-Lo que querremos estudiar en esta sección será el sistema:
+Lo que querremos estudiar en esta sección será el siguiente sistema llamado problema de Drichlet:
 
 $$ \left\{
 \begin{array}{ll}
@@ -431,9 +433,29 @@ $$ D(u) = \int\limits_{\Omega}^{}|\triangledown u | ^2 = \int\limits_{\Omega}^{}
 
     Denotamos a $ C^2(\overline{\Omega}) $ como las funciones dos veces derivables en el interior de $ \Omega $ con segunda derivada continua en $ \overline{\Omega} $.
 
-    Las funciones con las que trabajaremos en este apartado son las de este tipo con soporte compacto.
+    Las funciones con las que trabajaremos en este apartado son las de este tipo con soporte compacto, y al conjunto de ellas las denotaremos por $ C_0^2(\overline{\Omega }) $.
 \end{definition}
 
+Para ver una proposición necesitamos repasar el siguiente teorema:
+
+% \begin{theorem}
+%     \textbf{Integración por partes en $  \mathbb{R}^{n}$}
+
+%     Se da la igualdad:
+
+%     $$ \int\limits_{\Omega}^{} (\partial x_j u)vdx = - \int\limits_{\Omega}^{} u (\partial x_j v)dx + \int\limits_{\partial \Omega }^{}uvn_j d \theta $$
+% \end{theorem}
+
+% \newpage
+% Este teorema se generaliza en el siguiente:
+
+\begin{theorem}
+    \textbf{Teorema de Gauss}
+
+    Dada $ \Omega  $ suficientemente regular:
+
+    $$ \int\limits_{\Omega }^{} \partial x_j wdx = \int\limits_{\Omega }^{} w n_j d \theta $$
+\end{theorem}
 
 \begin{proposition}
     Si existe $ u \in C^2(\overline{\Omega}) $ que minimiza a $ D(u) $ entre todas las funciones $ u \in C^2(\overline{\Omega})   $ con $ u|_{\partial\Omega} \equiv f $, entonces $ u $ es armónica ($ \triangle u = 0 $).
@@ -441,21 +463,36 @@ $$ D(u) = \int\limits_{\Omega}^{}|\triangledown u | ^2 = \int\limits_{\Omega}^{}
 \end{proposition}
 
 \begin{demonstration}
-    En $ C^2(\overline{\Omega}) $, definimos $ <\cdot >_{D} $ por:
-    $$ <F,G>_{D} = \int\limits_{\Omega}^{} \left( \dfrac{\partial F}{\partial x_1} \dfrac{\partial G}{\partial x_1} + \dfrac{\partial F}{\partial x_2} \dfrac{\partial G}{\partial x_2} \right) dx_1dx_2$$
+    
+    En $ C^2(\overline{\Omega}) $, definimos $ \<\cdot \>_{D} $ por:
+    $$ \<F,G\>_{D} = \int\limits_{\Omega}^{} \left( \dfrac{\partial F}{\partial x_1} \dfrac{\partial G}{\partial x_1} + \dfrac{\partial F}{\partial x_2} \dfrac{\partial G}{\partial x_2} \right) dx_1dx_2$$
 
-    Definimos ahora $ D(u) = <u,u>_{D} $.
+    Definimos ahora $ D(u) = \<u,u\>_{D} $.
 
     Si $ v \in C^2(\overline{\Omega}) $ que verifica que $ v|_{\partial \Omega} = 0 \implies \forall  \varepsilon \in \mathbb{R} $ se tiene que $ D(u+ \varepsilon v) (*)\geq  D(u) $
-    $$ (*) = D(u)+ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon <u,v>_{D}+ \varepsilon <v,u>_{D} $$
+    $$ (*) = D(u)+ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon \<u,v\>_{D}+ \varepsilon \<v,u\>_{D} $$
 
     Cancelando $ D(u) $ tenemos:
-    $$ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon <u,v>_{D}+ \varepsilon <v,u>_{D}\geq  0 $$
+    $$ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon \<u,v\>_{D}+ \varepsilon \<v,u\>_{D}\geq  0 $$
 
-    Como esto lo podemos hacer para un $ \varepsilon $ arbitrario, tenemos que $ <u,v>_{D} = 0 $, luego:
+    Como esto lo podemos hacer para un $ \varepsilon $ arbitrario, tenemos que $ \<u,v\>_{D} = 0\ \forall v \in C^2(\overline{\Omega }) $ con soporte compacto, luego:
     $$ 0 = \int\limits_{\Omega}^{} \left( \dfrac{\partial u}{\partial x_1} \dfrac{\partial v}{\partial x_1}+ \dfrac{\partial u}{\partial x_2} \dfrac{\partial v}{\partial x_2} \right) dx_1 dx_2 $$
 
-    
+    Utilizando el teorema de Gauss llegaremos al resultado deseado.
+
+    $$ \int\limits_{\Omega}^{} \left( \dfrac{\partial u}{\partial x_1} \dfrac{\partial v}{\partial x_1}+ \dfrac{\partial u}{\partial x_2} \dfrac{\partial v}{\partial x_2} \right) dx_1 dx_2 = - \int\limits_{\Omega }^{} (\triangle u)v \hspace{2mm} \forall  v \in C_0^2(\overline{\Omega })\ con\ v|_{\partial \Omega } = 0 $$
+
+    También sabemos que $ C_0^{\infty}(\overline{\Omega }) $ es denso en $ L^2(\Omega ) $. Entonces $ \langle \triangle u, v \rangle_{L^2} = 0 $ para cualquier $ v $ de un denso, luego $ \triangle u = 0 $
+
+
 \end{demonstration}
+
+% \subsection{Estudio del espacio $ C^{1}(\overline{\Omega }) $}
+
+% Recordemos que tenemos:
+
+% $$ \langle u, v \rangle_{D} = \int\limits_{\Omega }^{} (\triangledown u \cdot  \triangledown v)dx \hspace{5mm} \triangledown u \cdot  \triangledown v = \sum\limits_{j=1}^{N} \dfrac{\partial u}{\partial x_j} \dfrac{\partial v}{\partial x_j} $$
+
+% $$ \|u\|_{D}^2 = \langle u, u \rangle_{D} = \|\triangledown u\|^2_{L^2(\Omega )} $$
 
 \end{document}
