@@ -1223,9 +1223,8 @@ Probar que $ \pi \circ i  $ es un isomorfismo de anillos.
 
 \chapter{Anillos noetherianos}
 
-Se han cambiado algunas definiciones respecto a los apuntes de Alberto del Valle.
+\noindent Se han cambiado algunas definiciones respecto a los apuntes de Alberto del Valle.
 
-\section{Anillos noetherianos y artinianos}
 
 
 \begin{definition}
@@ -1237,6 +1236,7 @@ Se han cambiado algunas definiciones respecto a los apuntes de Alberto del Valle
 \begin{flushright}
     \textbf{Notación}
 \end{flushright}
+
     Si $ 0 \ne S \subseteq\ \mathcal{L} \implies $
     $$ \left\{
     \begin{array}{l}
@@ -1314,7 +1314,8 @@ Luego podemos hacer una proposición equivalente a la anterior cambiando la cond
 \begin{definition}
     \textbf{Anillo noetheriano}
 
-    Cuando un anillo $ A $ cumple las condiciones (las tres) de la proposición anterior se dice que es \textbf{noetheriano}.
+    Un anillo $ A $ se dice que es \textbf{noetheriano} cuando $ (\mathcal{L}(A , \subseteq )) $ cumple las tres condiciones equivalentes de la proposición anterior\footnote{Recordemos que $ (\mathcal{L}(A),\subseteq ) $ es un retículo completo por el ejercicio propuesto.} .
+    % Cuando un anillo $ A $ cumple las condiciones (las tres) de la proposición anterior se dice que es \textbf{noetheriano}.
 \end{definition}
 
 \setcounter{propositiont}{4}
@@ -1680,7 +1681,8 @@ Sea $ y \in I \subseteq  I + M^{q-1}= J+ M ^{q-1} \implies y = z+h $ donde $ h \
 \section{Ejercicios}
 
 \setcounter{ex}{0}
-\begin{exercise}
+\begin{exercise}$  $
+
     \begin{flushright}
         \textbf{Apartado c)}
     \end{flushright}
@@ -1729,6 +1731,8 @@ Sea $ y \in I \subseteq  I + M^{q-1}= J+ M ^{q-1} \implies y = z+h $ donde $ h \
 \end{exercise}
 
 \begin{exercise}
+    $  $
+
     \noindent $ \supseteq $
 
     Directa. Basta con ver que el conjunto de generadores de $ (X\cdot Y) $ está contenido en $ (X)(Y) $, que es directo.
@@ -1738,5 +1742,149 @@ Sea $ y \in I \subseteq  I + M^{q-1}= J+ M ^{q-1} \implies y = z+h $ donde $ h \
     $ (X)(Y) = ((X)\cdot (Y)) \implies $ sus elementos son las sumas $ \sum\limits_{i=1}^{n}z_iw_i   $ donde $ z_i \in (X),\ w_i \in (Y) $. Entonces $ z_i \in (X) \implies z_i = \sum\limits_{j=1}^{m_i}a_{ij}x_j $ donde $ a_{ij} \in A,\ x_j \in X $ y $ w_{j} \in (Y) \implies w_i = \sum\limits_{k=1}^{q_{i}}b_{ik} y_{k} $, donde $ b_{ik} \in A,\ y_{k}\in Y $ $ \implies z_iw_i = \sum\limits_{j,k}^{} a_{ij}b_{ik}x_jy_{k} \in (X\cdot Y) $
 
 \end{exercise}
+
+\begin{exercise}$  $
+
+    Tenemos que $ I = (b_1,...,b_n) $. Hacemos inducción en $ n \geq 1 $.  
+
+    Para $ n = 1 $, $ I = (b_1) $. Como $ b_1 $ es nilpotente, $ \exists m > :\ b_1^{m} = 0 \implies I^{m} =0 $
+
+    Sea $ n > 1 $ y cierto para ideales nil generados por menos de $ n $ elementos. Si tomamos $ I' = (b_1,...,b_{n-1}) $, $ I' $ es nil ($ I' \subseteq I $). La hipótesis de inducción nos da además un $ p > 0 $ entero tal que $ I'^{p} =0$.
+
+    Por otra parte, $  (b_n)^{q} = 0 $ para un cierto entero $ q > 0 $. Observamos además que $  I = I'+(b_n) $. ¿Existe entonces $ m $ tal que $ I^{m} = 0 $? Esto ocurre si y solo si $ \forall y_1,...,y_m \in I $ se tiene que $ y_1\cdots y_m  = 0$
+
+    Ahora, podemos poner $ y_i = y_i' + z_i $ con $ y'_{i} \in I' $ y $ z_i \in (b_n) $. Si tomamos $ m = p+q $ entonces $ (y_i+z_i)^{m} = 0\ \forall i $. Luego $ I $ es nilpotente.
+\end{exercise}
+
+\begin{exercise}$  $
+
+    Tomamos el cociente $ \dfrac{A}{I} $, tenemos que $ \operatorname{Nil}\left( \dfrac{A}{I} \right) = \dfrac{\sqrt{I}}{I} $ es nil y f.g. Utilizando ahora el ejercicio anterior, tenemos que $ \exists m $ tal que $ \left( \dfrac{\sqrt{I}}{I} \right)^{m} $. Entonces:
+    $$ 0 = \left( \dfrac{\sqrt{I}}{I} \right)^{m} = \dfrac{(\sqrt{I})^{m}+I}{I} \implies (\sqrt{I})^{m} \subseteq  I  $$
+\end{exercise}
+
+\begin{exercise}$  $
+
+    Si $ x \in \bigcap _{n>0} (b^{n}) \implies \forall  n > 0,\ \exists x_n \in A$ tal que $ x = b^{n}x_n \implies \forall  n > 0  $ se tiene:
+    $$ \cancel{b^{n}}x_n = x = b^{\cancel{n}+1}x_{n+1} \implies x_n = bx_{n+1} $$
+    $$ \implies (x_1) \subseteq  (x_2) \subseteq ... \subseteq (x_n) \subseteq ...  $$
+
+    Luego tenemos una cadena ascendente en $ \mathcal{L}(A) $, pero como $ A $ es noetheriano, la cadena se estaciona, es decir, $ \exists m > 0 $ tal que $ (x_m) = (x_{m+1})\ \forall k \geq  0 $
+
+    En particular, tenemos que:
+    $$ x_{m+1} \in (x_{m}) \implies \exists c \in A:\ x_{m+1} = cx_{m} \implies x_{m} = b x_{m+1} = bcx_m $$
+
+    Tenemos ahora dos casos:
+    
+    Si $ x $ es cancelable, $ x_m $ es cancelable (siguiente línea) $ \implies bc = 1 \implies b \in \mathcal{U}(A)$ (contradicción).
+    
+    Si $ x_n $ no fuese cancelable, entonces existe $ y_n \in A \setminus \{0\} $ tal que $ x_ny_n = 0 \implies xy_n = 0 $ (contradicción ya que $ x $ es cancelable)
+
+    Si $ x $ no fuera cancelable, ¿podríamos tomar $ x_n = x_{n+1}\ \forall n > 0$? Le llamamos $ y $ a ese elemento. $ x = by = b^2 y = ... \implies_{b\ cancelable} y = by $
+
+    
+    Si probamos que $ \overline{y} \ne \overline{0} $ y que $ \overline{z} $ es cancelable en $ A $, entonces $ 0 \ne \overline{y} \in \bigcap_{n > 0}(\overline{z}^{n}) $
+
+    Veamos primero que $ \overline{y} \ne \overline{0} $. Supongamos que $ \overline{y} = \overline{0} \implies y \in (y(1-z)) \implies y = y(1-z)f(y,z)$ con $ f \in \operatorname{K}[y,z] $. COmo $ y $ es cancelable, $ (1-z)f(y,z) = 1 \implies 1-z \in \mathcal{U}(\operatorname{K}[y,z]) $. Lo cual es una contradicción, las unidades de un anillo de polinomios son las unidades del ''anillo origen''.
+
+    Supongamos ahora que $ \overline{z} $ no es cancelable. Lo que es equivalente a  que $ \overline{z} $ sea divisor de cero en $ A $. Entonces $ \exists g \in \operatorname{K}[y,z] $ tal que $ \overline{z}\cdot \overline{g} = \overline{0},\ \overline{g} \ne 0 \iff $
+    $$ \iff zg(y,z) \in (y(1-z)) \iff \exists h = h(y,z):\ zg(y,z) = y(1-z)h(y,z)\ (*)$$
+
+    Entonces $ zg(y,z) \in (y) $, $ z \not \in (y) $. Luego $g(y,z) \in (y) \implies g(y,z) = y\widetilde{g}(y,z) \implies (*) z\widetilde{g} (y,z) = (1-z)h(y,z)\ (**)$
+
+    $$ \left\{
+    \begin{array}{l}
+        (1-z) h(y,z) \in (z) \\
+        1-z \not \in (z)
+    \end{array}
+    \right\} \implies h(y,z) \in (z) \iff h(y,z) = z\widetilde{h}(y,z) \text{ para algún } \widetilde{h} \in \operatorname{K}[y,z] \implies $$ 
+    
+    $$ \implies (**) \widetilde{g}(y,z) = (1-z)\widetilde{h}(y,z) $$
+
+    Entonces tenemos:
+    $$ g(y,z) = y\widetilde{g}(y,z) = y(1-z)\widetilde{h}(y,z) \implies g(y,z) \in (y(1-z))  \iff \overline{g} = \overline{0} \text{ (contradicción)}$$
+
+\end{exercise}
+
+
+\begin{exercise}
+    $  $
+
+    Si aplicamos la proposición 2.7, tenemos que $ (0) =  P_1\cdots P_{r} $, donde los $ P_i $ son primos (quizá algunos repetidos). Sea $ P \in \operatorname{MinSpec}(A) \implies (0) = P_1 \cdots P_{r} \subseteq  P$. Pero como $ P $ es primo, $ \exists j  $ tal que $ P_j \subseteq  P $ y como $ P $ es minimal en $ \operatorname{Spec}(A) $, $ P_j = P \implies P \in \{P_1,...,P_r\} $. Entonces el número de primos minimales es finito (hay hasta $ r $)
+
+    Para la segunda parte, tomamos $ I \properideal A  $ y usamos el teorema de la correspondencia para ideales primos:
+    $$ 
+    \begin{aligned}
+        \{P \in \operatorname{Spec}(A):\ I \subseteq P\} & \xrightarrow{biyecci\acute on} & \operatorname{Spec}(\dfrac{A}{I})\\
+        P & \longmapsto & \dfrac{P}{I}\\ 
+        \left\{\stackrel{primos\ minimales}{sobre\ I}\right\} & \leftrightarrow & \operatorname{MinSpec}\left(\dfrac{A}{I}\right)\  (finito)
+    \end{aligned}
+    $$
+\end{exercise}
+
+\begin{exercise}
+    $  $
+
+    Visto en la prueba del teorema de Akizuki.
+\end{exercise}
+
+\begin{exercise}
+    $  $
+
+    Si $ a \in \mathcal{U}(A    ) \implies a = u = up^{0}$
+
+    Si $ 0 \ne a \not \in \mathcal{U}(A)$:
+    $$ \implies (a) \subsetneq A \implies (a) \subseteq J = (p) \implies a = pa_1 \implies a \in (p) \setminus \bigcap_{n \in \mathbb{N}} (p^{n}) \implies $$
+    $$ \implies \{n \in \mathbb{N}:\ a \in (p^{n})\} \implies \exists m \text{ maximal con } a \in (p^{m})$$
+
+    Entonces $ a = p^{m}u $ y basta probar que $ u \in \mathcal{U}(A) $.
+
+    Si $ u \not \in \mathcal{U}(A) \implies (u) \subseteq  J = (p) \implies u=pv $, con $ v \in A \implies a = p^{m}u = p^{m}(pv) = p^{m+1}v \implies a \in (p^{m+1})$ lo cual es una contradicción.
+
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+    Hemos probado que todo ideal principal de $ A $ es 0 o de la forma $ (p^{n}) $ con $ n \in \mathbb{N} $
+    
+    Entonces tenemos:
+    $$  A = (p^{0}) \supsetneq (p^{1}) \supsetneq ... \supsetneq (p^{n}) \supsetneq ... $$
+
+    Sea ahora $ I \ideal A $ f.g. $ \implies I = (x_1,...,x_n) = \sum\limits_{i=1}^{n} (x_i)  $
+    
+    Si suponemos que $ (x_i) = (p^{m_i}) $ y suponemos $ m_1 \geq  m_2 \geq  ... \geq  m_{n} $, entonces $ \sum\limits_{i=1}^{n}(x_i) = \sum\limits_{i=1}^{n} (p^{m_i}) = (p^{m_n}) $
+
+    Supongamos que $ I \properideal A $ que no es finitamente generado.
+
+    Tomamos $ y_1 \in I \setminus \{0\} $ arbitrario, entonces $ (y_1) \subsetneq I \implies \exists y_2 \in I \setminus (y_1) \implies (y_1,y_2) \subsetneq I\ ...$. Construimos así una cadena ascendente:
+    $$
+    \begin{aligned}
+        0&\ne&(y_1)&\subsetneq&(y_1,y_2)&\subsetneq&...&\subsetneq&(y_1,...,y_n)&\subsetneq... \\
+        & & (p^{m_1})& \subsetneq &  (p^{m_2}) & \subsetneq&...&\subsetneq&(p^{m_{n}})&\subsetneq... \\ 
+    \end{aligned}
+    $$
+\end{exercise}
+
+
+\chapter{Módulos}
+
+Está haciendo la introducción bastante rápido, quedan apuntados los conceptos que introduce. Los ha visto conforme a los apuntes de Alberto.
+
+\begin{definition}\textbf{Módulo}
+
+    
+    % Si $ A $ es un anillo, $  M $ es un  $A-$módulo si es un grupo abeliano y tiene
+    
+\end{definition}
+
+\begin{definition}
+    \textbf{Submódulo}
+\end{definition}
+
+\begin{flushright}
+    \textbf{Notación}
+\end{flushright}
+
+Al conjunto de submódulos del $ A- $módulo $ M $ lo denotamos por $ \mathcal{L}(_{A}M) $
+
+
 
 \end{document}

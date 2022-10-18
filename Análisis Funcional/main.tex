@@ -29,6 +29,8 @@
 
 \chapter{Yo qué sé qué es esto}
 
+\section{Introducción}
+
 \begin{definition}
     
     Un espacio de medida nula de primera categoría cuando está contenido en una unión numerable de cerrados con interior vacío. Si no es de primera categoría se llama de segunda categoría.
@@ -271,5 +273,189 @@ Aquí falta un teorema que ha dictado y no me ha dado tiempo a copiar.
 \end{exercise}
 
 
-\end{document}
+\section{Teoremas de representación}
 
+Vemos primero un primer teorema de representación.
+
+\begin{proposition}
+    Dado $ F:C[0,1]\to \mathbb{R} $  lineal y continua. Existe una única medida ($ F $ función de distribución) tal que:
+    $$ F(f) = \int\limits_{0}^{1}f(t)dF(f) $$
+\end{proposition}
+
+%teorema de alexandrov ???
+
+%topología debil
+
+\begin{theorem}
+    \textbf{Teorema de Rieszt}.
+
+    Buscar en el libro.
+\end{theorem}
+
+
+\begin{definition}\textbf{Topología débil del espacio de Hilbert}
+
+    Sea $ (H,<>) $ un espacio de Hilbert. 
+    $$ 
+    \begin{aligned}
+        \mathbb{K} \leftarrow H : x_0, & \hspace{10mm} \varepsilon>0,\  t_1,...,t_p \in H\\ <x,x_0> \hookleftarrow x
+    \end{aligned}
+    $$
+    $$ W(x_0,\varepsilon,t_1,...,t_p) = \{z \in H: |<t;x_0-z>|< \varepsilon,\ i=1,2,...,p\} $$
+\end{definition}
+
+\begin{theorem}
+    \textbf{Alaoglo-Bourbaki}
+
+    Sea $ (H,<>) $ un espacio de Hilbert y sea $ B_{H} = \{x \in H:\ \|x\|_{<>} \leq  1\} $. Entonces $ B_{H} $ es un subconjunto débilmente compacto.
+\end{theorem}
+
+
+%teoremas necesarios para esto, teorema de skolin (la topo de la puntual y puntual sobre un denso conincide)
+%2 t skolin (tambien coincide sobre idk)
+
+\begin{demonstration}
+    Lo vemos para el caso separable.
+
+    Tomemos una base hilbertiana $ \{e_n\} $ de $ H $ y tomemos $ (v_n) \subseteq  B_{H} $.
+    
+    Notemos primero que $ |<e_{p},v_n>| \leq  1\ \forall p,n \in \mathbb{N} $. 
+
+    Tomemos $ [0,1]^{\mathbb{N}} $, el cubo de Hilbert, que es métrico compacto.
+
+    Por el teorema de Riesz, tomamos la forma lineal equivalente a cada elemento de la sucesión $ (v_n) $, $ v_n \mapsto <-,v_n > $ y utilizando la base, este producto puede expresarse como $ \sum\limits_{p=1}^{\infty} <x,e_{p}>e_{p} $ para cierto $ x $.
+
+    Volviendo al cubo de Hilbert, existe una sucesión de enteros $ n_1<n_2,...,n_{k}<... $ de forma que $ (<e_{p},v_{n_{k}})_{k=1}^{\infty} $ es convergente (ya que el cubo es métrico compacto).
+
+    Si tomamos entonces $ S = s\operatorname{span}\{e_n:\ n \in \mathbb{N}\} $, entonces $ (<s,v_{n_{k}}>)_{k=1}^{\infty} $ es convergente $ \forall  s \in S $. Falta ver que sea convergente para todo punto de $ H = \overline{S} $ que se demuestra con los teoremas de Skald que se ven a continuación.
+
+\end{demonstration}
+
+\section{Teoremas de Skald}
+
+\begin{definition}
+    \textbf{Familia de funciones (uniformemente) equicontinua}
+
+    Una sucesión de funciones continuas $ (f_{i})_{i \in I} $ se dice que es equicontinua en $ x_0 $ si $ \forall  \varepsilon > 0\ \forall i \in I\  \exists \delta_{\varepsilon}$ tal que $ d(x_0,x) < \delta_{\varepsilon} \implies |f_{i}(x)-f_{i}(x_0)| < \varepsilon $. Es decir, que el $ \delta  $ necesario es el mismo para todas las funciones.
+    
+    De forma análoga se define el concepto de familia de funciones uniformemente equicontinua:
+    
+    Una sucesión de funciones uniformemente continuas $ (f_{i})_{i \in I} $ se dice que es uniformemente equicontinua en si $ \forall  \varepsilon > 0\ \forall i \in I\  \exists \delta_{\varepsilon}$ tal que $ d(y,x) < \delta_{\varepsilon} \implies |f_{i}(x)-f_{i}(y)| < \varepsilon $. Es decir, que el $ \delta  $ necesario es el mismo para todas las funciones.
+\end{definition}
+
+Las demostraciones de los teoremas se pueden encontrar en el libro General Topology de Willard (va para tarea).
+
+\begin{theorem}
+    Sea $ (K,d) $ un espacio métrico y $ \operatorname{C}(K) = \{f: K \to \mathbb{R}\ \text{continuas}\} \hookrightarrow (\mathbb{R}^{k},T_{p}) $ ($ T_{p} $ es la topología producto). 
+
+    Si $ \phi $ es (unif.) equicontinua, entonces $ \overline{\phi}^{T_{p}}  $ son (uniformemente) continuas
+\end{theorem}
+
+\begin{theorem}
+    Si $ \phi $ es equicontinua, entonces en $ \phi $ coinciden las topologías $ T_{p} $(producto) y la de convergencia puntual sobre un subconjunto $ D \subseteq K $ denso ($ \overline{D} = K $).
+\end{theorem}
+
+
+\begin{theorem}
+    Sea $ \phi \subseteq  \operatorname{C}(K)$ y sea $ (K,d) $ métrico compacto. Entonces $ \phi $ es relativamente compacto en $ \|\cdot \|_{\infty} \iff \phi  $ es equicontinuo y $ \phi(x) = \{f(x): f \in \phi\} $ acotado $ \forall x \in K $
+\end{theorem}
+
+
+%Otra tarea que no me entero del enunciado: Diestel Spaces and Sequences in Banach spaces
+
+\begin{theorem}\textbf{Lax- Milgram}
+
+
+    Sea $ (H,<>) $ un espacio de Hilbert y $ B: H \times H \to \mathbb{K} (\mathbb{R}\ o\ \mathbb{C}) $ tal que:
+
+    \begin{enumerate}
+        \item $ B(\cdot ,y) $ es lineal $ \forall y \in H $ y $ B(x,\cdot ) $ es lineal conj., es decir, $ B $ es sesquilineal.
+        \item $ B $es acotada: $ \exists c > 0 $ tal que $ |B(x,y)| \leq  C \|x\|\|y\| \forall x,y \in H $
+        \item $ B $ es fuertemente positiva: $ \exists b > 0 $ tal que $ |B(x,y)| > b\|y\|^2 $, $ \forall  y \in H $
+    \end{enumerate}
+
+    Entonces para cualquier forma lineal y continua $ \phi: H \to \mathbb{K} $ existe un único $ y \in H $ tal que $ \phi(x) = B(x,y)  \forall x \in H$
+\end{theorem}
+
+
+
+\begin{demonstration}
+    Para $ y  $ fijo la apliación $ x \hookrightarrow B(x,y) $ es lineal continuo. Por el teorema de Riesz, $ \exists z \in H $ tal que $ B(x,y) = <x,z> \forall x \in H $ y sea $ T $ la forma lineal que da el teorema de Riesz. 
+
+    Tenemos que $ T(H) $ es un subespacio de $ H $. Veamos que $ T(H) = H $ y esto dará la prueba de nuevo por el teorema de Riesz. Demostremos varias cosas:
+
+    \begin{enumerate}
+        \item $ T(H) $ es cerrado.
+            $$\text{Sea } z_n = Ty_n\ \text{tal que}\ \lim_{n \to \infty} z_n = z \in H, z \in T(H) $$
+
+            $$ B(x,y_n-y_m) = <x,z_n-z_m> \forall x \in H $$
+            $$ b\|y_n-y_m\|^{\cancel{2}} \leq  B(y_n-y_m,y_n-y_m) = <y_n-y_m,z_n-z_m>\leq \cancel{ \|y_n-y_m\|} \|z_n -z_m\| $$
+
+            Luego $ (y_n) $ es de Cacuhy y $ \lim_{n \to \infty}y_n = y $ y tenemos que:
+            $$ <x,z_n>  = B(x,y_n) \to B(x,y) = <x,z> = <x,Ty> \forall x \in H $$
+
+        \item Supongamos $ T(H) \subsetneq H \implies \exists x_0 \ne 0:\ <x_0,z> = 0 \forall z \in T(H) \implies B(x_0,y) = <x_0,z> \forall y \in H,\ B(x_0,x_0) = 0 $ si $ x_0 \ne 0 $
+    \end{enumerate}
+
+    
+\end{demonstration}
+
+\section{Principio de Drichlet}
+
+\noindent Para esta sección consideraremos $ \Omega $ un subconjunto de $ \mathbb{R}^{n} $ abierto y acotado.
+
+Lo que querremos estudiar en esta sección será el sistema:
+
+$$ \left\{
+\begin{array}{ll}
+    \triangle u(x) = 0 & x \in \Omega\\
+    u|_{\partial \Omega}(x) = f(x) & x \in \partial \Omega 
+\end{array}
+\right. $$
+
+\begin{example}
+    Tomemos $ n = 2 $, en esta dimensión existe el problema clásico de una placa que se calienta en los bordes. Queremos conocer el estado estacionario del sistema.
+\end{example}
+
+\begin{flushright}
+    \textbf{Idea para buscar una solución}
+\end{flushright}
+
+Buscar el estado de equilibrio minimizando una energía o acción adecuada.
+
+La energía que plantea Drichlet es la de la llamada integral de Drichlet:
+$$ D(u) = \int\limits_{\Omega}^{}|\triangledown u | ^2 = \int\limits_{\Omega}^{} | \dfrac{\partial u}{\partial x_1}|^2 + | \dfrac{\partial u}{\partial x_2}|^2 d_1dx_2 $$
+
+\begin{definition}
+    $ C^2(\overline{\Omega}) $
+
+    Denotamos a $ C^2(\overline{\Omega}) $ como las funciones dos veces derivables en el interior de $ \Omega $ con segunda derivada continua en $ \overline{\Omega} $.
+
+    Las funciones con las que trabajaremos en este apartado son las de este tipo con soporte compacto.
+\end{definition}
+
+
+\begin{proposition}
+    Si existe $ u \in C^2(\overline{\Omega}) $ que minimiza a $ D(u) $ entre todas las funciones $ u \in C^2(\overline{\Omega})   $ con $ u|_{\partial\Omega} \equiv f $, entonces $ u $ es armónica ($ \triangle u = 0 $).
+
+\end{proposition}
+
+\begin{demonstration}
+    En $ C^2(\overline{\Omega}) $, definimos $ <\cdot >_{D} $ por:
+    $$ <F,G>_{D} = \int\limits_{\Omega}^{} \left( \dfrac{\partial F}{\partial x_1} \dfrac{\partial G}{\partial x_1} + \dfrac{\partial F}{\partial x_2} \dfrac{\partial G}{\partial x_2} \right) dx_1dx_2$$
+
+    Definimos ahora $ D(u) = <u,u>_{D} $.
+
+    Si $ v \in C^2(\overline{\Omega}) $ que verifica que $ v|_{\partial \Omega} = 0 \implies \forall  \varepsilon \in \mathbb{R} $ se tiene que $ D(u+ \varepsilon v) (*)\geq  D(u) $
+    $$ (*) = D(u)+ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon <u,v>_{D}+ \varepsilon <v,u>_{D} $$
+
+    Cancelando $ D(u) $ tenemos:
+    $$ \varepsilon^2 D(u) + \varepsilon D(v) + \varepsilon <u,v>_{D}+ \varepsilon <v,u>_{D}\geq  0 $$
+
+    Como esto lo podemos hacer para un $ \varepsilon $ arbitrario, tenemos que $ <u,v>_{D} = 0 $, luego:
+    $$ 0 = \int\limits_{\Omega}^{} \left( \dfrac{\partial u}{\partial x_1} \dfrac{\partial v}{\partial x_1}+ \dfrac{\partial u}{\partial x_2} \dfrac{\partial v}{\partial x_2} \right) dx_1 dx_2 $$
+
+    
+\end{demonstration}
+
+\end{document}

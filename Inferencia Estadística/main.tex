@@ -22,8 +22,10 @@
 \title{Apuntes de Inferencia Estadística}
 \author{Paco Mora}
 \date{\today}
+\setcounter{secnumdepth}{0}
 
 \begin{document}
+\maketitle
 
 Mirar los apuntes de Lorencio
 
@@ -169,7 +171,7 @@ Mirar los apuntes de Lorencio
 % Con esta observación demostramos las siguientes propiedades:
 
 
-\section*{Teorema de Wald}
+\section{Teorema de Wald}
 
  \subsection*{Consistencia}
  Sea $ X \sim F(\cdot ,\theta),\ \theta \in \Theta, \hat{\theta}_n $ estimador de $ \theta\ \forall n \in \mathbb{N} $, definimos las siguientes operaciones:
@@ -278,6 +280,47 @@ Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \h
     En $ \alpha (x_{n:n}-1)+(1-\alpha)x_{1:n} $ se alcanza el máximo de $ L(\mathbb{X},\theta)\ \forall\ \alpha \in (0,1) $
 \end{example}
 
+\section{Método de la función pivote}
 
+\setcounter{dummy}{0}
+
+\begin{proposition}
+    Sea $ X $ una variable aleatoria con función de distribución continua $ F(x,\theta),\ \theta \in \Theta  $ y monótona y sea $ X = (X_1,...,X_n) $
+\end{proposition}
+
+Para demostrarlo necesitamos algunos resultados
+
+\begin{lemma}
+    
+    Sea $ X $ v.a. con función de distribución $ F $ continua, entonces $ F(X) \sim \mathcal{U}(0,1)$ 
+\end{lemma}
+
+\begin{lemma}
+    Sea $ \mathcal{U} \sim \mathcal{U}(0,1) $, entonces $ -\log{U} \sim \operatorname{Exp}(1) $
+\end{lemma}
+
+Vamos ahora con la demostración de la proposición.
+
+\begin{demonstration}
+    Tenemos que $ \{F(X) \leq  x\} \iff \{X \leq  F ^{-1}(x)\} $, entonces:
+    $$ P(F(X)\leq x) = P(X \leq  F ^{-1}(x)) = F(F ^{-1}(x)) = x\  \forall x \in (0,1)$$
+\end{demonstration}
+
+\begin{demonstration}
+    $ T(\mathbb{X},\theta) = - \sum\limits_{j=1}^{n} \log{F(X_j,\theta)} $ trivialmente es monótona en $ \theta $ (al serlo $ F $)
+
+    Vemos ahora que $ T(\mathbb{X}, \theta) $ no depende de $ \theta $ en su distribución.
+
+    $$ T(\mathbb{X},\theta) = \sum\limits_{j=1}^{n} E_j $$
+
+    Donde $ E_j $ son $ \operatorname{Exp}(1) $ indep. entre sí. Pero sabemos que la suma de exponenciales tiene una distribución Gamma:
+    $$ T(\mathbb{X},\theta) \sim \Gamma(1,n) $$
+
+    Luego no depende de $ \theta $.
+
+\end{demonstration}
+
+%TODO
+Queda por copiar el texto del método de Neyman.
 
 \end{document}

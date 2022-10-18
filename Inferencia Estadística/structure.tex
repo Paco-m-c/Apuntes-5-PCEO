@@ -163,11 +163,11 @@
 {\thmname{#1}\thmnumber{#2}} %No sé si esto funciona
 
 
-\newcounter{dummy}
+\newcounter{dummy}[subsection]
 \newcounter{ex}
 \newtheorem{teoremote}[dummy]{\color{turquoise}Teorema}
-\newtheorem{propositiont}{\color{turquoise}Proposición}[chapter]
-\newtheorem{lemmat}{\color{turquoise}Lema}[section]
+\newtheorem{propositiont}[dummy]{\color{turquoise}Proposición}
+\newtheorem{lemmat}[dummy]{\color{turquoise}Lema}
 \newtheorem{definitionT}{\color{turquoise}Definición}[section]
 \newtheorem{exerciseT}[ex]{Ejercicio}
 \newtheorem{examplote}[ex]{\color{turquoise}Ejemplo}
