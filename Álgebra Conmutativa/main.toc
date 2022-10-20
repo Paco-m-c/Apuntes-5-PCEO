@@ -3,5 +3,5 @@
 \contentsline {section}{Ejercicios}{9}{Item.39}%
 \contentsline {chapter}{\numberline {2}Anillos noetherianos}{24}{chapter.65}%
 \contentsline {section}{Ejercicios}{32}{Item.99}%
-\contentsline {chapter}{\numberline {3}Módulos}{36}{chapter.110}%
+\contentsline {chapter}{\numberline {4}Módulos}{36}{chapter.110}%
 \contentsfinish 

@@ -27,7 +27,7 @@
 \begin{document}
 \maketitle
 
-Mirar los apuntes de Lorencio
+\noindent Estos apuntes están hechos como un complemento a los apuntes de Lorencio.
 
 % \maketitle
 
@@ -320,7 +320,107 @@ Vamos ahora con la demostración de la proposición.
 
 \end{demonstration}
 
-%TODO
-Queda por copiar el texto del método de Neyman.
 
+\section*{Ejemplo del teorema de Newman-Pearson}
+
+\begin{example}
+    Sea $ X \sim N(\mu, \theta^2) $ con $ \theta^2 $ conocida. Se considera una m.a.s simple de tamaño $ n $ de $ X $. Obtener el test de máxima potencia y extensión de $ \alpha $ para el test (contraste):
+    $$ H_0: \mu = \mu_0 $$
+
+    frente a:
+    $$ H_1: \mu = \mu_1 $$
+
+    Aplicamos el teorema de Neyman-Pearson. Tenemos que el test UMP viene dado por:
+    $$ S_1 = \{x \in \operatorname{Sop}(X):  \dfrac{L(x,\mu_1)}{L(x,\mu_0)}\geq  k \} $$
+    
+    Donde $ k $ verifica que $ \alpha = P_{\theta_1}(X \in S) $
+    $$ L(x,\mu) = \left( \dfrac{1}{\sigma \sqrt{2\pi}}^{n} e^{\dfrac{-1}{2}\dfrac{\sum (x_i-\mu)^2}{\sigma^2}} \right) = \left( \dfrac{1}{\sigma\sqrt{2\pi}}^{n}e^{-\dfrac{1}{2} \dfrac{\sum x_i^2-2\mu\sum x_i+n\mu}{\sigma^2}}  \right) \to \dfrac{L(X,\mu_1)}{L(X,\mu_0)} = $$ 
+    $$ =exp \{-\dfrac{1}{2\sigma ^2}(2(\mu_0-\mu_1)\sum x_i+n(\mu_1^2-\mu_0^2))\} $$
+    $$ S_1 = \{x \in \operatorname{Sop}(X):\ -\dfrac{1}{2\sigma ^2}(2(\mu_0-\mu_1)\sum x_i + n(\mu_1^2-\mu_0^2)) \geq  k' = \log{k}\} =$$ 
+    
+    Suponiendo $ \mu_1>\mu_0 $
+    $$ \{x \in \operatorname{Sop}(X):\ \sum x_i \leq  \dfrac{-2\sigma^2k'-n(\mu_1^2-\mu_0^2)}{2(\mu_1-\mu_0)} \} = \{x \in \operatorname{Sop}(X):\ \dfrac{\sum x_i}{n} \leq  \underbrace{\dfrac{-2\sigma^2k'-n(\mu_1^2-\mu_0^2)}{2n(\mu_1-\mu_0)}}_{=:k''} \} $$
+
+    Fijando $ \alpha $, tendremos que buscar $ k''(\alpha) $. Sabemos que $ \overline{X} \sim N\left(\mu,\dfrac{\sigma}{\sqrt{n}}\right) $
+
+    $$ \alpha = P_{\mu_0}\left(\overline{X} \geq  k''(\alpha)\right) = P_{\mu_0} \left(\underbrace{\dfrac{\overline{X}-\mu_0}{\sigma/\sqrt{n}}}_{Z \sim N(0,1)} \geq  \dfrac{k''(\alpha)-\mu_0}{\sigma/\sqrt{n}}\right) \to \dfrac{k''(\alpha)-\mu_0}{\sigma/\sqrt{n}} = Z_{1-\alpha} $$
+
+    Luego $ k''(\alpha) = \mu_0 + Z_{1-\alpha} \dfrac{\sigma}{\sqrt{n}} $
+
+    La probabilidad de error de tipo 2 es:
+
+    $$ \beta = P_{\mu_1} (\overline{X} < \mu_0+Z_{1-\alpha}\dfrac{\sigma}{\sqrt{n}}) = P \left( \dfrac{\overline{X}-\mu_1}{\sigma/\sqrt{n}}< \dfrac{\mu_0-\mu_1+Z_{1-\alpha}\dfrac{\sigma}{\sqrt{n}}}{\sigma/\sqrt{n}}\right) = P\left(Z < \dfrac{\mu_0\mu_1}{\sigma/\sqrt{n}}+Z_{1-\alpha}\right)  $$
+
+    Entonces:
+    $$ Z_{\beta} = \dfrac{k''(\alpha)-\mu_1}{\dfrac{\sigma}{\sqrt{n}}} $$
+
+    $$ \mu_0+Z_{1-\alpha} \dfrac{\sigma}{\sqrt{n}} = \mu_1 + Z_{\beta} \dfrac{\sigma}{\sqrt{n}} \implies \dfrac{\mu_1\mu_0}{Z_{1-\alpha}-Z_{\beta}} = \dfrac{\sigma}{\sqrt{n}} \implies n = \left( \dfrac{\sigma (Z_{1-\alpha}-Z_{\beta})}{\mu_1-\mu_0} \right)^2 $$
+
+
+
+    
+\end{example}
+
+
+\begin{example}
+    Si $ X \sim N (\mu,\sigma^2 = 4)  $ representa la duración en días de una determinada enfermedad y se considera la duración de una muestra de 9 enfermos resultando en días: 5,3,4,2,6,4,5,3,4. Aplicar los resulados del ejemplo anterior para decidir entre:
+    $$ H_0: \mu = 3  $$
+
+    frente a:
+
+    $$ H_1: \mu = 4 $$
+
+    con una extensión de $ \alpha = 0.05  $
+
+    En primer lugar tenemos que nuestra región de rechazo es:
+    $$ S_1 = \left\{x \in \mathbb{R}^{9}:\ \overline{X}\geq 3+Z_{0.95} \dfrac{2}{3}\right\} = \{x \in \mathbb{R}^{9}:\ \overline{X}\geq 4.1\} $$
+
+    Además tenemos que en este caso $ \overline{X} = 4 $. Luego como $ 4 \not \geq 4.1 $ aceptamos $ H_0 $, es decir, que $ \mu=3 $.
+\end{example}
+
+\begin{proposition}
+    Si $ A(\theta) $ es monótona creciente (decreciente).
+
+    a) En el caso $ \theta_0<\theta $:
+    $$ \delta(x) = \left\{
+    \begin{array}{ll}
+        0 & T(x) < (>) c \\ 
+        1 & T(x) \geq  (\leq ) c
+    \end{array}
+    \right. $$
+    
+    b) En el caso $ \theta_0>\theta $:
+    $$ \delta(x) = \left\{
+    \begin{array}{ll}
+        0 & T(x) > (<) c \\ 
+        1 & T(x) \leq  (\geq ) c
+    \end{array}
+    \right. $$
+
+\end{proposition}
+
+\begin{demonstration}
+    Si tenemos $ L(x,\theta) = exp \{A(\theta)T(\theta)+B(\theta)+h(x)\} $
+
+    $$ \dfrac{L(x,\theta_1)}{L(x,\theta_0)} = exp \{(A(\theta_1)A(\theta_0))T + (B(\theta_1)-B(\theta_0))\} $$
+
+    Entonces si escribimos $ S_1 $ como en el teorema de Neyman-Pearson y despejamos:
+    $$ S_1 = \{x \in \operatorname{Sop}(X):\ T \geq (\leq ) \dfrac{k'-(B(\theta_1)-B(\theta_0))}{A(\theta_1)A(\theta_0)}\} $$
+
+    La desigualdad depende del signo de $ A(\theta_1)A(\theta_0) $ (o sea, si es creciente o decreciente).
+\end{demonstration}
+
+\begin{example}
+    Sea $ X \sim \operatorname{Exp}(\theta) $. Dada una m.a.s. de tamaño $ n $, obtener el test de máxima potencia y extensión $ \alpha $ para el test (contraste)
+        $$ H_0: \theta = \theta_0 $$
+    frente a:
+    $$ H_1: \theta = \theta_1 $$
+    
+    En este caso, $ A(\theta) = -\theta $ y $ T = \sum\limits_{i=1}^{n}X_i $. Luego $ A $ es decreciente. Supongamos $ \theta_0<\theta_1 $, entonces:
+    $$ S_1 = \{x \in R_{+}^{n}:\ \sum\limits_{i=1}^{n} X_i\leq  c\} $$
+    $$ \alpha = P_{\theta=\theta_0}(X \in S_1) = P_{\theta_0}\left(\sum\limits_{}^{}X_i \leq  c\right)  $$
+
+    En el tema 2 obtuvimos que $ \sum X_i \sim \Gamma() $ . Si llamamos a la función cuantil de $ \Gamma $, $ G $ entonces $ c = G_{\alpha} $
+    
+\end{example}
 \end{document}

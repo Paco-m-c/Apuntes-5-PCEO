@@ -402,11 +402,11 @@ Las demostraciones de los teoremas se pueden encontrar en el libro General Topol
     
 \end{demonstration}
 
-\section{Principio de Drichlet}
+\section{Principio de Dirichlet}
 
 \noindent Para esta sección consideraremos $ \Omega $ un subconjunto de $ \mathbb{R}^{n} $ abierto y acotado.
 
-Lo que querremos estudiar en esta sección será el siguiente sistema llamado problema de Drichlet:
+Lo que querremos estudiar en esta sección será el siguiente sistema llamado problema de Dirichlet:
 
 $$ \left\{
 \begin{array}{ll}
@@ -425,7 +425,7 @@ $$ \left\{
 
 Buscar el estado de equilibrio minimizando una energía o acción adecuada.
 
-La energía que plantea Drichlet es la de la llamada integral de Drichlet:
+La energía que plantea Dirichlet es la de la llamada integral de Dirichlet:
 $$ D(u) = \int\limits_{\Omega}^{}|\triangledown u | ^2 = \int\limits_{\Omega}^{} | \dfrac{\partial u}{\partial x_1}|^2 + | \dfrac{\partial u}{\partial x_2}|^2 d_1dx_2 $$
 
 \begin{definition}
@@ -494,5 +494,35 @@ Para ver una proposición necesitamos repasar el siguiente teorema:
 % $$ \langle u, v \rangle_{D} = \int\limits_{\Omega }^{} (\triangledown u \cdot  \triangledown v)dx \hspace{5mm} \triangledown u \cdot  \triangledown v = \sum\limits_{j=1}^{N} \dfrac{\partial u}{\partial x_j} \dfrac{\partial v}{\partial x_j} $$
 
 % $$ \|u\|_{D}^2 = \langle u, u \rangle_{D} = \|\triangledown u\|^2_{L^2(\Omega )} $$
+
+
+
+\begin{theorem}
+    \textbf{Poincaré}
+
+    $ \forall  f \in \mathcal{D}(\Omega ) =  C_{0}^{\infty}(\Omega ) $, $ \|f\|_{0}\leq \operatorname{diam}(\Omega )\|f\|_{1} $
+\end{theorem}
+
+Como consecuencia, tenemos continuidad en la inclusión:
+$$ (\mathcal{D}(\Omega ), \langle ,  \rangle_{1}) \hookrightarrow (\mathcal{D}(\Omega ),\langle ,  \rangle_{0}) $$ 
+
+Aquí faltan varias definiciones de tipos de espacios de Hilbert. Creo que están en el libro.
+
+\begin{lemma}$  $
+
+    \begin{enumerate}
+        \item $ H_{1}^{0} \subseteq  H_0 $
+        \item $ \forall v \in H_1^{0},\ \exists v_j \in H_0: \langle z, v_j \rangle_{0} = - \langle \dfrac{\partial z}{\partial x_j}, v \rangle_{0} $. Es decir:
+        $$ \int\limits_{\Omega }^{} zv_j = - \int\limits_{\Omega }^{} \dfrac{\partial z}{\partial x_j}v $$
+        \item Si $ u,v \in H^{0}_{1} \implies \langle u, v \rangle_{1} = \int\limits_{\Omega }^{} \sum\limits_{j=1}^{N} \dfrac{\partial n}{\partial x_j} \dfrac{\partial v}{\partial x_j} $
+    \end{enumerate}
+
+    A $ v_j $ se le llama $ \dfrac{\partial v}{\partial x_j} $
+\end{lemma}
+
+\begin{demonstration}
+    Sea $ (v_n) \in \mathcal{D}(\Omega ) \to v \in H_1^{0} $ en $ \|\cdot \|_{1} \implies \left( \dfrac{\partial v_n}{\partial x_j} \right)_{n=1}^{\infty} $ es de Cauchy en $ \|\cdot \|_{0} $ y converge a $ v_j \in H_0 = L^2(\Omega )$
+    
+\end{demonstration}
 
 \end{document}

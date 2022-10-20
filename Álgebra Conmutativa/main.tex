@@ -1863,7 +1863,7 @@ Sea $ y \in I \subseteq  I + M^{q-1}= J+ M ^{q-1} \implies y = z+h $ donde $ h \
     $$
 \end{exercise}
 
-
+\setcounter{chapter}{3}
 \chapter{Módulos}
 
 Está haciendo la introducción bastante rápido, quedan apuntados los conceptos que introduce. Los ha visto conforme a los apuntes de Alberto.
@@ -1885,6 +1885,182 @@ Está haciendo la introducción bastante rápido, quedan apuntados los conceptos
 
 Al conjunto de submódulos del $ A- $módulo $ M $ lo denotamos por $ \mathcal{L}(_{A}M) $
 
+\begin{proposition}
+    \textbf{Extraída de los ejemplos 4.9}
+
+    Un A-módulo $ M$ es cíclico sii es isomorfo a $ \dfrac{A}{I}$, para un ideal $ I$ de $ A$.
+
+\end{proposition}
+
+\begin{demonstration}
+
+    Si $ \dfrac{A}{I}$ es cíclico generado por $ \overline{1}=1+I$ ya que $ a+I = a(1+I)$ 
+
+    Si $ M$ es cíclico, entonces $ M =(x) = Ax = \{ax:\ a \in A\}$. Si defino $ f:_{a}A\to M= Ax$ de forma que $ a\mapsto f(a) = ax$ tenemos un epimorfismo de $ A$-módulos.
+
+    Por el teorema de isomorfía, tenemos que $ \dfrac{A}{\operatorname{Ker}(f)}\cong M$. Siendo $ \operatorname{Ker}(f)$ un ideal de $ A$.
+
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+    
+    $$ \operatorname{Ker}(f) = \{a \in A:\ ax = 0\} = an n_{A}(x) \stackrel{M\ cicl.}{=} an n_{A}(M) $$ 
+
+    Para $ \subseteq $ en la última igualdad necesitamos probar que si $ \underbrace{ax = 0}_{a \in an n_{A}(x)} \implies \underbrace{a(bx)=0}_{a \in an n_{A}(M)}\ \forall b \in A$
+\end{demonstration}
+\setcounter{propositiont}{9}
+
+\begin{proposition}
+    \textbf{Proposición-Definición}
+
+    Sea $ (M_i)_{i \in I}$ una familia de submódulos del A-módulo $ M$. Decimos que es una familia independiente (de submódulos) cuando satisface cualquiera de las siguientes condiciones equivalentes:
+    \begin{enumerate}
+        \item La expresión de un $ x \in \sum\limits_{i \in I}^{}M_i$ como $ x=\sum\limits_{i \in I}^{}x_i$ (\textbf{suma finita}) con $ x_i \in M_i\ \forall  i \in I,$ es única.
+        \item Si 0 = $ \sum\limits_{i=I}^{x_i}$ (\textbf{suma finita}) con $ x_i \in M_i\ \forall  i \in I$, entonces $ x_i =0 \forall i \in I$.
+        \item $ \forall j \in I$, se tiene que $ M_j \cap \left( \sum\limits_{i\ne j}^{} M_i \right) = 0$
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{demonstration}
+    
+    \noindent $ 1\implies 2$.
+
+    Trivial.
+
+    \noindent $ 2 \implies 1$.
+    $$ \left\{
+    \begin{array}{l}
+        x = \sum\limits_{}^{}x_i \\ 
+        x = \sum\limits_{}^{}x_i'
+    \end{array}
+    \right\} \stackrel{Suma\ finita}{\implies} 0 = \sum\limits_{i=I}^{} (x_i- x_i') \implies x_i-x_i' = 0 $$
+
+    \noindent $ 3 \implies 2$.
+
+    Si $  0 = \sum\limits_{}^{}x_i \implies \forall j \in I$ tenemos que $ x_j = \sum\limits_{i\ne j}^{}(-x_i) \implies x_j \in M \cap \left( \sum\limits_{i \ne j}^{}M_i \right) \stackrel{3)}{=} 0 \implies x_j = 0\ \forall j \in I$
+
+    \noindent $ 1,2 \implies 3$.
+
+    Sea $ x \in M_j \cap \left( \sum\limits_{i\ne j}^{}M_i   \right) \implies x = \sum\limits_{i\ne j}^{}x_i$, con $ x_i \in M_i\ \forall  i \in I \setminus \{j\} \implies 0 = \sum\limits_{i \ne j}^{}x_i + (-x) \stackrel{2)}{\implies} -x = 0 \iff x = 0$
+\end{demonstration}
+
+
+Cuando $ (M_i)_{i \in I}$ es una familia independiente de submódulos de $ M$, la suma $ \sum\limits_{i \in I}^{}M_i$ suele denotarse por $ \bigoplus\limits_{i \in I}^{int}M_i = $ suma directa interna de los $ M_i$.
+
+Recordemos que se tiene la suma directa externa $ \bigoplus\limits_{i \in I}^{ext} M_i = \{ (x_i) \in \prod_{i \in I}^{}M_i :\ x_i = 0\ \forall i \in I  \}$.
+
+En general, si $ (M_i)_{i \in I}$ es una familia de submódulos de $ M$, se tiene un homomorfismo inducido:
+$$ 
+\begin{aligned}
+    \phi: & \bigoplus\limits_{i \in I}^{ext}M_i &  \to &  M\\ 
+    & (x_i) & \mapsto & \sum\limits_{}^{}x_i
+\end{aligned}
+$$
+
+Cuya imagen es $ \sum\limits_{i \in I}^{}M_i$, es decir $ \operatorname{Im}(\phi) = \sum\limits_{i \in I}^{}M_i$
+
+Se tiene que $ \phi$ es un monomorfismo $ \iff (M_i)_{i \in I}$ es una familia independiente. En tal caso induce un isomorfismo entre la suma externa y la interna. Por tanto, obviaremos el superíndice ext o int. 
+
+\setcounter{propositiont}{11}
+
+\begin{proposition}
+    Sea $ (M_i)_{i \in I}$ una familia independiente de submódulos de $ M$ tal que $ M = \bigoplus\limits_{i \in I}M_i$. Para cada $ j \in I$, se tiene:
+    \begin{enumerate}
+        \item $ M_j \cong \dfrac{\bigoplus M_i}{\bigoplus\limits_{i \ne j}}$
+        \item $ \bigoplus\limits_{i \ne j} M_i \cong \dfrac{M}{M_j}$
+    \end{enumerate}
+
+    Como caso particular, se tiene que si $ M = N \oplus N'$, entonces:
+    $$ \dfrac{M}{N'} \cong N \hspace{15mm} \dfrac{M}{N} \cong N' $$
+\end{proposition}
+
+\begin{demonstration}
+    
+    \noindent 1.
+    
+    Utilizamos la proyección de $ M$ a $ M_j$ que tiene por núcleo $ \bigoplus\limits_{i \ne j}M_i$
+
+    \noindent 2.
+
+    De nuevo, tomamos la proyecctión de $ M $ a $ \bigoplus\limits_{i \ne j} M_i$ cuyo núcleo es $ M_j$
+\end{demonstration}
+
+\noindent\textbf{Vemos ahora una proposición que no está incluida en los apuntes de Alberto del Valle}
+
+\begin{flushright}
+    \textbf{Observación previa}
+\end{flushright}
+
+    Si $ M$ es un $ A$-módulo, entonces $ \operatorname{End}_{A}(M)$ es un anillo no conmutativo en general (con la composición como producto).
+
+\begin{proposition}
+    $ M$ es indescomponible sii los únicos idempotentes de $ \operatorname{End}_{A}(M)$ son $ 0$ y $ 1_{M}$
+\end{proposition}
+
+\begin{demonstration}
+    \noindent$ \implies$
+
+    Sea $ \varepsilon \in \operatorname{End}_{A}(M)$ idempotente $ (\implies 1_{M}- \varepsilon$ también lo es) $ \stackrel{?}{\implies} M = Im(\varepsilon) \oplus Im(1_{M}-\varepsilon)$
+
+    Si eso está probado, entonces al ser $ M$ indescomponible $ Im(\varepsilon) = 0$ o $ Im(1_{M}- \varepsilon) = 0 \iff \varepsilon = 0$ o $ 1_{M}-\varepsilon = 0$
+
+    $$  M = Im(\varepsilon)+ Im(1-\varepsilon):\ x = \varepsilon(x) + (1_{M}-\varepsilon)(x) $$
+
+    $$ x \in Im(\varepsilon) \cap Im(1-\varepsilon) \implies \left\{
+    \begin{array}{ll}
+        x = \varepsilon(y) & \implies (1_{M}-\varepsilon)(x) = \underbrace{[(1_{M}-\varepsilon)\cdot \varepsilon]}_{0}(x)\\ 
+        y\\ 
+        x = (1_{M}-\varepsilon)(z) & \implies \varepsilon(x) = 0
+    \end{array}
+    \right. $$
+
+    \noindent $ \impliedby$
+
+    Si $ M = N \oplus N'$ (suma directa interna), entonces:
+
+    $$ 
+    \begin{aligned}
+        \varepsilon_{N}: & M = &   N \oplus N' & \to & N & \hookrightarrow & M\\ 
+        & & v+v' & \mapsto & \mapsto & v+0
+    \end{aligned}
+    $$
+
+    Entonces $ \varepsilon_{N}$ es idempotente, luego $ \varepsilon_{N} = 0\ (\iff N = 0)$ o bien $ \varepsilon_{N} = 1_{M}\ (\iff N = M)$
+
+\end{demonstration}
+
+\begin{lemma}
+    Sea $ 0 \ne M$ un $ A$-módulo cíclico, entonces $ M$ es indescomponible sii los únicos idempotentes del anillo $ \dfrac{A}{an n_{A}(M)}$ son $ \overline{0},\overline{1}$.
+
+    Si tenemos entonces un isomorfismo en $ _{A}Mod: \dfrac{A}{an n_{A}(M)}\cong M$, entonces $ \operatorname{End}_{A}(M) \cong \operatorname{End}_{A} \left( \dfrac{A}{an n_{A}(M)} \right)$
+
+\end{lemma}
+
+
+\begin{exercise}
+    Si $ I \properideal A$, entonces la aplicación $ \dfrac{A}{I} \xrightarrow{\mu} \operatorname{End}_{A}(A/I)$ $ (\mu_{\overline{a}}\overline{b} \mapsto \overline{ab} = \overline{a}\cdot \overline{b})$ es un isomorfismo de anillos.
+
+    Que sea un homomorfismo es directo, vemos que:
+    $$ \operatorname{Ker}(\mu) = \{\overline{a}: \mu_{\overline{a}} \equiv 0\} = \{\overline{a} \in \dfrac{A}{I}:\ \overline{ab} = \overline{0}\ \forall \overline{b} \in \dfrac{A}{I}\ (\implies \overline{a} = \overline{a}\overline{1} = \overline{0})\} \implies $$
+    $$ \operatorname{Ker}(\mu) = 0 \implies \mu \text{ inyectiva} $$
+
+    Vemos que $ \mu$ es suprayectivo. Sea $ f \in \operatorname{End}_{A}\left(\dfrac{A}{I}\right)$ de forma que $ f(\overline{1}) = \overline{a}$. Entonces tenemos que $ \overline{b} = b \overline{1} \mapsto bf(\overline{1}) = b \overline{a} = \overline{b} \overline{a} \implies f = \mu_{\overline{a}}$. Luego $ \mu$ es sobre.
+\end{exercise}
+
+
+\begin{exercise}
+    \textbf{Ejercicio planteado}    
+
+    Sea $ M \in \operatorname{MaxSpec}(A)$ y $ n>0$ un entero. Probar que el $ A$-módulo $ A/M^{n}$ es indescomponible.
+\end{exercise}
+
+\begin{exercise}
+    \textbf{Ejercicio planteado}
+
+    Sea $ a \in A \setminus (\mathcal{U}(A) \cup \{0\})$, donde $ A$ es un DIP. Probar:
+    $$ \dfrac{A}{(a)} \text{ indescomponible} \iff a\text{  es asociado a }p^{t}\text{, para algún }p \in A \text{ irreducible y algún } t>0 $$
+\end{exercise}
 
 
 \end{document}
