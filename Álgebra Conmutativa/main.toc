@@ -4,4 +4,5 @@
 \contentsline {chapter}{\numberline {2}Anillos noetherianos}{24}{chapter.65}%
 \contentsline {section}{Ejercicios}{32}{Item.99}%
 \contentsline {chapter}{\numberline {4}Módulos}{36}{chapter.110}%
+\contentsline {section}{Ejercicios}{42}{propositiont.137}%
 \contentsfinish 

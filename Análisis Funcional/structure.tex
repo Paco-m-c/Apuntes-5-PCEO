@@ -172,6 +172,7 @@
 \newcounter{ex}
 \newtheorem{teoremote}[dummy]{\color{turquoise}Teorema}
 \newtheorem{propositiont}{\color{turquoise}Proposición}[chapter]
+\newtheorem{corollaryt}[propositiont]{\color{turquoise}Corolario}
 \newtheorem{lemmat}{\color{turquoise}Lema}[section]
 \newtheorem{definitionT}{\color{turquoise}Definición}[chapter]
 \newtheorem{exerciseT}[ex]{Ejercicio}
@@ -206,6 +207,18 @@ leftmargin=0cm,
 rightmargin=0cm,
 linewidth=1pt,
 innerbottommargin=5pt]{pBox}
+
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=turquoise,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=1pt,
+innerbottommargin=5pt]{cBox}
 
 \newmdenv[skipabove=7pt,
 skipbelow=7pt,
@@ -271,6 +284,7 @@ linewidth=4pt]{exBox}
 
 \newenvironment{theorem}{\begin{tBox}\begin{teoremote}}{\end{teoremote}\end{tBox}}
 \newenvironment{proposition}{\begin{pBox}\begin{propositiont}}{\end{propositiont}\end{pBox}}
+\newenvironment{corollary}{\begin{pBox}\begin{corollaryt}}{\end{corollaryt}\end{pBox}}
 \newenvironment{lemma}{\begin{pBox}\begin{lemmat}}{\end{lemmat}\end{pBox}}
 \newenvironment{method}{\begin{mBox}\begin{methodT}}{\end{methodT}\end{mBox}}
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}

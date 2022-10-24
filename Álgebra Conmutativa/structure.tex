@@ -171,8 +171,9 @@
 \newcounter{dummy}
 \newcounter{ex}
 \newtheorem{propositiont}{\color{turquoise}Proposición}[chapter]
+\newtheorem{corollaryt}[propositiont]{\color{turquoise}Corolario}
 \newtheorem{teoremote}[propositiont]{\color{turquoise}Teorema}
-\newtheorem{lemmat}{\color{turquoise}Lema}[section]
+\newtheorem{lemmat}[propositiont]{\color{turquoise}Lema}
 \newtheorem{definitionT}{\color{turquoise}Definición}[chapter]
 \newtheorem{exerciseT}[ex]{Ejercicio}
 \newtheorem{examplote}[ex]{\color{turquoise}Ejemplo}
@@ -271,6 +272,7 @@ linewidth=4pt]{exBox}
 
 \newenvironment{theorem}{\begin{tBox}\begin{teoremote}}{\end{teoremote}\end{tBox}}
 \newenvironment{proposition}{\begin{pBox}\begin{propositiont}}{\end{propositiont}\end{pBox}}
+\newenvironment{corollary}{\begin{pBox}\begin{corollaryt}}{\end{corollaryt}\end{pBox}}
 \newenvironment{lemma}{\begin{pBox}\begin{lemmat}}{\end{lemmat}\end{pBox}}
 \newenvironment{method}{\begin{mBox}\begin{methodT}}{\end{methodT}\end{mBox}}
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}

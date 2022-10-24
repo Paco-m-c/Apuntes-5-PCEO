@@ -2062,5 +2062,205 @@ Se tiene que $ \phi$ es un monomorfismo $ \iff (M_i)_{i \in I}$ es una familia i
     $$ \dfrac{A}{(a)} \text{ indescomponible} \iff a\text{  es asociado a }p^{t}\text{, para algún }p \in A \text{ irreducible y algún } t>0 $$
 \end{exercise}
 
+\noindent \textbf{Definición previa a la proposición 4.26}
+
+\begin{definition}
+    \textbf{Sucesión exacta corta}
+
+    Se dice que una sucesión de $ A$-módulos y $ A-$-homomorfismos $ 0\to L \to M \to N\to 0$ es una \textbf{sucesión exacta corta} si el núcleo de cada morfismo es la imagen del que la precede. Esto es equivalente a:
+    $$ \left\{
+    \begin{array}{ll}
+        g & epimorfismo\\ 
+        f & monomorfismo\\ 
+        \operatorname{Im}(f) = \operatorname{Ker}(g)
+    \end{array}
+    \right. $$
+\end{definition}
+
+\begin{exercise}
+    $ $
+    
+    Toda sucesión exacta corta con término central $ M$ es isomorfa a una del estilo:
+    $$ 0 \to K \hookleftarrow M \xrightarrow{\pi} M/K \to 0$$
+
+    Donde $ \hookleftarrow$ es la inclusión desde un submódulo y $ \pi$ es la proyección sobre el cociente.
+\end{exercise}
+
+\setcounter{propositiont}{26}
+
+\begin{corollary}
+    $ \bigoplus\limits_{i=1}^{n} M_i$ es noeth. (resp. artiniano) si y solo si todos los $ M_i$ son noeth. (resp. artinianos)
+
+\end{corollary}
+
+\begin{demonstration}
+
+    Se reduce trivialmente al caso $ n = 2$. Vemos que $ N_1 \oplus N_2 $ noeth $ \iff N_1,\ N_2$ lo son. Sabemos que:
+    $$ N_2 \cong \dfrac{N_1 \oplus N_2}{N_1} $$
+
+    Lo cual da la prueba de forma directa.
+\end{demonstration}
+
+\begin{corollary}
+    \textbf{Apartado a)}
+
+    Sea $ A$ anillo. Son equivalentes:
+    \begin{enumerate}
+        \item $ A$ anillo noeth. (resp. artiniano)
+        \item Para algún (resp. todo) entero $ n>0$, el $ A$-módulo libre $ A^{n}$ es noeth. (resp. artiniano).
+        \item Todo $ A$-módulo fin. generado es noeth. (resp. artiniano)
+    \end{enumerate}
+\end{corollary}
+
+\begin{flushright}
+    \textbf{Observación previa a la prueba}
+\end{flushright}
+
+Como en los dos casos de este corolario hay una parte fuerte y una débil en 2), para probar esto hay que hacer el caso fuerte para $ 1\implies 2$ y el débil para $ 2\implies 3$
+
+\begin{demonstration}
+    \noindent $ 1\implies 2$.
+
+    Hay que probar que $ \forall n > 0 _{A}A^{n}$ es noeth (sale por el corolario anterior).
+
+    \noindent $ 2 \implies 1$.
+
+    Suponemos que $ \exists n>0 $ tal que $ _{A}A^{n}$ noeth. $ \implies _{A}A$ noeth.
+
+    \noindent $ (1,2) \implies 3$.
+
+    $ \exists $ epimorfismo $ \pi: _{A}A^{n} \to M$ y $ _{A}A^{n}$ noeth. $ \implies$ M noeth.
+
+    \noindent $ 3\implies 1$.
+
+    Trivial
+\end{demonstration}
+
+\setcounter{propositiont}{27}
+\newpage
+\begin{corollary}
+    \textbf{Apartado b)}
+
+    Sea $ A$ un anillo noeth. (resp. artiniano) y sea $ f: A \to B$ un homomorfismo de anillos tal que $ B$ es f.g. como $ A$-módulo (con la restricción de escalones). Entonces $ B$ es anillo noeth. (resp. artiniano)
+\end{corollary}
+
+\begin{demonstration}
+    $$ \mathcal{L}(_{B}B) \subseteq \mathcal{L}(_{A}B) $$
+
+    El apartado a) nos dice que $ _{A}B$ es noeth. (resp. artiniano). Entonces sale ''directamente'' la prueba.
+\end{demonstration}
+
+\begin{exercise}
+    $ $
+
+    Sea $ A = A_1 \times ... \times A_n$ producto finito de anillos. Probar que todo $ A$-módulo es isomorfos aun producto $ M_1\times... M_n$, donde cada $ M_i$ es un $ A_i$-módulo. En particular:
+    $$ \mathcal{L}(_{A}M) \cong \mathcal{L}(_{A_1}M_1) \times ... \times\mathcal{L}(_{A_n}M_n) $$
+\end{exercise}
+
+\begin{lemma}
+    \textbf{Lema de Artin}
+\end{lemma}
+
+\begin{demonstration}
+    Sean $ 0 = m_1^{n_1} \cdots m_{r}^{n_{r}}$, donde los $ m_i$ son maximales distintos y los $ n_i > 0.$ Aplicamos entonces el teorema chino de los restos.
+    $$ A \cong \dfrac{A}{m_1^{n_1}} \times ... \times \dfrac{A}{m_{r}^{n_{r}}} $$
+
+    Entonces si $ A$ es un anillo y $ m \in \operatorname{MaxSpec}(A) \implies$ $ \dfrac{A}{M^{n}}$ es un anillo local (con un único ideal maximal $ \dfrac{m}{m^{n}}$)
+
+    La prueba se reduce ahora al caso en que $ A$ es un anillo local y su ideal maximal $ M$ satisface $ m^{n} = 0$, para algún $ n>0$. Usamos inducción en $ n$.
+
+    Si $ n = 1$, entonces $ A$ es un cuerpo (sus únicos ideales son $ 0$ y $ A$)
+
+    Si $ n>1$ y se cumple para $ n-1$. Consideramos la sucesión exacta corta:
+    $$ 0 \to m^{n-1} M \to M \to \dfrac{M}{m^{n-1}M} \to 0 $$
+
+    Donde $ \dfrac{M}{m^{n-1}M}$ es un $ \dfrac{A}{m^{n-1}}$-módulo. Y además, $ m^{n-1}M$ es un $ \dfrac{A}{m}$-esp. vectorial
+\end{demonstration}
+
+Con esto podemos completar la demostración del teorema de Akizuki.
+
+\begin{demonstration}
+    $$ A \text{ artiniano} \iff _{A}A\ artiniano \implies_{lem.\ Art}\  _{A}A\  noeth. \iff A\ anillo\ noeth.  $$
+
+\end{demonstration}
+
+
+\begin{definition}
+    Un $ A$-módulo $ M$ se dice de longitud finita si es noeth. y artiniano.
+\end{definition}
+
+\setcounter{propositiont}{30}
+
+\begin{corollary}
+    Un anillo $ A$ es artiniano sii todo $ A$-módulo f.g. es de longitud finita.
+\end{corollary}
+
+\begin{demonstration}
+    Akizuki $ \implies A$ es noeth. $ \implies $ todo $ A-$módulo y f.g es noeth. y artiniano.
+\end{demonstration}
+
+\section{Ejercicios}
+\setcounter{ex}{0}
+
+\begin{exercise}
+    % $$ M \in _{A} Mod \implies \left\{
+    % \begin{array}{ll}
+    %     (M,+) & \text{es un gr. abeliano}\\ 
+    %     A \xrightarrow{\mu} End_{\mathbb{Z}}(M) & \text{ es hom. de anillos}
+    % \end{array}
+    % \right. $$
+
+    % Donde $ \mu(a): M \to M$ y $ \mu(a)(x) = ax$ y $ End_{\mathbb{Z}}(M)$ son los endomorfismos de $ M$ como grupo abeliano. 
+
+        $$ \mu(a+b)(x) = (a+b)(x) = ax + b = \mu(a)(x) + \mu(b)(x) \implies \mu(a+b) = \mu(a)+ \mu(b) $$
+
+        $$ \mu(ab)(x) = (ab)(x) = a(bx) = \mu(a)(\mu(b)(x)) = (\mu(a) \circ \mu(b)) (x) \implies \mu(ab) = \mu(a) \circ \mu(b)$$
+
+        $$ \mu(1)(x) = 1x = x \forall x \in M \implies \mu(1) = 1_{M} $$
+
+        Sea $ (M,f)$ un par formado donde $ M$ es un grupo abeliano y $ f: A \to End_{\mathbb{Z}}(M)$ es un homomorfismo de anillos. Entonces $ M$ adquiere una estructura de $ A$-módulo donde el producto es $ A \times M \to M$ que viene definido por $ (a,x) \mapsto ax: = f(a)(x)$. Hay que probar varias propiedades:
+        $$ a(x+y) = f(a) (x+y) =\footnote{$ f$ es un homomorfismo de grupos abelianos} f(a)(x) + f(a)(y) = ax+ay  $$
+
+        El resto de propiedades, como este, son rutinarias.
+
+\end{exercise}
+
+\begin{exercise}
+    $ $
+
+    ''Pura rutina''
+\end{exercise}
+
+\begin{exercise}
+    $ $
+
+    \begin{flushright}
+        \textbf{Apartado a)}
+    \end{flushright}
+    
+
+    $$ X = \{x_j:j \in J\} $$
+
+    $$ m, m' \in IX \implies \left\{
+    \begin{array}{l}
+        m = \sum\limits_{j \in J}^{}a_jx_j,\  con\ a_i \in I, \forall i \in I\ y\ a_i = 0\ \forall  i \in J  \\ 
+        m' = \sum\limits_{j \in J}^{} a_j'x_j ,\ ...
+    \end{array}
+    \right. $$
+
+    $$ m+m' = \sum\limits_{}^{} (a_j+a_j') x_j \in IX $$
+    $$ b \in A\  bm = b \sum\limits_{j \in J}^{}a_jx_j = \sum\limits_{j \in J}^{}(ba_j)x_j \in IX $$
+
+    \begin{flushright}
+        \textbf{Apartado b)}
+    \end{flushright}
+    
+    Tomamos $ SN = \{m \in M:\ m = \sum\limits_{j \in J}^{} s_jx_j,\ con\ s_j \in S,\ x_j \in N\}$ que es un $ A-$submódulo de $ M$. El resto es parecido al a).
+
+\end{exercise}
+
+\begin{exercise}
+    ''Rutinario''
+\end{exercise}
 
 \end{document}

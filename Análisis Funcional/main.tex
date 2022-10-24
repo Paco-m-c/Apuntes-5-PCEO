@@ -287,7 +287,7 @@ Vemos primero un primer teorema de representación.
 %topología debil
 
 \begin{theorem}
-    \textbf{Teorema de Rieszt}.
+    \textbf{Teorema de Riesz}.
 
     Buscar en el libro.
 \end{theorem}
@@ -498,7 +498,7 @@ Para ver una proposición necesitamos repasar el siguiente teorema:
 
 
 \begin{theorem}
-    \textbf{Poincaré}
+    \textbf{Desigualdad de Poincaré}
 
     $ \forall  f \in \mathcal{D}(\Omega ) =  C_{0}^{\infty}(\Omega ) $, $ \|f\|_{0}\leq \operatorname{diam}(\Omega )\|f\|_{1} $
 \end{theorem}
@@ -521,8 +521,56 @@ Aquí faltan varias definiciones de tipos de espacios de Hilbert. Creo que está
 \end{lemma}
 
 \begin{demonstration}
-    Sea $ (v_n) \in \mathcal{D}(\Omega ) \to v \in H_1^{0} $ en $ \|\cdot \|_{1} \implies \left( \dfrac{\partial v_n}{\partial x_j} \right)_{n=1}^{\infty} $ es de Cauchy en $ \|\cdot \|_{0} $ y converge a $ v_j \in H_0 = L^2(\Omega )$
+    Sea $ (v_n) \in \mathcal{D}(\Omega ),\ v_n \to v \in H_1^{0} $ en $ \|\cdot \|_{1} \implies \left( \dfrac{\partial v_n}{\partial x_j} \right)_{n=1}^{\infty} $ es de Cauchy en $ \langle ,  \rangle_{0} $ y converge a una función a la que llamamos $ v_j \in H_0 = L^2(\Omega )$. Por la desigualdad de Poincaré, $ (v_n)$ es de Cauchy en $ \|\cdot \|_{0}$ y su límite no podrá ser otro que $ v$. La fórmula:
+    $$ \int\limits_{\Omega }^{}zv_j = - \int\limits_{\Omega }^{} \dfrac{\partial z}{\partial x_j} v $$
+
+    Viene dada por el paso al límite de la expresión dada por el teorema de Gauss:
+    $$ \int\limits_{\Omega }^{} z \dfrac{\partial v_n}{\partial x_j} = - \int\limits_{z}^{x_j}v_n $$
     
+\end{demonstration}
+
+\begin{lemma}
+    \textbf{Variacional}
+
+    $ \Omega  \subseteq  \mathbb{R}^{n}$ abierto y acotado, $ u \in L^2(\Omega )$:
+    $$ \int\limits_{\Omega }^{} uv dx = 0 \forall  v \in \mathcal{D}(\Omega )$$
+
+    Entonces $ u = 0 $ en $ L^2(\Omega )$ y $ u = 0\ \forall  x \in \Omega $ 
+\end{lemma}
+
+
+\begin{theorem}
+    $ $
+    
+    Sea $ \Omega  \subseteq  \mathbb{R}^{N}$ un abierto y acotado. Sea $ f \in L^2(\Omega ) \equiv H_0$. Entonces existe una \textbf{solución débil} de la ecuación:
+    $$ \left\{
+    \begin{array}{l}
+        \triangle u = f\\ 
+        u|_{\partial \Omega } u = 0
+    \end{array}
+    \right. $$ 
+
+    En el siguiente sentido:
+
+    {\color{red}Existe una única función $ v \in H^{0}_{1}$ donde que $ \langle u, f \rangle = - \langle u, \triangle v \rangle$ $ \forall u \in \mathcal{D}(\Omega )$}
+
+    Lo rojo aún ''está por aclarar''
+\end{theorem}
+
+
+\begin{demonstration}
+    Si $ f \in L^2 \implies \phi: L^2 \to \mathbb{R}$ lineal y continua en $ H_0$ por Riesz. Aplicando la des. de Poincaré:
+    $$ |\phi(n)| \leq  \|f\|_{0}\|u\|_{0} \leq  \operatorname{diam}(\Omega ) \|f\|_{0}\|u\|_{1}\ \forall  u \in \mathcal{D}(\Omega ) \implies \phi \text{ es continua en } (\mathcal{D}(\Omega ),\langle ,  \rangle_{1}) $$
+
+    Entonces podemos extender $ \phi$ al completado, $ H_1^{0}$. A esta forma lineal extendida le aplicamos el teorema de Riesz.
+
+    Existirá entonces una única $ v \in H_{1}^{0}$ tal que $ \phi(u) = \langle u, v \rangle_{1}  = \sum\limits_{j=1}^{N} \langle u_j, v_j \rangle_{0}$ para todo $ u \in H_1^{0}$.
+
+    Si tomamos $ u \in \mathcal{D}(\Omega )$:
+    $$ \langle u, v \rangle_{1} = \sum\limits_{j=1}^{N} \langle u_j, v_j \rangle_{0} = \sum\limits_{j=1}^{N} \int\limits_{\Omega }^{} \dfrac{\partial u}{\partial x_j} \dfrac{\partial v}{\partial x_j} \stackrel{Int.\ partes}{=} -\sum\limits_{i=1}^{N} \int\limits_{\Omega }^{} u\dfrac{\partial }{\partial x_j} \dfrac{\partial v_j}{\partial x_j} = \int\limits_{\Omega }^{}-u \sum\limits_{j=1}^{N}v_{jj} $$
+
+    Donde las parciales son en el sentido generalizado visto en el lema.
+
 \end{demonstration}
 
 \end{document}
