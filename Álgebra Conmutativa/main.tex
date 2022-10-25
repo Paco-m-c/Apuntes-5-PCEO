@@ -2263,4 +2263,122 @@ Con esto podemos completar la demostración del teorema de Akizuki.
     ''Rutinario''
 \end{exercise}
 
+\begin{exercise}
+    $ $
+
+    Tendremos que probar que $ \phi$ conserva la suma y la multiplicación por elementos de $ K[X]$.
+
+    $$ \phi\left[ \left( \sum\limits_{i=0}^{n}\lambda_iX^{i} \right)v\right] \stackrel{?}{=} \left( \sum\limits_{i=0}^{n}\lambda_iX^{i}  \right) \phi(v) \hspace{10mm} \forall v \in V_1\  \forall  \sum\limits_{i=0}^{n}\lambda_iX^{i} \in K[X]  $$
+
+
+    Tenemos
+    $$ \phi\left[ \left( \sum\limits_{i=0}^{n}\lambda_iX^{i} \right)v\right] = \phi \left( \sum\limits_{i=0}^{n}\lambda_if_{1}^{i}(v)  \right) =_{\phi\ K-lineal}\sum\limits_{i=0}^{n}\lambda_i \phi \left( f_{1}^{i}(v) \right) = \sum\limits_{i=0}^{n}\lambda_i (\phi \circ f_{1}^{i})(v)   $$
+    $$ = \sum\limits_{i=0}^{n}\lambda_i (f_{2}^{i}\circ \phi)(v) = \sum\limits_{i=0}^{n}\lambda_if_{2}^{i}(\phi(v)) = \left( \sum\limits_{i=0}^{n}\lambda_iX^{i}  \right) \phi(v)   $$
+\end{exercise}
+
+
+\begin{exercise}
+    $ $
+
+    \noindent $ \impliedby$
+
+    Sea $ f:\dfrac{A}{I} \to \dfrac{A}{J}$ un $ A$-homomorfismo. 
+
+    ¿Cómo son los $ A$-homomorfismos $ f: \dfrac{A}{I}\to N$, donde $ N \in  _{A\operatorname{Mod}}$ ?
+
+    Vienen unívocamente determinados por la imagen del $ \overline{1}$, $ f(\overline{1}) \in \{y \in N: Iy = 0\}$
+
+    Tenemos entonces una aplicación inducida:
+    $$ 
+    \begin{aligned}
+        \psi: & \operatorname{Hom}_{A}\left(\dfrac{A}{I},N\right) & \to & \{y \in N: Iy = 0\}\\ 
+        & f & \mapsto & f(\overline{1})
+    \end{aligned}
+    $$
+
+    Vemos que esta aplicación tiene inversa: dado $ y \in \{y \in N:\ Iy = 0\}$, podemos tomar $ \mu_{y}: \dfrac{A}{I}\to N$ determinada por $ \mu_{y}(\overline{1}) = y$. Se deja como ejercicio probar que esta asignación define la inversa.
+
+    Volviendo al inicio, y denotando con $ \overline{\cdot }$ a las clases de $ \dfrac{A}{I}$ y con $ []$ a las de $ \dfrac{A}{J}$ sabemos que $ f = \mu_{[b]}: \overline{a} \mapsto [ab]$ donde $ [b] \in \{[c] \in \dfrac{A}{J} :\ I [c] = [0]\} = \{c+J:\ Ic \subseteq J\} = \dfrac{(J:I)}{J}$.
+    
+    Como conlusión, llegamos a que $ f = \mu_{[b]}$, donde $ [b] \in \dfrac{(J:I)}{J} (\iff b \in (J:I))$
+
+    Vemos cuando es este $ \mu_{[b]}$ inyectivo. Lo será cuando
+    $$ 
+    \begin{aligned}
+        \mu_{[b]} = (\overline{a}) = [0] &  \implies  & \overline{a} = \overline{0}\\ 
+        [ab] = [0] & \implies & \overline{a} = \overline{0}\\ 
+        \Updownarrow & & \Updownarrow\\ 
+        ab \in J & \implies & a \in I \\ 
+        a \in (J:b) & \implies & a \in I & \iff (J:b) \subseteq I
+    \end{aligned}
+    $$
+
+    En conclusión, $ \mu_{[b]}$ intectivo sii $ (J:b)\subseteq I$
+
+    Comprobarmos ahora cuando es $ \mu_{[b]}$ suprayectivo.
+
+    $$ \operatorname{Im}(\mu_{[b]}) = \{[ab]:\ \overline{a} \in \dfrac{A}{I}\} = \{ab+J:\ a \in A\} = \dfrac{Ab+J}{J} $$
+
+    Luego $ \mu_{[b]}$ es sobre $ \iff \dfrac{Ab+J}{J} = \dfrac{A}{J} \iff Ab+J = A \implies I (Ab+J) = I \implies I = Ib+ IJ \subseteq J+IJ = J$
+
+\end{exercise}
+
+\begin{exercise}
+    \begin{flushright}
+        \textbf{Apartado a)}
+    \end{flushright}
+    
+    Basta con ver que $ L$ es cíclico de orden 3, luego $ ((0,6)) \cong \mathbb{Z}_{3}$
+    
+    $$ \dfrac{M}{K} = \dfrac{\mathbb{Z}_{3} \oplus \mathbb{Z}_{9}}{\mathbb{Z}_{3} \oplus 0} \cong \dfrac{\mathbb{Z}_{3}}{\mathbb{Z}_{3}} \oplus \dfrac{\mathbb{Z}_{9}}{0} \cong \mathbb{Z}_{9} $$
+    $$ \dfrac{M}{L} = \dfrac{\mathbb{Z}_{3}\oplus \mathbb{Z}_{9}}{0 \oplus (6)} \cong \mathbb{Z}_{3} \oplus \dfrac{\mathbb{Z}_{9}}{(6)} \cong \mathbb{Z}_{3} \oplus \mathbb{Z}_{3} $$
+
+    No son isomorfos porque uno es cíclio y el otro no.
+    
+    \begin{flushright}
+        \textbf{Apartado b)}
+    \end{flushright}
+
+    $$ \dfrac{M}{K+L} = \dfrac{\mathbb{Z}_{3}\oplus \mathbb{Z}_{9}}{\mathbb{Z}_{3}\oplus (6)} = 0 \oplus \dfrac{\mathbb{Z}_{9}}{(6)} \cong \mathbb{Z}_{3} $$
+    $$ \dfrac{M}{N} = \dfrac{\mathbb{Z}_{3}\oplus \mathbb{Z}_{9}}{0 \oplus \mathbb{Z}_{9}} =\cong \mathbb{Z}_{3} $$
+
+
+    $$ K+L = \mathbb{Z}_{3} \oplus (6) \cong \mathbb{Z}_{3} \mathbb{Z}_{3} $$
+    $$ N \cong \mathbb{Z}_{9} $$
+
+
+\end{exercise}
+
+\setcounter{ex}{9}
+
+\begin{exercise}
+    $ $
+
+    Pongamos que $ N = (x_1,...,x_s)$ y $ \dfrac{M}{N}(\overline{y}_{1},...,\overline{y}_{t})$.
+    
+    Parece razonable comprobar que $ M = (x_1,...,x_s,y_1,...,y_t)$, donde los $ y_i$ son representantes arbitrarios de las clases $\overline{y}_{i} $.
+
+    Sea $ m \in M \implies \overline{m} = m+N = \sum\limits_{j=1}^{t}b_j \overline{y}_{j}$ donde los $ b_j \in A$
+
+    Pero $ \sum\limits_{j=1}^{t}b_j \overline{y}_{j} = \overline{\sum\limits_{}^{}b_j y_j} = m $. Por lo tanto:
+    $$ m - \sum\limits_{j=1}^{t} b_j y_j \in N \implies m- \sum\limits_{j=1}^{t}b_jy_j = \sum\limits_{i=1}^{s} a_ix_i $$
+
+    Con $ a_i \in A$. Por lo tanto:
+
+    $ m = \sum\limits_{i=1}^{s}a_ix_i + \sum\limits_{j=1}^{t}b_jy_j$
+
+\end{exercise}
+
+\setcounter{ex}{11}
+
+\begin{exercise}
+    $ $
+
+    Si $ \mathbb{Z}[\dfrac{1}{q}] = \{\dfrac{m}{q^{t}}:\ m \in Z,\ t\geq 0\}$ fuera finitamente generado, tomamos denominadores comunes y podemos expresar $ \mathbb{Z}[\dfrac{1}{q}]$ como:
+    $$ Z[\dfrac{1}{q}] = \left( \dfrac{m_1}{q^{t}},..., \dfrac{m_n}{q^{t}} \right) $$ 
+
+    Pero entonces $ \dfrac{1}{q^{t+1}}$ no se puede generar (o algo así era).
+\end{exercise}
+
+
 \end{document}

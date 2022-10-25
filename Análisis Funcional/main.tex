@@ -573,4 +573,30 @@ Aquí faltan varias definiciones de tipos de espacios de Hilbert. Creo que está
 
 \end{demonstration}
 
+
+\begin{definition}
+    \textbf{Definición de $ \mathcal{D}_{K}(\Omega )$ y su topología}
+
+    Si $ \Omega  = \bigcup\limits_{n=1}^{\infty} K_n$ compactos, definimos $ \mathcal{D}(\Omega ) = \bigcup_{n=1}^{\infty} \mathcal{D}_{K_n}(\Omega )$
+
+    En este espacio $ \mathcal{D}_{K}(\Omega )$, definimos una topología a partir de las seminormas utilizadas en la convergencia uniforme de los elementos de $ \mathcal{D}K(\Omega )$. Lo vemos en detalle:
+
+    Los elementos de $ \mathcal{D}_{K}(\Omega )$ son funciones en $ \mathcal{D}(\Omega )$ tal que su soporte está en $ K$ y se dice que $ h_n \to h$ si $ h_n\to h$ de forma uniforme y sus diferenciales convergen de forma uniforme a la de $ h(x)$, es decir:
+    $$ D^{\alpha}h_n(x) \to D^{\alpha} h(x)\ unif.\ \forall \alpha = (a_1,...,a_N)$$
+\end{definition}
+
+\begin{theorem}
+    \textbf{Ritz-Galerkin}
+
+    Sea $ H$ un esp. de Hilbert y se sea $ B: H \times H \to \mathbb{R}$ bilineal, continua y fuertemente positiva. Sea $ b: H \to \mathbb{R}$ lineal y continua. Definimos $ F(x) = \dfrac{1}{2} B(x,x)-b(x)\ \forall x \in H$. Entonces,
+    $$ \min \{F(x): x \in H\} = F(x_0) \iff \Big[B(x_0,y) = b(y)\ \forall y \in H\Big]$$
+
+\end{theorem}
+
+Para demostrar esto necesitamos el método de Ritz
+
+\begin{method}
+    
+\end{method}
+
 \end{document}
