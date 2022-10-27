@@ -424,5 +424,18 @@ Vamos ahora con la demostración de la proposición.
     
 \end{example}
 
+\section{Ejemplo de familia con cociente de verosimilitud monótono}
+
+\begin{example}
+    $ $
+
+    $ X \sim B(p)$
+
+    $$ L(x,p) = \prod_{j}^{} p^{x_j} (1-p)^{x_j} = p^{\sum\limits_{}^{}x_j} (1-p)^{n-\sum\limits_{}^{}x_j} $$
+
+    Sean $ p_0<p_1 \in [0,1]$:
+    $$ \dfrac{L(X,p_1)}{L(X,p_2)} = \dfrac{p_1^{\sum\limits_{}^{}x_j}(1-p_1)^{n-\sum x_j}}{p_0^{\sum x_j}(1-p_0)^{n-\sum x_j}} = \underbrace{\left( \dfrac{p_1(1-p_0)}{(1-p_1)(p_0)}^{\sum x_j} \right)}_{c>1} \left( \dfrac{1-p_1}{1-p_0} \right)^{n} = $$  
+    $$=c ^{\sum x_j} \left( \dfrac{1-p_1}{1-p_0} \right)^{n} = h(\sum x_j) \text{ creciente} $$
+\end{example}
 
 \end{document}

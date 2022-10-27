@@ -585,18 +585,118 @@ Aquí faltan varias definiciones de tipos de espacios de Hilbert. Creo que está
     $$ D^{\alpha}h_n(x) \to D^{\alpha} h(x)\ unif.\ \forall \alpha = (a_1,...,a_N)$$
 \end{definition}
 
+% \begin{theorem}
+%     \textbf{Ritz-Galerkin}
+
+%     Sea $ H$ un esp. de Hilbert y se sea $ B: H \times H \to \mathbb{R}$ bilineal, continua y fuertemente positiva. Sea $ b: H \to \mathbb{R}$ lineal y continua. Definimos $ F(x) = \dfrac{1}{2} B(x,x)-b(x)\ \forall x \in H$. Entonces,
+%     $$ \min \{F(x): x \in H\} = F(x_0) \iff \Big[B(x_0,y) = b(y)\ \forall y \in H\Big]$$
+
+% \end{theorem}
+
+% Para demostrar esto necesitamos el método de Ritz
+
+\section{Problemas variacionales cuadráticos}
+
 \begin{theorem}
-    \textbf{Ritz-Galerkin}
+    \textbf{Principal de los problemas variacionales cuadráticos}
 
-    Sea $ H$ un esp. de Hilbert y se sea $ B: H \times H \to \mathbb{R}$ bilineal, continua y fuertemente positiva. Sea $ b: H \to \mathbb{R}$ lineal y continua. Definimos $ F(x) = \dfrac{1}{2} B(x,x)-b(x)\ \forall x \in H$. Entonces,
-    $$ \min \{F(x): x \in H\} = F(x_0) \iff \Big[B(x_0,y) = b(y)\ \forall y \in H\Big]$$
+    Sea $ H$ un espacio de Hilbert y $ B: H \times H \to \mathbb{R}$ una forma bilineal simétrica, acotada, continua\footnote{$ \|y\|\|x\| d \geq  |B(x,y)|$} y fuertemente positiva\footnote{$ B(x,y) \geq  C \|x\|\|y\|\ \forall x,y$} y $ b: H \to \mathbb{R}$ una forma lineal continua. Sea $ F(x)$:
+    $$ F(x) = \dfrac{1}{2}B(x,x) -b(x) \forall  x \in H $$ 
 
+    Llamada forma bilineal cuadrática.
+
+    Entonces se verifica la siguiente equivalencia:
+    $$ \inf \{F(z):\  z \in H\} = F(x_0) \iff B(x_0,y) = b(y)\  \forall  y \in H$$
+
+    Además, existe un único $ x_0$ que lo verifica.
 \end{theorem}
 
-Para demostrar esto necesitamos el método de Ritz
+Notemos que la norma $ \|\|$ y el módulo de $ B$ son normas equivalentes debido a que $ B$ es continua y fuertemente positiva.
+
+\begin{demonstration} 
+
+    Demostrado en 1.7.1. del libro. Aquí hay un boceto de la demostración:
+
+    Dado $ t \in \mathbb{R},\ x,y \in H$, se tiene:
+    $$ F(x+ty) = \dfrac{1}{2} B(x+ty,x+ty) -b(x+ty) = \dfrac{1}{2} \Big(B(x,x) +B(x,ty) + B(ty,x) + B(ty,ty) \Big) - \Big ( b(x)+tb(y)\Big) = $$
+    $$ = \dfrac{1}{2} \Big(B(x,x) +2B(x,ty) + t^2B(y,y) \Big) - \Big ( b(x)+tb(y)\Big) = \dfrac{t^2}{2}B(y,y) + t \Big( B(x,y) - b(y) \Big) +\dfrac{1}{2} B(x,x) -b(x)$$
+
+    Si el $ x_0$ es donde se alcanza el extremo inferior, se tiene que:
+
+    $$ F(x_0) \leq  \dfrac{t^2}{2}B(y,y) + t \Big( B(x_0,y) - b(y) \Big) + \underbrace{\dfrac{1}{2} B(x_0,x_0) -b(x_0)}_{F(x_0)} $$
+
+    Y entonces $ B(x_0,y) = b(y)$. (???)
+
+    ''El recíproco se hace con la misma expresión y derivando''
+
+    Para la unicidad, basta con aplicar el teorema de Riesz para el producto escalar $ \langle ,  \rangle_{B}$
+
+\end{demonstration}
 
 \begin{method}
+    \textbf{Método de aproximación de Ritz-Galerkin}
+
+    Dado $ B(x_0,y) = b(y) \forall y \in H$, y tomando $ H = \overline{\bigcup\limits_{n=1}^{\infty} H_n \uparrow}$ con cada $ H_n$ finito dimensional.
+
+    Tomamos $ \operatorname{span}\{e_j^{n}: j = 1,2,...,N\}$ a una base de cada $ H_n$
     
+    Al problema $ P$ presentado en el anterior teorema (la parte izquierda de la equivalencia) restringido a $ H_n$ queda:
+    $$ P|_{H_n}  \equiv B(x,y) = h(y) \forall y \in H_n \longrightarrow B(x,e_{j}^{n}) = b(e_{j}^{n}) = b(e_j^{n})\ j = 1,2,...,N$$
+
+    Entonces si la solución a cada problema es $ x_n$, se tiene que:
+    $$ \lim_{n \to \infty} x_n = x_0 $$
 \end{method}
+
+\begin{demonstration}
+    $$ B(x_n,y) = b(y)\ \forall  y \in H_n $$
+    $$ B(x_0,y) = b(y)\ \forall  y \in H $$
+
+    Restando llegamos a:
+    $$ 0 = B(x_n-x_0,y) \forall y \in H_n $$
+
+    Luego el $ x_n-x_0$ es la proyección ortogonal sobre $ H_n$ asociada a $ \langle ,  \rangle_{B} $ de $ x_0$ sobre $ x_n$. Entonces es la mejor aproximación sobre $ H_n$ como $ H = \overline{\bigcup\limits_{n=1}^{\infty} H_n \uparrow}$, tenemos que $ \lim_{n \to \infty}x_n = x_0$
+\end{demonstration}
+
+\section{Operaciones diferenciales y soluciones débiles }
+
+Definamos el operador:
+
+$$ L = \sum\limits_{|\alpha|\leq n}^{} a_{\alpha} \left( \dfrac{\partial }{\partial x} \right)^{\alpha} $$
+
+Con:
+$$ \left( \dfrac{\partial }{\partial x} \right)^{\alpha} = \dfrac{\partial ^{(\alpha)}}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}...\partial x_N^{\alpha_N}} $$
+$$ \alpha = (\alpha_1,...,\alpha_n),\ |\alpha| = \alpha_1+...+\alpha_n $$
+
+\textbf{Problema:}
+
+Dada $ f:\Omega \to\mathbb{R}$  encontrar $ u$ tal que $ L(u) = f$ con $ \Omega \subseteq \mathbb{R}^{N}$ abierto.
+
+\begin{proposition}
+    $ $
+
+    Adjunto de $ L^{*} = \sum\limits_{|\alpha|\leq n}^{}(-1)^{|\alpha|} \overline{a}_{\alpha} \left( \dfrac{\partial }{\partial x} \right)^{\alpha}$ verifica que:
+    $$ \langle L \phi, \psi \rangle = \langle \phi, L^{*}\psi \rangle \forall \phi,\psi\  \in \mathcal{D}(\Omega ) $$
+
+\end{proposition}
+
+\begin{flushright}
+    \textbf{Observación}
+\end{flushright}
+$\forall f \in L^2(\Omega )$, si $ u \in C^{n}(\Omega )$ verifica que $ L u = f$, entonces $ \langle f, \psi \rangle = \langle u, L^{*}\psi \rangle\ \forall \psi \in \mathcal{D}(\Omega )$
+
+\begin{definition}
+    \textbf{Solución débil}
+
+    Si $ f \in L^2(\Omega )$, $ u \in L^2(\Omega )$ es una \textbf{solución débil} de la ecuación $ L u = f$ siempre que $ \langle f, \psi \rangle = \langle u, L^{*}\psi \rangle\ \forall \psi \in \mathcal{D}(\Omega )$
+\end{definition}
+
+
+\begin{example}
+    En $ \mathbb{R}, L = \dfrac{d}{dx}$ con $ \Omega  = (0,1),\ u,f \in L^2(\Omega )$
+
+    Entonces $ Lu = f$ en sentido débil sii $ \exists F \in :[0,1] \to \mathbb{R}$ absolutamente continua y tal que $ F(x) = u(x)$ para casi todo punto (p.c.t) $ x \in [0,1]$ y $ F'(x) = f(x)$ p.c.t. $ x \in (0,1)$
+\end{example}
+
+Hay otros ejemplos en el libro (sección 1.10)
 
 \end{document}
