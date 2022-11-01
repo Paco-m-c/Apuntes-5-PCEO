@@ -210,7 +210,7 @@ Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \h
 \begin{proposition}
     \textbf{Desigualdad de Jensen}
 
-    Sea $ X $ v.a. y $ g $ una función cóncava, entonces $ E[g(X)]<E(E[X]) $ siempre que las esperanzas anteriores existan.
+    Sea $ X $ v.a. y $ g $ una función cóncava, entonces $ E[g(X)]<g(E[X]) $ siempre que las esperanzas anteriores existan.
 \end{proposition}
 
 \begin{proposition}
@@ -238,10 +238,10 @@ Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \h
 
 
 \begin{theorem}
-    Sea $ X $ variable aleatoria con función de distribución $ F(\cdot ,\theta) $ para $ \theta \in \Theta $, siendo $ \Theta $ un conjunto infinito. Supongamos que se verifica:
+    Sea $ X $ variable aleatoria con función de distribución $ F(\cdot ,\theta) $ para $ \theta \in \Theta $, siendo $ \Theta $ un conjunto finito. Supongamos que se verifica:
     \begin{itemize}
         \item (A1) El soporte de $ F(\cdot ,\theta) $ es común para todo $ \theta \in \Theta $.
-        \item (A2) $ E_{\theta_0}\left[\log{\dfrac{f}{X,\theta}}\right] $ existe y es finita para todo $ \theta,\ \theta_0 \in \Theta$
+        \item (A2) $ E_{\theta_0}\left[\log{{f}({X,\theta})}\right] $ existe y es finita para todo $ \theta,\ \theta_0 \in \Theta$
         
     \end{itemize}
     Si para todo $ n \in \mathbb{N} $ y $ (X_1,...,X_n) $ m.a.s de $ X $ existe el $ \operatorname{EMV}(\hat{\theta}_{n}) $ de $ \theta $ y es único entonces $ \hat{\theta}_{n} $ es un estimador consistente del parámetro $ \theta $.
@@ -265,7 +265,7 @@ Se dice que $ \hat{\theta}_n $ es consistente para $ \theta \in \Theta $ si $ \h
     Como el espacio paramétrico es finito, utilizaremos la equivalencia para la definición de consistencia y buscaremos el límite:
     $$ \lim_{n \to \infty} P_{\theta_0}(\hat{\theta}_{n} = \theta_0 ) $$
 
-    Estudiamos ahora el suceso $ \{\hat{\theta}_{n}(x) = \theta_0\} = \bigcap _{\substack{\theta \in \Theta\\\theta\ne \theta_0}} \{L(\mathbb{X},\theta) < L(X,\theta_0)\} $
+    Estudiamos ahora el suceso $ \{\hat{\theta}_{n}(x) = \theta_0\} = \bigcap _{\substack{\theta \in \Theta\\\theta\ne \theta_0}} \{L(\mathbb{X},\theta) < L(X,\theta_0)\} $ ya que $ \widetilde{\theta}_{n}$ es EMV único.
 
     El suceso es intersección finita de sucesos cuya probabilidad tienen límite 1. Utilizando el lema llegamos a:
     $$ \lim_{n \to \infty}P(\hat{\theta}_{n} = \theta_0 ) = 1 $$
