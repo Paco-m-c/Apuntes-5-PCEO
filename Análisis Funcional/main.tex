@@ -699,4 +699,108 @@ $\forall f \in L^2(\Omega )$, si $ u \in C^{n}(\Omega )$ verifica que $ L u = f$
 
 Hay otros ejemplos en el libro (sección 1.10)
 
+\section{Teorema de Radon-Nykodin}
+
+\begin{theorem}
+    Sea $ \Omega  $ es de medida. $ \Sigma$ una $ \sigma$-álgebra y $ \mu,\nu: \Sigma \to \mathbb{R}^{+}$ medidas finitas.
+
+    Si $ \nu$ es absolutamente continua respecto de $ \mu$, es decir, $ \mu(E) = 0 \implies \nu(E) = 0$.
+
+    Entonces existe $ g:\Omega  \to \mathbb{R}^{+}$ integrable respecto a $ \mu$ tal que:
+    $$ \nu(E) = \int\limits_{E}^{}f d\mu \ \forall E \in \Sigma $$
+\end{theorem}
+
+\begin{demonstration}
+    (Prueba de Von-Neumann)
+    
+
+    Sea $ H = L^2(\Omega ,\Sigma, \mu + \nu)$, entonces podemos definir la forma lineal $ \phi: H \to \mathbb{R}$ tal que $ \phi(x) = \int\limits_{}^{}xd\mu$ es lineal y continua para la norma asociada $ \|\cdot \|_{L^2(\mu)}$ y, por tanto, lo es para la norma asociada $ \|\cdot \|_{L^2(\mu+\nu)}   $ y aplicando el teorema de Riesz, existe una única función $ y \in L^2(\mu+\nu)$ tal que:
+    $$ \int\limits_{}^{} x d\mu = \phi(x) = \langle x, y \rangle_{L^2(\mu+\nu)} = \int\limits_{\Omega }^{} xy d(\mu+\nu) = \int\limits_{\Omega }^{}xy d\mu * \int\limits_{\Omega }^{}xy d\nu $$
+
+    Luego tenemos:
+
+    $$ \int\limits_{\Omega }^{}x(1-y)d\mu = \int\limits_{\Omega }^{}xy d\nu \ \forall x \in H $$
+
+    \textbf{Ejercicio:} Probar que $ 0<y\leq 1$ p.c.t con relación a $ \mu$.
+
+    Definimos entonces $ g=\dfrac{1-y}{y}$. Entonces:
+
+    $$ \int\limits_{\Omega }^{} (xy)g d\mu = \int\limits_{\Omega }^{}(xy)d \nu \ \forall x \in H $$
+    $$ \int\limits_{\Omega }^{}u g d\mu = \int\limits_{\Omega }^{}u d\nu \ \forall x \in H,\ u=xg $$
+
+    Haciendo $ u = \chi_{E}$ tenemos:
+    $$ \int\limits_{\Omega }^{} g d\mu = \int\limits_{\Omega }^{} \chi_{E} g d\mu = \int\limits_{\Omega }^{}\chi_{E}d \nu = \nu(E) $$
+
+\end{demonstration}
+
+\chapter{Operadores Lineales}
+
+\section{Introducción}
+
+\begin{definition}
+    \textbf{Norma de un operador lineal y $ \mathcal{L}(X,Y)$}
+
+    Sea $ X,Y$ espacios de Banach y $ T:X\to Y$ lineal y continua. Definimos la norma de $ T$ como:
+    $$ \|T\| := \sup \{\|Tx\|:\ x \in  B_{X}\footnote{Bola unidad}\} $$
+
+    Al espacio normado $\Big ( \{T: X \to Y\ lineal\ continuo\} \Big) $ lo denotamos por $ \mathcal{L}(X,Y)$.  Este espacio es completo cuando lo es $ Y$.
+
+\end{definition}
+
+\begin{flushright}
+    \textbf{Observación}
+\end{flushright}
+
+Esta norma es la menor constante tal que $ \|Tx\|\leq  \|T\|\|x\| \ \forall x \in X$
+
+
+\subsection{Nota sobre limites iterados}
+
+Cuando tenemos una sucesión:
+$$ \begin{pmatrix}
+    a_{11} & a_{12} & ... & a_{1n} & ... & \to & \alpha_1\\
+    a_{21} & a_{22} & ... & a_{2n} & ... & \to & \alpha_2\\
+    \vdots & \vdots & ... & \vdots\\ 
+    \downarrow & \downarrow & ... & \downarrow & ... \\ 
+    \beta_1 & \beta_2 & ... & \beta_n
+
+\end{pmatrix}  $$
+
+Nos preguntamos entonces cuando se tiene que:
+$$ \lim_{p \to \infty} \alpha_{p} = \lim_{n \to \infty} \beta_n $$
+
+\begin{proposition}
+    Si existe el límite doble, $ \lim_{p \to \infty}\lim_{n \to \infty} a_{pn}$, entonces se da la igualdad.
+\end{proposition}
+
+\begin{theorem}
+    Si se converge por filas o por columnas se da la convergencia \textbf{uniforme}, entonces se da la igualdad.
+\end{theorem}
+
+
+\begin{flushright}
+    \textbf{Observación}
+\end{flushright}
+
+Lo realizado sobre límites iterados también es válido para redes y filtros.
+
+\begin{definition}
+    \textbf{Operador $ T^*$}
+
+\end{definition}
+
+\section{Inversión de operadores lineales}
+
+En esta sección veremos que los operadores invertibles en dimensión infinita forman un conjunto abierto (como ocurre en $ \mathbb{R}^{n}$). 
+
+En general, estudiaremos la invertibilidad de un operador $ T: X \to X$ ($ X$ un Hilbert) estudiando la de $ (T- \lambda  Id)$. En ese caso, $ \lambda $ será un valor propio. Obteniendo los vectores propios asociados $ \{e_j\}_{j=1}^{\infty}$. Entonces si estos vectores forman una base Hilbertiana, entonces $ X = \operatorname{span} \{e_j\}$ y $ \forall x \in H$:
+$$ x = \sum\limits_{j=1}^{\infty} \langle x, e_j \rangle e_j  $$
+$$ T(x) = \sum\limits_{j=1}^{ \infty} \langle x, e_j \rangle \lambda_j e_j $$
+
+Cuando tengamos esto, podremos resolver la ecuación $ T(x) = y$, donde queremos obtener la $ x$ a partir de $ T $ e $ y$.
+
+Esto lo podremos hacer para un operador compacto (la bola unidad va a un conjunto (relativamente) compacto) y simétrico.
+
+
+
 \end{document}
