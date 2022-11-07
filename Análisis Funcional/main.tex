@@ -737,6 +737,8 @@ Hay otros ejemplos en el libro (sección 1.10)
 
 \section{Introducción}
 
+A no ser que se diga lo contrario, en este tema denotaremos a $ X$ como un espacio de Banach sobre $ \mathbb{K} = \mathbb{R}$ o $ \mathbb{C}$
+
 \begin{definition}
     \textbf{Norma de un operador lineal y $ \mathcal{L}(X,Y)$}
 
@@ -800,6 +802,46 @@ $$ T(x) = \sum\limits_{j=1}^{ \infty} \langle x, e_j \rangle \lambda_j e_j $$
 Cuando tengamos esto, podremos resolver la ecuación $ T(x) = y$, donde queremos obtener la $ x$ a partir de $ T $ e $ y$.
 
 Esto lo podremos hacer para un operador compacto (la bola unidad va a un conjunto (relativamente) compacto) y simétrico.
+
+\begin{theorem}
+    \textbf{De Von Neumnn}
+
+    Si $ K \in \mathcal{L}(X)$ invertible, $ L,A \in \mathcal{L}(X)$ y sea $ L = K - A$. Entonces si $ \|A\| < \dfrac{1}{\|K ^{-1}\|}$ entonces $ L$ es invertible.
+\end{theorem}
+
+\begin{demonstration}
+    Supongamos primero que $ K = Id$. Probaremos entonces que la bola de radio 1 está dentro de los elementos invertibles.
+
+    Consideremos $ Id-B$ con $ \|B\|<1$. Veremos que esta diferencia es invertible. 
+
+    Definimos $ S = \sum\limits_{i=0}^{\infty} B^{n}$. Veremos que esta serie es convergente.
+
+    Supongamos que la serie es \textit{normalmente} convergente, es decir, $ \sum\limits_{}^{} \|B^{n}\| < \infty$.
+    
+    Por lo tanto,
+    $$ \sum\limits_{n=0}^{\infty}B^{n} \text{ es de Cauchy} \implies \text{ es convergente} $$ 
+
+    La serie es \textit{normalmente} convergente ya que dados dos operadores $ S,T$ tenemos $ \| S \circ T \| \leq  \|S\|\|T\|$. Entonces podemos la serie para ver que es convergente:
+
+    $$ \sum\limits_{n=0}^{\infty}\|B^{n}\| \leq  \sum\limits_{n=0}^{\infty}\|B\|^{n} < \infty $$
+
+    Siendo la última convergente al ser una serie geométrica (recordemos que $ \|B\| < 1$)
+
+    Y se puede ver fácilmente que $ S$ es la inversa de $ Id-B$: ''es lo mismo que ver que $ \sum\limits_{n=0}^{\infty}c^{n} = \dfrac{1}{1-c}$ pero con matrices infinitas''. 
+
+\end{demonstration}
+
+\begin{exercise}
+    \textbf{Ejercicio propuesto}
+
+    Dado un espacio normado $ (Z,\|\cdot \|)$, es completo sii toda serie normalmente convergente en $ Z$ es convergente en $ Z$.
+\end{exercise}
+
+\begin{exercise}
+    \textbf{Ejercicio propuesto}
+
+    $ \mathcal{L}(X)$ es completo.
+\end{exercise}
 
 
 
