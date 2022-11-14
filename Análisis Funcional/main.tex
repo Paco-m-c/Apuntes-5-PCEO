@@ -804,7 +804,7 @@ Cuando tengamos esto, podremos resolver la ecuación $ T(x) = y$, donde queremos
 Esto lo podremos hacer para un operador compacto (la bola unidad va a un conjunto (relativamente) compacto) y simétrico.
 
 \begin{theorem}
-    \textbf{De Von Neumnn}
+    \textbf{De Von Neumann} \label{T Von Neumann}
 
     Si $ K \in \mathcal{L}(X)$ invertible, $ L,A \in \mathcal{L}(X)$ y sea $ L = K - A$. Entonces si $ \|A\| < \dfrac{1}{\|K ^{-1}\|}$ entonces $ L$ es invertible.
 \end{theorem}
@@ -868,29 +868,79 @@ Esto lo podremos hacer para un operador compacto (la bola unidad va a un conjunt
     \textbf{Resolvente y espectro}
 
     Dado $ M: X\to X$ se definen el resolvente y el espectro respectivamente como:
-    $$ \rho(M):= \{\lambda  \in \mathbb{C}:\ (\lambda Id-M) \text{ es inverible}\} $$
-    $$ \sigma(M):= \{\lambda  \in \mathbb{C}:\ (\lambda Id-M) \text{ NO es inverible}\} $$
+    $$ \rho(M):= \{\lambda  \in \mathbb{C}:\ (\lambda Id-M) \text{ es invertible}\} $$
+    $$ \sigma(M):= \{\lambda  \in \mathbb{C}:\ (\lambda Id-M) \text{ NO es invertible}\} $$
 \end{definition}
 
 \begin{theorem}
+    Dado $ M \in \mathcal{L}(X)$, se tiene:
+    
     \begin{enumerate}
         \item $ \rho(M)$ es abierto.
         \item $ \rho(M ) \to \mathcal{L}(X)$ tal que $ \lambda \mapsto (\lambda  Id -M) ^{-1}$ es analítica.
     \end{enumerate}
 \end{theorem}
 
+Esta prueba, por algún motivo, demuestra ambos puntos: 
 \begin{demonstration}
 
-    \noindent 1.
 
     Si $ \lambda  \in \rho(M)$, podemos aplicar el teorema de Von Neumann para $ K = \lambda  Id - M$ y $ A = \lambda  Id$ y tendremos que:
     $$ (\lambda  -h) Id -M = (\lambda  Id-M) -hId \text{ será invertible si $ h$ es suficientemente pequeño} $$
 
-    La fórmula \ref*{calc inv} nos da:
-    $$ \Big ( (\lambda  -h)Id -M \Big ) ^{-1} = \sum\limits_{n=0}^{\infty} \Big ( (\lambda  Id -M)^{-1} h \Big ) ^{n} (\lambda Id - M) ^{-1} = \sum\limits_{n=0}^{\infty} \Big ( (\lambda  Id- M) ^{-1} \Big ) ^{n-1} h^{n}\ \text{en}\ \mathcal{L}(X) $$
+    La fórmula \eqref{calc inv} nos da:
+    \begin{equation}
+        \Big ( (\lambda  -h)Id -M \Big ) ^{-1} = \sum\limits_{n=0}^{\infty} \Big ( (\lambda  Id -M)^{-1} h \Big ) ^{n} (\lambda Id - M) ^{-1} = \sum\limits_{n=0}^{\infty} \Big ( (\lambda  Id- M) ^{-1} \Big ) ^{n-1} h^{n}\ \text{en}\ \mathcal{L}(X) 
+        \label{inv segunda}
+        \end{equation}
+    
 
     Siendo esta serie convergente cuando $ |h|<\|\lambda  Id -M ^{-1}\| ^{-1}$ (la condición que necesitábamos para aplicar el teorema).
 
 \end{demonstration}
 
-\end{document}
+\begin{theorem}
+    \textbf{Gelfund}
+
+    $ \forall M \in \mathcal{L}(X)$, el espectro $ \sigma(M)$ es compacto no vacío.
+\end{theorem}
+
+\begin{demonstration}
+    Tomamos una bola $ B(0,\|M\|)$, entonces tenemos $ \sigma(M) \subseteq B(0,\|M\|)$.
+    
+    Sea $ \xi \in \mathbb{C}$ tal que $ |\xi| > \|M\| \implies \xi \not \in \sigma(M)$ (por \eqref{calc inv} y usando el Teorema de Von Neumann \ref{T Von Neumann}). Para aplicar el teorema, tomemos $ B = \xi ^{-1} M $. Entonces \eqref{calc inv} nos da:
+    $$ (\xi Id -M) ^{-1} = \xi^{-1} (Id -M \xi ^{-1}) = \sum\limits_{n=0}^{\infty}M^{n}\xi^{-(n+1)} $$
+
+    Esta serie converge cuando $ \|M\xi ^{-1}\| < 1 $, es decir, cuando $ |\xi| > \|M\|$. Por lo tanto, $ \sigma(M) $ es compacto.
+
+    Vemos ahora que es no vacío por reducción al absurdo. Supongamos $ \rho(M) = \mathbb{C}$ y definimos la función entera:
+    $$ 
+    \begin{aligned}
+        \phi:\rho(M) = & \mathbb{C} & \to & L(X)\\ 
+        & \lambda  & \mapsto & (\lambda Id-M) ^{-1}
+    \end{aligned}
+    $$
+
+    Esta $ \phi$ verifica que $ \phi'(\lambda )= Id $ debido a \eqref{inv segunda}.
+
+    Si $ \lim_{\lambda  \to \infty}\|\phi(x)\| = 0 \implies \phi $ es constante por el Teorema de Liouville, lo que nos lleva a una contradicción.
+
+    Vemos este límite, tenemos que:
+    $$ \|\phi(\lambda )\| = \|(\lambda  Id -M)^{-1}\| = \|\lambda ^{-1}(Id-M ^{-1}) ^{-1}\| \leq  |\lambda | ^{-1}\sum\limits_{n=0}^{\infty} \|M ^{-1}\lambda \|^{n} = \dfrac{1}{|\lambda| (1-\|M\lambda ^{-1}\|) } \to 0 $$
+\end{demonstration}
+
+\begin{definition}
+    \textbf{Adjunto de un operador, $ T^*$}
+
+    % Sea $ H$ un Hilbert y $ T: H \to H$ un operador lineal definimos un $ \phi$ como:
+    % $$ 
+    % \begin{aligned}
+    %     \phi: & H & \to & \mathbb{C}\\ 
+    %     & y & \mapsto & \langle y, Tx \rangle
+    % \end{aligned} $$
+
+    % Por el teorema de representación de Risz, tenemos un $ $
+
+\end{definition}
+
+\end{document} 
