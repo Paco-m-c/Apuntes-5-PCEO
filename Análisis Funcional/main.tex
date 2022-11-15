@@ -756,6 +756,7 @@ A no ser que se diga lo contrario, en este tema denotaremos a $ X$ como un espac
 Esta norma es la menor constante tal que $ \|Tx\|\leq  \|T\|\|x\| \ \forall x \in X$
 
 
+
 \subsection{Nota sobre limites iterados}
 
 Cuando tenemos una sucesión:
@@ -786,10 +787,10 @@ $$ \lim_{p \to \infty} \alpha_{p} = \lim_{n \to \infty} \beta_n $$
 
 Lo realizado sobre límites iterados también es válido para redes y filtros.
 
-\begin{definition}
-    \textbf{Operador $ T^*$}
+% \begin{definition}
+%     \textbf{Operador $ T^*$}
 
-\end{definition}
+% \end{definition}
 
 \section{Inversión de operadores lineales}
 
@@ -929,18 +930,70 @@ Esta prueba, por algún motivo, demuestra ambos puntos:
     $$ \|\phi(\lambda )\| = \|(\lambda  Id -M)^{-1}\| = \|\lambda ^{-1}(Id-M ^{-1}) ^{-1}\| \leq  |\lambda | ^{-1}\sum\limits_{n=0}^{\infty} \|M ^{-1}\lambda \|^{n} = \dfrac{1}{|\lambda| (1-\|M\lambda ^{-1}\|) } \to 0 $$
 \end{demonstration}
 
+Dado un operador lineal $ T: H \to H$ y fijado $ y \in T$, tenemos una aplicación lineal inducida $ \phi$:
+$$
+\begin{aligned}
+    \phi_{Ty}: & H & \to & K\\ 
+    & y & \mapsto & \langle Tx, y \rangle
+\end{aligned}
+$$
+
+Aplicando entonces Riesz, tenemos un único operador lineal $ T^*y$ tal que $ \phi_{Ty}(x) = \langle x, T^{*}y \rangle \ \forall y \in H$.
+Luego $ \forall x,y \in H$, llegamos a la igualdad
+\begin{equation}
+    \langle Tx, y \rangle = \langle x, T^*y \rangle
+    \label{def T*}
+    \end{equation}
+
+
 \begin{definition}
-    \textbf{Adjunto de un operador, $ T^*$}
+    \textbf{Adjunto de un operador}
 
-    % Sea $ H$ un Hilbert y $ T: H \to H$ un operador lineal definimos un $ \phi$ como:
-    % $$ 
-    % \begin{aligned}
-    %     \phi: & H & \to & \mathbb{C}\\ 
-    %     & y & \mapsto & \langle y, Tx \rangle
-    % \end{aligned} $$
-
-    % Por el teorema de representación de Risz, tenemos un $ $
+    A $ T^*$ definido como en \eqref{def T*} lo llamamos el \textbf{adjunto} de $ T$.
 
 \end{definition}
 
+
+Necesitaremos ahora algunas propiedades sobre la norma de un operador lineal.
+
+\begin{lemma} \label{prop norma}
+    Dados $ f,g \in H$:
+    \begin{itemize}
+        \item  $ \|T\| = \sup \{\langle Tf, g \rangle:\ \|f\|,\|g\|\leq 1\} = \sup \{ \sup \{| \langle Tf, g \rangle|,\ \|g\|\leq 1\}\|f\|\leq 1\}$
+        \item $ \|T\| = \|T^*\|$
+        \item Si $ T = T^*$ entonces $ \|T\| = \sup \{ |\langle Tf, f \rangle|:\ \|f\| \leq  1\}$
+    \end{itemize}
+\end{lemma}
+
+\begin{demonstration}
+    \noindent 1.
+
+    Se utiliza la segunda igualdad dada.
+
+    \noindent 2.
+
+    Ejercicio.
+
+    \noindent 3.
+
+    Sea $ M:=\sup \{ |\langle Tf, f \rangle|:\ \|f\| \leq  1\}$, $ M \leq  \|T\|$ es ''directo''. Vemos la otra desigualdad:
+
+    $$ | \langle Tf, g \rangle| = \footnote{Se utiliza que $ T= T^*$, queda como ejercicio.} \dfrac{1}{4} \Big | \langle \langle T(f+g), f+g \rangle - T(f-g),f-g\rangle \Big | \leq \dfrac{1}{4} \Big | \langle \dfrac{T(f+g)}{\|f+g\|}, \dfrac{f+g}{\|f+g\|} \rangle \|f+g\|^2\Big |  + \Big | \langle \dfrac{T(f-g)}{\|f-g\|}, \dfrac{f-g}{\|f-g}\| \rangle \|f-g\|^2  \Big |$$
+    $$ \leq  \dfrac{M}{4} \Big ( \|f+g\|^2+\|f-g\|^2 \Big ) = \dfrac{M}{4} (2 \|f\|^2 + 2\|g\|^2) $$
+
+    Tomando supremos llegamos a la desigualdad.
+\end{demonstration}
+
+Sea $ \{e_{k}\}_{k=1} ^{\infty}$ una base hilbertiana y sea la sucesión $ (\lambda _{k}) \in \mathbb{C}$ acotada. Tomamos $ T$:
+$$ Te_{k} := \lambda _{k} e_{k} $$
+$$ T (X) = \sum\limits_{k=1}^{\infty} \langle x, e_{k} \rangle e_{k} = \sum\limits_{k=1}^{\infty} \langle x, e_{k}  \rangle \lambda_{k} e_k $$
+
+Demostrar:
+\begin{enumerate}
+    \item $ \|T\| = \sup \{|\lambda_k|:\ k = 1,2,...\}$
+    \item $ T^* (e_k) =\overline{\lambda_k} e_k $
+    \item $ T = T^* \iff \lambda_k \in \mathbb{R}$
+    \item $ T$ es proyección ortogonal $ \iff \lambda_k \in \{0,1\} \ \forall k $
+    \item $ T$ es compacto $ \iff \lim_{k \to \infty}\lambda_k = 0$
+\end{enumerate}
 \end{document} 
