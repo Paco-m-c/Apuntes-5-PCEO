@@ -984,16 +984,66 @@ Necesitaremos ahora algunas propiedades sobre la norma de un operador lineal.
     Tomando supremos llegamos a la desigualdad.
 \end{demonstration}
 
-Sea $ \{e_{k}\}_{k=1} ^{\infty}$ una base hilbertiana y sea la sucesión $ (\lambda _{k}) \in \mathbb{C}$ acotada. Tomamos $ T$:
-$$ Te_{k} := \lambda _{k} e_{k} $$
-$$ T (X) = \sum\limits_{k=1}^{\infty} \langle x, e_{k} \rangle e_{k} = \sum\limits_{k=1}^{\infty} \langle x, e_{k}  \rangle \lambda_{k} e_k $$
 
-Demostrar:
-\begin{enumerate}
-    \item $ \|T\| = \sup \{|\lambda_k|:\ k = 1,2,...\}$
-    \item $ T^* (e_k) =\overline{\lambda_k} e_k $
-    \item $ T = T^* \iff \lambda_k \in \mathbb{R}$
-    \item $ T$ es proyección ortogonal $ \iff \lambda_k \in \{0,1\} \ \forall k $
-    \item $ T$ es compacto $ \iff \lim_{k \to \infty}\lambda_k = 0$
-\end{enumerate}
+\begin{proposition}
+    Sea $ \{e_{k}\}_{k=1} ^{\infty}$ una base hilbertiana y sea la sucesión $ (\lambda _{k}) \in \mathbb{C}$ acotada. Tomamos $ T$:
+    $$ Te_{k} := \lambda _{k} e_{k} $$
+    $$ T (X) = \sum\limits_{k=1}^{\infty} \langle x, e_{k} \rangle e_{k} = \sum\limits_{k=1}^{\infty} \langle x, e_{k}  \rangle \lambda_{k} e_k $$
+    
+    
+    Demostrar:
+    \begin{enumerate}
+        \item $ \|T\| = \sup \{|\lambda_k|:\ k = 1,2,...\}$
+        \item $ T^* (e_k) =\overline{\lambda_k} e_k $
+        \item $ T = T^* \iff \lambda_k \in \mathbb{R}$
+        \item $ T$ es proyección ortogonal $ \iff \lambda_k \in \{0,1\} \ \forall k $
+        \item $ T$ es compacto $ \iff \lim_{k \to \infty}\lambda_k = 0$
+        \item $ T(\overline{x}) = \sum_{k=1}^{\infty} \langle x, e_k \rangle \lambda_k \overline{e_k} $
+    \end{enumerate}
+\end{proposition}
+
+\begin{demonstration}
+    Ejercicio.
+\end{demonstration}
+
+% Recordemos que en $ \mathbb{R}^{n}$ o $ \mathbb{C}^{n}$ podemos expresar los operadores como matrices. Estas sabemos que se pueden dividir en la suma de una matriz semisimple y una nilpotente. (Siendo la matriz diagonalizable cuando la parte semisimple es nula).
+
+% En este caso de dimensión finita, una matriz es diagonalizable cuando tenemos una base de vectores propios.
+
+% Vamos a extrapolar esto último a dimensión infinita en el espacio de Banach $ (\mathcal{L}(X),\|\cdot \|)$.
+
+% El concepto de valor propio sale de forma totalmente intuitiva. Para el de base, estudiamos en el primer tema las bases hilbertianas. Veremos la forma de obtener los subespacios propios.
+
+\section{Operadores Compactos}
+
+\begin{definition}
+    \textbf{Operador compacto}
+
+    Sea $ H$ espacio de Hilbert, $ B_{H}$ una base hilbertiana de $ H$ con $ B_{H} = \{v \in H:\ \|v\|\leq 1\}$ y $ T:H \to H$ un operador lineal.
+
+    $ T$ se dice \textbf{compacto} si $ T(B_{H})$ es relativamente compacto, es decir, si $ \forall (f_n)$ sucesión acotada en $ H$, $ T(f_n)$ tiene una subsucesión convergente.
+
+\end{definition}
+
+\begin{definition}
+    $ \mathcal{K}(H)$
+
+    Definimos $ \mathcal{K}(H) = \{S: H\to H\  \text{ lineal, continuo y compacto}\}$.
+\end{definition}
+
+
+\begin{theorem}
+    $ $
+
+    Sea $ H$ un Hilbert separable y $ T:H \to H$ lineal y continuo. Entonces:
+    \begin{enumerate}
+        \item $ S:H\to H$ es compacto $ \implies S\circ T $ y $ T \circ S$ son compactos. ($ \mathcal{K}(H)$ es un ideal de $ \mathcal{L}(H)$)
+        \item Si $ T_n:H \to H$ es compacto $ \forall n \in \mathbb{N}$ y $ \lim_{n \to \infty} \|T_n-T\| = 0 $ entonces $ T $ es compacto.
+        \item Si $ T$ es compacto entonces $ \exists T_n:H \to H$ operadores de rango finito tales que $ \lim_{n \to \infty} \|T-T_n\| = 0$
+        \item $ T$ es compacto sii $ T^*$ lo es.
+    \end{enumerate}
+\end{theorem}
+
+% $ \{S:H\to H:\ \text{ lineal continua y } \operatorname{dim}(S(H))< + \infty\} $
+
 \end{document} 
