@@ -1046,4 +1046,81 @@ Necesitaremos ahora algunas propiedades sobre la norma de un operador lineal.
 
 % $ \{S:H\to H:\ \text{ lineal continua y } \operatorname{dim}(S(H))< + \infty\} $
 
+
+
+\begin{demonstration}
+    
+    %%TODO aqui faltan cosas
+Los apartados 1,2 aún no están incluidos.
+
+\noindent 3.
+
+    Tomamos $ \{e_{x}\}$ b.h. en $ H$ y la función:
+
+    $$ 
+    \begin{aligned}
+        Q_n: & H & \to & \overline{\operatorname{span} \{e_k:\ k>n\}}\\ 
+        & g & \mapsto & Q_n(g) = \sum\limits_{i>n}^{} \langle g, e_i \rangle e_i  
+    \end{aligned}
+    $$
+
+    Notemos entonces que $ \|Q_n(g)\|^2 = \sum\limits_{i=n+1}^{\infty} |\langle g, e_i \rangle|^2 \to 0$ con $ n \to +\infty$.
+
+    Afirmamos que esta convergencia no es solo puntual, sino que $ \|Q_n \circ T\| \to 0$ con $ n \to \infty$. 
+    
+    Para demostrarlo, definimos $ P_n: H \to \operatorname{span} \{e_1,...,e_n\}$ como el proyector ortogonal. Y tomamos $ Q_n$ tal que $ I_n = P_n+ Q_n$, al componer con $ T$ tenemos:
+    $$ Id = P_n+Q_n \implies T = \underbrace{P_n \circ T}_{\to T} + \underbrace{Q_n \circ T}_{ \to 0} $$
+
+    Completar la demostración de la afirmación y del teorema como ejercicio. Cuidado porque lo puede preguntar
+
+    \noindent 4.
+
+    Ejercicio.
+\end{demonstration}
+
+\chapter{Ejercicios}
+
+\section{Tema 1}
+
+\setcounter{ex}{3}
+
+\begin{exercise}
+    Sea $ g \in C[a,b]$ y considere la forma lineal $ L: C[a,b] \to \mathbb{R}$ definida por $ L(f) = \int\limits_{a}^{b}f(x)g(x)dx$. Demuestre que $ L$ es continua y calcule su norma.
+
+    \textbf{Indicación.} Suponer en primer lugar que $ g$ es positiva. 
+
+    Tomamos la norma:
+    $$ \|f\| = \sup \{|f(x)|:\ x \in [a,b]\} $$
+
+    Como $ L$ es lineal, será continua sii:
+    $$ |L(f)| \leq  C \|f\| $$
+
+    Tenemos:
+
+    $$ \left| \int\limits_{a}^{b}f(x)g(x) dx \right| \leq  \int\limits_{a}^{b} |f(x)| |g(x)| dx \leq\footnote{Ya que $ g$ es continua en un compacto} M \int\limits_{a}^{b} |f(x)| dx \leq  M (b-a) \|f\|  $$
+
+    Calculamos ahora la norma:
+
+    $$ \|L\| = \sup \{|L(f)|: \|f\|_{\infty} = 1\} $$
+
+    Y tendremos:
+
+    % $$ \left| \int\limits_{a}^{b} f(x)g(x) dx  \right| \leq  \footnote{Cauchy-Schwarz} \int\limits_{a}^{b} |f(x)| dx \int\limits_{a}^{b} |g(x)| dx \leq  (b-a)^2 \underbrace{\|f\|_{\infty}}_{=1} \|g\|_{\infty} = (b-a)^2 \|g\|_{\infty}$$
+    $$ \left| \int\limits_{a}^{b} f(x)g(x) dx  \right| \leq \int\limits_{a}^{b} |f(x)| |g(x)| dx \leq  \|f\|_{\infty} \|g\|_{1} $$
+
+    Este será nuestro candidato a norma. Comprobemos que es realmente su supremo. En el caso $ g \geq  0$ tomando $ f \equiv 1$ sale de forma directa. El caso no positivo lo piensas en casa.
+\end{exercise}
+
+
+\setcounter{ex}{11}
+
+\begin{exercise}
+    Pruébese que un subconjunto de un espacio de Banacah $ X$ es relativamente compacto sii para cada $ \varepsilon > 0$ existe un conjunto relativamente compacto $ K_{\varepsilon} $ en $ X$ tal que $ K \subset \varepsilon B_{X} + K_{\varepsilon}$
+
+    Se tiene que si $ S \subset (X, \|\cdot \|)  $ Banach:
+    $$ \overline{S} = \bigcap_{\varepsilon > 0} S + B(0,\varepsilon) $$
+
+    Se usa que en un $ (X,d)$ métrico $ K \subseteq X$ es compacto $ \iff$ totalmente actoado y completo.
+\end{exercise}
+
 \end{document} 
