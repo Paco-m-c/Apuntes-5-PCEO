@@ -19,7 +19,7 @@
     headsep=10pt,
 }
 \usepackage{graphicx}
-\title{Delirios de AnalFun}
+\title{Apuntes de Análisis Funcional}
 \author{Paco Mora}
 \date{\today}
 
@@ -332,7 +332,7 @@ Vemos primero un primer teorema de representación.
 
 \end{demonstration}
 
-\section{Teoremas de Skald}
+\section{Familias de funciones equicontinuas}
 
 \begin{definition}
     \textbf{Familia de funciones (uniformemente) equicontinua}
@@ -357,7 +357,8 @@ Las demostraciones de los teoremas se pueden encontrar en el libro General Topol
 \end{theorem}
 
 
-\begin{theorem}
+\begin{theorem}\textbf{De Ascoli}
+
     Sea $ \phi \subseteq  \operatorname{C}(K)$ y sea $ (K,d) $ métrico compacto. Entonces $ \phi $ es relativamente compacto en $ \|\cdot \|_{\infty} \iff \phi  $ es equicontinuo y $ \phi(x) = \{f(x): f \in \phi\} $ acotado $ \forall x \in K $
 \end{theorem}
 
@@ -1076,6 +1077,135 @@ Los apartados 1,2 aún no están incluidos.
     \noindent 4.
 
     Ejercicio.
+\end{demonstration}
+
+\begin{example}$ $
+    
+    Sea $ k: [a,b] \times [a,b] \to \mathbb{R}$ y un operador $ K: f \mapsto K(f)$ una función tal que:
+    $$ K(f)(s) := \int\limits_{a}^{b} k(s,t) f(t) dt  $$
+
+        Si $ k$ continua entonces $ K: L_1([a,b]) \to C[a,b]$ es compacto.
+
+        \begin{demonstration}
+            Vemos que $ K(B_{L^{1}})$ es realtivamente compacto en $ (C[a,b],\|\cdot \|_{\infty})$:
+            $$ \|K(f)\|_{\infty} \leq  \|k\|_{\infty} \|f\|_{L^{1}} \implies K(B_{L^{1}}) \text{ compacto}$$
+
+            Si vemos además que $ K(B_{L^{1}})$ es uniformemente equicontinua y aplicando Ascoli terminaremos la prueba.
+
+            $$ |K(f)(s)- K(f)(s')| =\left| \int\limits_{a}^{b}  \Big ( k(s,t)-k(s't) \Big ) f(t) dt \right|\leq  \int\limits_{a}^{b} \left| k(s,t)-k(s',t) \right| |f(t)| dt \leq  \varepsilon \|f\|_{L^{1}}$$
+            
+            Aplicando la continuidad uniforme de $ k$
+
+        \end{demonstration}
+
+        Como corolario, tenemos que:
+        $$ k \text{ continua} \implies K: L^2[a,b] \to L^2[a,b] \text{ es compacto} $$
+
+        \begin{flushright}
+            \textbf{Observación}
+        \end{flushright}
+
+        Si $ k \in L^2[\mathbb{R}^{d} \times \mathbb{R}^{d}] \implies K: L^2[\mathbb{R}^{d}] \to L^2[\mathbb{R}^{d}] $
+
+        Con $ K(f)(x) = \int\limits_{\mathbb{R}^{d}}^{} k(x,y)f(y)dy$, entonces $ K$ está bien definido, es compacto y $ \|K\|^2 \leq  \int\limits_{\mathbb{R}^{d}\mathbb{R}^{d}}^{}|k(x,y)|^2dxdy$
+
+\end{example}
+
+\begin{example}$ $
+    
+    Recordemos el operador de Laplace (o laplaciano) en $ \mathbb{R}^{N}$:
+    $$ \bigtriangleup = \sum\limits_{j=1}^{N} \dfrac{\partial ^2}{\partial x_j^2} $$
+
+    Y se tiene que hay solución para el problema de Dirichlet:
+    $$ \forall f \in L^2(\Omega ) \ \exists! u \in H\  tq\ \bigtriangleup u = f \text{ en } \Omega,\ u|_{\partial \Omega } = 0 $$
+
+    Entonces el operador que para cada $ f \in L^2 (\Omega )$ da la solución del problema de Dirichlet es un operador compacto. Para demostrar esto necesitamos el teorema de Rellich, \ref{rellich}
+
+\end{example}
+
+\begin{theorem} \label{rellich}
+    \textbf{Rellich}
+
+    Sea $ \Omega  \subseteq  \mathbb{R}^{N}$ un abierto acotado con frontera regular. Sea $ \Phi \subseteq L^2(\Omega )$ tales que $ \dfrac{\partial \phi}{\partial x_j} \in L^2(\Omega ) \ \forall j, \ \forall \phi \in \Phi$ y se cumple:
+    
+    $$ \|g\|_{L^2(\Omega )} \leq  K,\ \| \dfrac{\partial g}{\partial x_j}\|_{L^2(\Omega )} \leq  K \ \forall j, \ \forall g \in \Phi $$
+
+    Entonces $ \phi$ es relativamente compacto en $ L^2(\Omega )$
+
+\end{theorem}
+
+\begin{demonstration}
+    No se ha dado (ni se pregunta).
+\end{demonstration}
+
+\begin{theorem}\label{hil-sch} \textbf{Hilbert-Schmidt}
+
+    Sea $ H$ un espacio de Hilbert (separable) y $ T:H \to H$ operador compacto y autoadjunto. Entonces existe una base hilbertiana $ \{v_k\}_{k=1}^{\infty}$ en $ H$ de vectores propios $ Tv_k = \lambda _{k}v_k$ con $ \lambda_k \in \mathbb{R} \ \forall k $ y $ \lim_{k \to \infty}|\lambda _{k}| = 0$
+\end{theorem}
+
+Vamos a demostrar este teorema por partes.
+
+\begin{proposition}
+    Si $ T = T^* $ en $ H$ y $ Tv = \lambda  v$, $ v \ne 0 \implies \lambda  \in \mathbb{R}$
+\end{proposition}
+
+\begin{demonstration}
+    Como  $ \lambda  \langle v, v \rangle = \langle Tv, v \rangle = \langle v, T^* v \rangle = \langle v,  Tv \rangle = \langle v, \lambda  v \rangle = \overline{\lambda } \langle v, v \rangle \implies \lambda  = \overline{\lambda } \implies \lambda \in \mathbb{R} $
+\end{demonstration}
+
+\begin{proposition}
+    Para un operador copmacto $ T: H\to H$ y $ \forall \lambda  \ne 0,\ \lambda  \in \mathbb{R}$ se cumple que $ \operatorname{Ker}(T-\lambda Id)$ es finito dimensional, es decir, los subespacios propios son finito dimensionales.
+\end{proposition}
+
+\begin{demonstration}
+    De lo contrario, $ \exists (\phi_n)$ conjunto ortonormal infinito en $ \operatorname{Ker}(T- \lambda Id) \implies \{T(\phi_n)\}_{n=1}^{\infty}$ debería tener una subsucesión convergente ($ T$ es compacto). Pero además:
+    $$ T \phi_n = \lambda  \phi_n \implies \|\lambda  \phi_n - \lambda \phi_m\| = \lambda  \| \phi_n-\phi_m\| = \lambda  \sqrt{2} \ \forall n \ne m $$
+    
+    Si esto último lo aplicamos a la subsucesión convergente:
+    
+    $$ T \phi_{n_k} = \lambda  \phi_{n_k} \implies \|\lambda  \phi_{n_k} - \lambda \phi_{n_{k'}}\| = \lambda  \| \phi_{n_k}-\phi_{n_{k'}}\| = \lambda  \sqrt{2} \ \forall k \ne k' $$
+
+    Entonces la subsuncesión no es convergente y llegamos a una contradicción.
+\end{demonstration}
+
+\begin{proposition}
+    Si $ T$ es compacto y autoadjunto, entonces $ \|T\|$ o $ -\|T\|$ es un valor propio de $ T$
+\end{proposition}
+
+\begin{demonstration}
+    Recordemos que en un operador autoadjunto, $ \|T\| = \sup \{|\langle Tf, f \rangle|:\ \|f\| \leq  1\} $. Buscamos una solución a este problema de optimización.
+
+    Sea $ (f_n) \subseteq  B_{H}$ tal que $ \langle Tf_n, f_n \rangle \xrightarrow{n \to \infty} \lambda $ y $ |\lambda | = \|T\|$. Como $ (T(f_n))$ tendrá una subsucesión convergente $ T(f_{n_{k}}) \xrightarrow{k \to \infty}g \in H$. Afirmamos que $ g$ es vector propio asociado a $ \lambda $
+
+    Demostramos ahora esta afirmación. Tenemos que:
+    $$ 0\leq  \|Tf_{n_{k}} - \lambda  f_{n_{k}}\|^2 = \langle Tf_{n_{k}} - \lambda f_{n_{k}}, Tf_{n_{k}} - \lambda f_{n_{k}} \rangle = \langle Tf_{n_{k}}, Tf_{n_{k}} \rangle -2 \lambda \langle f_{n_{k}}, Tf_{n_{k}} \rangle + \lambda ^2 \langle f_{n_{k}}, f_{n_{k}} \rangle= $$  
+    $$ \|Tf_{n_{k}}\|^2 - 2\lambda \langle Tf_{n_{k}}, f_{n_{k}} \rangle + \lambda \|f_{n_{k}}\|^2 \leq  \|T\|^2 -2 \lambda \langle Tf_{n_{k}}, f_{n_{k}} \rangle + \lambda ^2 \to \|T\|^2 -2 \lambda^2 + \lambda^2  = 0$$
+
+    Entonces las sucesiones $ (Tf_{n_{k}})$ y $ (\lambda f_{n_{k}})$ son equivalentes y como $ Tf_{n_{k}} \to g$, entonces $ \lambda f_{n_{k}} \to g$, luego:
+    $$ T(g) = T(\lim_{k \to \infty} \lambda f_{n_{k}}) = \lambda T  \left(\lim_{k \to \infty} f_{n_{k}} \right) = \lambda \lim_{k \to \infty} T(f_{n_{k}}) = \lambda g $$
+
+    Y $ \|T\|$ o $ -\|T\|$ es un valor propio.
+\end{demonstration}
+
+Demostramos ahora el Teorema de Hilbert-Schmidt.
+
+\begin{demonstration}
+    Sea $ S:= \overline{\operatorname{span} \{v:  v \text{ es vector propio asociado a algún valor propio}\}}$. Veremos que $ S = H$.
+
+    Vamos primero al caso $ \operatorname{Ker}(T) = \{0\}$. Supongamos que $ S \subsetneq H$, entonces $ H = S \oplus S^\perp $ y veremos que $ T(S^\perp) \subseteq  S^\perp$
+
+    Dado $ g \in S^\perp \implies ? Tg \in S^{\perp}$. Dado $ f \in S$ tenemos $ \langle f, Tg \rangle = \langle Tf, g \rangle = 0$.
+
+    Entonces tenemos que $ T|_{S^{\perp}}: S^\perp \to S^\perp$ y por la proposición anterior, $ \|T|_{S^{\perp}}\| \ne 0$ es valor propio, lo cual es una contradicción .
+
+    Luego $ T$ es una biyección y $ S^{\perp} = \{0\}$, con lo que $ S = H$ y $ H$ tiene una base ortonormal de vectores propios. Lo único que nos queda por ver en este caso entonces es $ \lim_{k \to \infty} \lambda_k = 0 $, veámoslo.
+
+    Si no tendiera a 0, existirían una infinidad $ \lambda _{k_1},...,\lambda _{k_{s}},...$ y $ |\lambda _{k_i}| > \varepsilon \ \forall i$. Y cada valor estaría asociado con un vector $ v_{k_i}$ tal que $ Tv_{k_i} = \lambda _{k_i}v_{k_i}$ y se tendría:
+
+    $$ \|\lambda _{k_i} v_{k_i} - \lambda _{k_j}v_{k_j}\|^2 = \langle \lambda _{k_i}v_{k_i}- \lambda _{k_j}v_{k_j}, \lambda _{k_i}v_{k_i}-\lambda _{k_j}v_{k_j} \rangle = \lambda_{k_i}^2 + \lambda_{k_j}^2 > 2 \varepsilon^2 $$
+
+    Pero entonces $ (Tv_{k_i})$ no puede tener una subsucesión convergente.
+
 \end{demonstration}
 
 \chapter{Ejercicios}
