@@ -1138,9 +1138,9 @@ Los apartados 1,2 aún no están incluidos.
     No se ha dado (ni se pregunta).
 \end{demonstration}
 
-\begin{theorem}\label{hil-sch} \textbf{Hilbert-Schmidt}
+\begin{theorem}\label{hil-sch} \textbf{Hilbert-Schmidt}  ''Este teorema lo pregunto sí o sí''
 
-    Sea $ H$ un espacio de Hilbert (separable) y $ T:H \to H$ operador compacto y autoadjunto. Entonces existe una base hilbertiana $ \{v_k\}_{k=1}^{\infty}$ en $ H$ de vectores propios $ Tv_k = \lambda _{k}v_k$ con $ \lambda_k \in \mathbb{R} \ \forall k $ y $ \lim_{k \to \infty}|\lambda _{k}| = 0$
+    Sea $ H$ un espacio de Hilbert (separable) y $ T:H \to H$ operador compacto y autoadjunto. Entonces existe una base hilbertiana $ \{v_k\}_{k=1}^{\infty}$ en $ H$ de vectores propios $ Tv_k = \lambda _{k}v_k$ con $ \lambda_k \in \mathbb{R} \ \forall k $ y $ \lim_{k \to \infty}\lambda _{k} = 0$
 \end{theorem}
 
 Vamos a demostrar este teorema por partes.
@@ -1190,6 +1190,7 @@ Vamos a demostrar este teorema por partes.
 Demostramos ahora el Teorema de Hilbert-Schmidt.
 
 \begin{demonstration}
+
     Sea $ S:= \overline{\operatorname{span} \{v:  v \text{ es vector propio asociado a algún valor propio}\}}$. Veremos que $ S = H$.
 
     Vamos primero al caso $ \operatorname{Ker}(T) = \{0\}$. Supongamos que $ S \subsetneq H$, entonces $ H = S \oplus S^\perp $ y veremos que $ T(S^\perp) \subseteq  S^\perp$
@@ -1206,7 +1207,45 @@ Demostramos ahora el Teorema de Hilbert-Schmidt.
 
     Pero entonces $ (Tv_{k_i})$ no puede tener una subsucesión convergente.
 
+    Vemos el caso en el que $ \operatorname{Ker}(T) \ne \{0\}$. En este caso, $ H = \operatorname{Ker}(T) \oplus (\operatorname{Ker}(T))^{\perp}$ y nos podemos restringir a $ T: \operatorname{Ker}(T)^{\perp}\to \operatorname{Ker}(T)^{\perp}$ y aplicar el caso anterior. Entonces tenemos una base que tenemos que completar con el núcleo. 
+
+    Falta un pequeño detalle, tenemso que ver que $ T(\operatorname{Ker}(T)^{\perp}) \subseteq \operatorname{Ker}(T)^{\perp}$. Si $g \in \operatorname{Ker}(T)\perp ,\ x \in \operatorname{Ker}(T) \implies $, tenemos:
+    $$ \langle x, Tg \rangle = \langle Tx, g \rangle = \langle 0, g \rangle = 0 $$
+
 \end{demonstration}
+
+De la demostración obteneos que el proceso de diaginalización se puede hacer de forma recurrente. Sea $ T: H \to H$, $ \operatorname{Ker}(T) = \{0\}  $ y $ (\operatorname{Ker}(T)- \lambda_1 Id)$ para $ \lambda_1    =  \|T\|$ o $ -\|T\|$. Se da entonces que:
+$$ H = (\operatorname{Ker}(T)- \lambda_1 Id) \oplus (\operatorname{Ker}(T)-\lambda_1 T)^{\perp} $$
+
+Y restringimos ahora $ T$ a $ (\operatorname{Ker}(T)-\lambda_1 Id )^{\perp}$ y su imagen será de nuevo $ (\operatorname{Ker}(T)-\lambda_1 Id )^{\perp}$ (como al final de la demostración anterior). La norma de la restricción (o su opuesto) nos dará otro valor propio $ \lambda_2 $. De esta forma recursiva se pueden obtener todos los valores propios (mirar ejercicio siguiente).
+
+\begin{exercise}
+    \textbf{Propuesto}
+
+    Demostrar que vectores propios asociados a valores propios distintos son ortogonales.
+\end{exercise}
+
+\section{Alternativa de Fredholm}
+
+    Sea $ T: H \to H$ compacto y autoadjunto, $ b \in H, \lambda  \ne 0, \lambda  \in \mathbb{K} = (\mathbb{R}\ o\ \mathbb{C})$.
+
+    Analizamos la ecuación $ \lambda  u -Tu = b,\ u \in H$ $ (P)$.
+
+\begin{definition}
+    \textbf{Problema homogéneo asociado}
+
+    Dado $ (P)$, llamamos a $ \lambda u-Tu = 0$ el problema homogéneo asociado.
+\end{definition}
+
+
+\begin{theorem}
+    En esta situación:
+    $$ (P) \text{ tiene solución} \iff \langle b, v \rangle = 0 \ \forall v \text{ sol. de problema homogéneo asociado}$$
+\end{theorem}
+
+\begin{lemma}
+    Dado $ b \in H,\ \lambda \ne 0 \in \mathbb{K}$ y supongamos que $ (P)$ tiene una solución. Entonces podemos definir $ (\lambda Id-T) ^{-1}: H\to H$, operador lineal y continuo. tal que $ b \mapsto u$ solución del problema $ (P)$.
+\end{lemma}
 
 \chapter{Ejercicios}
 
