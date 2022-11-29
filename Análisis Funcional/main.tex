@@ -1227,25 +1227,56 @@ Y restringimos ahora $ T$ a $ (\operatorname{Ker}(T)-\lambda_1 Id )^{\perp}$ y s
 
 \section{Alternativa de Fredholm}
 
-    Sea $ T: H \to H$ compacto y autoadjunto, $ b \in H, \lambda  \ne 0, \lambda  \in \mathbb{K} = (\mathbb{R}\ o\ \mathbb{C})$.
+    Sea $ T: H \to H$ compacto y autoadjunto, $ b \in H, \lambda  \ne 0, \lambda  \in \mathbb{R}$.
 
-    Analizamos la ecuación $ \lambda  u -Tu = b,\ u \in H$ $ (P)$.
+    Analizamos el problema $ (P):$ $ \lambda  u -Tu = b,\ u \in H$  para un $ u$ desconocido.
 
 \begin{definition}
     \textbf{Problema homogéneo asociado}
 
-    Dado $ (P)$, llamamos a $ \lambda u-Tu = 0$ el problema homogéneo asociado.
+    Dado $ (P)$, llamamos a $ \lambda u-Tu = 0$ el problema homogéneo asociado $ (P_{hom})$.
 \end{definition}
 
 
 \begin{theorem}
     En esta situación:
-    $$ (P) \text{ tiene solución} \iff \langle b, v \rangle = 0 \ \forall v \text{ sol. de problema homogéneo asociado}$$
+    $$ (P) \text{ tiene solución} \iff \langle b, v \rangle = 0 \ \forall v \text{ sol. de }(P_{hom})$$
 \end{theorem}
 
-\begin{lemma}
-    Dado $ b \in H,\ \lambda \ne 0 \in \mathbb{K}$ y supongamos que $ (P)$ tiene una solución. Entonces podemos definir $ (\lambda Id-T) ^{-1}: H\to H$, operador lineal y continuo. tal que $ b \mapsto u$ solución del problema $ (P)$.
-\end{lemma}
+\begin{demonstration}
+    Por el teorema de Hilbert-Schmidt, existe una base $ \{u_n\}$ hilbertiana de vectores propios con valor propio asociado $ \lambda_n $ y $ \lim_{n \to \infty}\lambda_n = 0 $. Entonces sabemos que:
+
+    $$ Tx = \sum\limits_{n=0}^{\infty} \lambda_n \langle x, u_n \rangle u_n \ \forall x \in H $$
+
+    Tomamos $ 0 \ne \lambda  \ne \lambda_n \ \forall n \in \mathbb{N}$ podemos definir $ (\lambda Id-T) ^{-1}: H \to H$ y es un operador lineal y continuo. Vemos que si $ u$ es solución de $ (P)$, entonces:
+    $$ u = \lambda ^{-1} (b +Tu) = \lambda  ^{-1} \left(  b + \sum\limits_{n=1}^{\infty}x_n \langle u, u_n \rangle u_n\right)$$
+
+    Notemos además que $ (\lambda -\lambda_n ) \langle u, u_n \rangle  = \langle (\lambda Id - T)  u, u_n \rangle $ ya que:
+    $$\langle (\lambda Id - T)  u, u_n \rangle= \lambda \langle u, u_n \rangle - \langle Tu, u_n \rangle  = \lambda \langle u, u_n \rangle - \langle u, T_n \rangle  = \lambda \langle u, u_n \rangle - \lambda_n \langle u, u_n \rangle  = (\lambda -\lambda_n ) \langle u, u_n \rangle  $$
+
+    Despejando ahora $ \langle u, u_n \rangle $ y usando que $ (\lambda Id-T)u = b$ y que $ u$ es solución de $ (P)$:
+
+    $$ u = \lambda ^{-1} \left( b+ \sum\limits_{n=1}^{\infty}\lambda_n \dfrac{\langle b, u_n \rangle }{\lambda -\lambda_n } u_n  \right) $$
+    $$ \lambda  u =  \left( b+ \sum\limits_{n=1}^{\infty}\lambda_n \dfrac{\langle b, u_n \rangle }{\lambda -\lambda_n } u_n  \right) $$
+
+    Tomemos entonces $ \alpha_{n} = \dfrac{\lambda_n }{\lambda -\lambda_n }$ y analizamos la serie $ \sum\limits_{n=1}^{\infty} \alpha_n \langle b, u_n \rangle u_n $. Por la desigualdad de Bessel, tenemos que la serie $ \sum\limits_{n=1}^{\infty} |\langle b, u_n \rangle |^2 = \|b\|^2 < + \infty$. Y $ \lim_{n \to \infty}\lambda_n = 0 \implies |\alpha_n| \leq  cte \ \forall n \in \mathbb{N} $. Entonces la siguiente serie convergente y se acota:
+    $$ \sum\limits_{n=1}^{\infty} |\alpha_n \langle b, u_n \rangle |^2 \leq  (cte)^2 \|b\|^2 $$
+
+    Por lo tanto $ \sum\limits_{n=1}^{\infty} \alpha_n \langle b, u_n \rangle $ es convergente en $ H$ y $ u$ está bien definido.
+
+    Además,
+    $$ Tu = \lambda ^{-1}\left(Tb + \sum\limits_{n=1}^{\infty} \alpha_n\lambda_n \langle b, u_n \rangle u_n\right) = \lambda ^{-1} \left(  \lambda_n \langle b, u_n \rangle u_n + \sum\limits_{n=1}^{\infty} \alpha_n \lambda_n \langle b, u_n \rangle u_n \right) = $$
+    $$ = \sum\limits_{n=1}^{\infty} \lambda ^{-1} \lambda_n (1+\alpha_n) \langle b, u_n \rangle u_n $$
+
+    Como $ \lambda  u =  \left( b+ \sum\limits_{n=1}^{\infty}\lambda_n \dfrac{\langle b, u_n \rangle }{\lambda -\lambda_n } u_n  \right)$, entonces:
+    $$ \lambda u -Tu = b+ \sum\limits_{n=1}^{\infty}\alpha_n \langle b, u_n \rangle u_n - \sum\limits_{n=1}^{\infty} \lambda ^{-1}\lambda_n (1+\alpha_n) \langle b, u_n \rangle u_n = b $$
+
+\end{demonstration}
+
+\begin{corollary}
+    Dado $ b \in H,\ \lambda \ne 0 \in \mathbb{K}$ y supongamos que $ (P)$ tiene una solución. Entonces podemos definir $ (\lambda Id-T) ^{-1}: H\to H$, operador lineal y continuo. tal que $ b \mapsto u$ solución del problema $ (P)$. 
+    
+\end{corollary}
 
 \chapter{Ejercicios}
 
