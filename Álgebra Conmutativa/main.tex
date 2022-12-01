@@ -2542,4 +2542,186 @@ Con esto podemos completar la demostración del teorema de Akizuki.
 
 \end{exercise}
 
+\chapter{Módulos sobre DIP}
+
+\section{Ejercicios}
+
+
+
+\setcounter{ex}{1}
+
+\begin{exercise}
+    $ $
+
+    \begin{flushright}
+        \textbf{Apartado c)}
+    \end{flushright}
+    
+    Es un caso particular de $ b)$.  Utilizando que $ \bigcap_{i \in I}(b_i) = (mcm_{i \in I}(b_i))$ 
+
+\end{exercise}
+
+\begin{exercise}
+    $ $
+    
+    Tomemos $ k < n$ y sea $ \overline{a} \in M$ tal que $ \overline{a} \in ann_{M}(p^{k}) $:
+    $$\iff p^{k}\overline{a} = \overline{0} \iff \overline{p^{k}a} = \overline{0}  \iff p^{n}|p^{k}a \iff p^{n-k}|a \iff a \in (p^{n-k}) \iff\footnote{Teorema de la correspondencia} \overline{a} \in \dfrac{(p^{n-k})}{(p^{n})} $$
+
+    Si $ k\geq n$, entonces :
+    $$ p^{n}M =0 \implies p^{k}M = 0 \ \forall k \geq n \iff ann_{M}(p^{k}) = M \ \forall k \geq  n $$
+
+
+    Probamos ahora que:
+    $$ ann_{M}(p) = \dfrac{(p^{n-1})}{(p^{n})}  $$
+
+    Sabemos que $ \operatorname{dim}V = 1 \iff \ \exists f: K \to V $ lineal y biyectiva con $ \operatorname{dim}K = 1$.
+
+    Entonces buscamos una aplicación lineal y biyectiva $ f: \dfrac{A}{(p)} \to \dfrac{(p^{n-1})}{(p^{n})} $. Basta tomar la aplicación $ f(\overline{a}) = \overline{p^{n-1}a}$. Para ver que es biyectiva, basta ver que es sobre al ser homomorfismo de módulos y que el espacio de salida es de dimensión 1.
+\end{exercise}
+
+\begin{exercise}
+    Para hacer este ejercicio hace falta resolver el ejercicio 6.
+
+    Tenemos que en $ \dfrac{Q}{A}$, cualquier elemento $ \left[ \dfrac{a}{b} \right]$ es anulado por $ b: b \left[ \dfrac{a}{b} \right] = [a] = [0] \implies \dfrac{Q}{A} \in \mathcal{T}$.
+
+    Volviendo al caso general, se tiene $ N \cap A \subseteq N \subseteq Q$
+
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+    
+    Tenemos un epimorfismo de $ A-$módulos:
+
+    $$ 
+    \begin{aligned}
+        \pi: &  \dfrac{Q}{N \cap A} & \to & \dfrac{Q}{N}\\ 
+        & [q] & \mapsto & \overline{q}
+    \end{aligned}
+    $$
+
+    Basta entonces probar que si $ N ' \leq_{A}A (\iff N' \text{ ideal de } A) $, entonces $ \dfrac{Q}{N'} \in \mathcal{T}$.
+
+    Sea $ \overline{q} = q + N'$, quiero probar que existe $ a \in A \setminus \{0\}:\ a\overline{q} = \overline{0}$
+
+    Sabemos que $ [q] := q + A$ es un elemento de torsión en $ \dfrac{Q}{A} \implies \ \exists b \in A \setminus \{0\}$ tal que $ b[q] = [0] \iff [bq] = [0]$ en $ \dfrac{Q}{A}$:
+    $$ \implies \ \exists b \in A \setminus \{0\} :\ b[q] = [0] \iff [bq] = [0] \text{ en } \dfrac{Q}{A} \implies bq \in A$$
+
+    Entonces:
+    $ N' \ideal A \implies_{A\ DIP} N' = (r) \implies \dfrac{A}{N'} = \dfrac{A}{(r)}  \in \mathcal{T} \implies r(bq) \in N' \iff rb \overline{q} = \overline{0} \text{ en } \dfrac{Q}{N'}$
+
+\end{exercise}
+
+
+\setcounter{ex}{5}
+
+\begin{exercise}
+    $ $
+    
+    \begin{flushright}
+        \textbf{Apartado a)}
+    \end{flushright}
+    
+    Supongamos $ N,\dfrac{M}{N} \in \mathcal{T}$, vemos que $ M \in \mathcal{T} $ , es decir, que $ \forall x \in M, \ \exists a \in A \setminus \{0\}:\ ax = 0$.
+
+    Sea $ x \in M \implies \overline{x}:= x +N$ es de torsión en $ \dfrac{M}{N} \implies $
+    $$ \implies \exists a \in A \setminus \{0\}:\ a\overline{x} = \overline{0} \iff \overline{ax} = \overline{0} \iff ax \in N \implies_{N\ de\ torsi\acute on} $$
+    $$ \implies \exists b \in A \setminus \{0\}:\ b(ax) = 0 \implies ba \ne 0\ y\ (ba)x = 0$$
+
+    Por lo tanto, $ M \in \mathcal{T}$
+
+    Recordemos que  $ M \in \mathcal{F} \iff t(M) = 0 \iff \ \forall x \in M \setminus \{0\}$ se tiene:
+
+    Comprobamos que $ N,\dfrac{M}{N} \in \mathcal{F} \implies M \in \mathcal{F}$
+
+    Sea $ x \in M \setminus \{0\}$ y supongmos que $ \exists a \in A \setminus \{0\}:\ ax = 0 \implies$
+    $$ \implies \overline{ax} = \overline{0} \iff \overline{ax} = \overline{0} \implies_{M/N \in \mathcal{F}} \overline{x} = \overline{0} \iff x \in N $$
+
+    $ \implies x \in N \setminus \{0\}$ y $ ax =0$ con $ a\ne 0$, luego tenemos una contradicción con $ N \in \mathcal{F}$
+
+    \begin{flushright}
+        \textbf{Apartado b)}
+    \end{flushright}
+    
+    Los casos $ M \in \mathcal{T} \implies N, \dfrac{M}{N} \in \mathcal{T}$ y $ M \in \mathcal{F} \implies N \in \mathcal{F}$ quedan como ejercicio planteado.
+
+    El caso $ M \in \mathcal{F} \implies \dfrac{M}{N} \in \mathcal{F}$ no se cumple, basta tomar $ \dfrac{\mathbb{Z}}{n\mathbb{Z}}$
+
+    \begin{flushright}
+        \textbf{Apartado c)}
+    \end{flushright}
+
+    Este ejercicio es una consecuencia directa de la parte planteada en el apartado anterior.
+
+    \begin{flushright}
+        \textbf{Apartado d)}
+    \end{flushright}
+    
+    Tomamos la proyección, que es homomorfismo suprayectivo $ K \oplus N \xrightarrow{\pi } K + N$. Entonces $ K + N \cong \dfrac{K \oplus N}{\operatorname{Ker}(\pi)}$
+
+    Vemos que $ K \oplus N \in \mathcal{T}$, sabemos que $ \dfrac{K \oplus N}{K \oplus 0} \cong N$, entonces:
+
+    $$ \left\{
+    \begin{array}{l}
+        \dfrac{K \oplus N}{K \oplus 0} \in \mathcal{T}\\ 
+        K \oplus 0 \cong K \in \mathcal{T}
+    \end{array}
+    \right. 
+    \implies_{Apartado\ a)} K \oplus N \in \mathcal{T}
+    $$
+
+    Podemos ver que el otro caso falla, sea $ M = \mathbb{Z} \oplus \mathbb{Z}_{2}$ y tomemos $ K = \mathbb{Z}(m, \overline{1})$ libre de torsión y $ \mathbb{Z}(m,\overline{0}) = N$ libre de torsión ($ m \ne 0$). Entonces $ (m,\overline{1})-(m,\overline{0}) \in K + F$ es un elemento de torsión. 
+
+    Más generalmente, si $ F \ne 0, T \ne 0$ son un módulo libre de torsión y de torsión respectivamnte no nulos, entonces $ \exists  K,N \leq_{A} M := F \times T:\ K,N \in \mathcal{F} $ pero $ K + N \not \in \mathcal{F}$, (siendo $ A$ un DIP).
+
+\end{exercise}
+
+\begin{exercise}
+   $ $ 
+
+   Sea $ (x_{p})_{p \in \mathcal{P}} \in t\left(\prod_{p \in \mathcal{P}}^{}\mathbb{Z}_{p}\right)\implies$
+   $$ \exists  a \in \mathbb{Z} \setminus \{0\} :\ a(\overline{x})_{p \in \mathcal{P}} = 0 = (\overline{0}_{p})_{p \in \mathcal{P}} \iff a \overline{x}_{p} = \overline{0} \text{ en }\mathbb{Z}_{p} \ \forall p \in \mathcal{P} \iff p| ax_{p} \ \forall p \in \mathcal{P} \iff $$
+   $$\iff\overline{x}_{p} = \overline{0} \ \forall p \in \mathcal{P} \text{ que no sea divisor de }a  \implies t \left( \prod_{p \in \mathcal{P}}^{}\mathbb{Z}_{p} \right)  \subseteq  \bigoplus_{p \in \mathcal{P}} \mathbb{Z}_{p}$$
+
+   La otra inclusión es más directa.
+
+\end{exercise}
+
+
+\begin{exercise}
+    $ $
+
+    Se hace utilizando transformaciones elementales hasta llegar a la forma normal, primero las filas y luego las columnas. Recordando la demostración vista en clase, en este caos tenemos que tomar $ \delta = |\cdot |: \mathbb{Z} \to \mathbb{N} $. Las transformaciones son:
+    \begin{itemize}
+        \item $ F_1 \leftrightarrow F_3$
+        \item $ F_2+2F_1, F_3-7F_1$
+        \item $C_2+2C_1,\ C_3-7C_1,\ C_4+C_1$
+        \item $ C_2 \leftrightarrow C_4$
+        \item $ C_3+12C_1,\ C_4+6C_1$
+    \end{itemize}
+
+    Y se llega a la matriz:
+    $$ \begin{pmatrix} 1 & 0 & 0 & 0\\ 
+    0 & -1 & 0 & 0 \\ 
+0 & 0 & -132 & -30 \end{pmatrix}  $$
+
+Hay que hacer la división euclídea para la siguiente transformación $ -132 -4*(-30) = -12$, $ C_3-4C_4$
+$$ \begin{pmatrix} 1 & 0 & 0 & 0\\ 
+0 & -1 & 0 & 0 \\ 
+0 & 0 & -12 & -30 \end{pmatrix}  $$
+
+De nuevo son división euclídea: $ -30 -2(-12) = -6$, $ C_4-2C_3$:
+
+$$ \begin{pmatrix} 1 & 0 & 0 & 0\\ 
+0 & -1 & 0 & 0 \\ 
+0 & 0 & -12 & -6 \end{pmatrix}  $$
+
+Haciendo $ C_3 \leftrightarrow C_4$:
+
+$$ \begin{pmatrix} 1 & 0 & 0 & 0\\ 
+0 & -1 & 0 & 0 \\ 
+0 & 0 & -6 & -12 \end{pmatrix} \xrightarrow{C_4-2C_3} \begin{pmatrix} 1 & 0 & 0 & 0\\ 0 & -1 & 0 & 0\\ 0 & 0 & -6 & 0 \end{pmatrix} \xrightarrow{(-1)F_2} \begin{pmatrix} diag(1,1,-6) & 0 \\ 0 & 0 \end{pmatrix}  $$
+
+
+\end{exercise}
+
 \end{document}

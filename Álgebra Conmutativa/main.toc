@@ -5,4 +5,6 @@
 \contentsline {section}{Ejercicios}{32}{Item.99}%
 \contentsline {chapter}{\numberline {4}Módulos}{36}{chapter.110}%
 \contentsline {section}{Ejercicios}{42}{propositiont.137}%
+\contentsline {chapter}{\numberline {5}Módulos sobre DIP}{49}{chapter.152}%
+\contentsline {section}{Ejercicios}{49}{section*.153}%
 \contentsfinish 
