@@ -2496,7 +2496,7 @@ Con esto podemos completar la demostración del teorema de Akizuki.
 
     Si $ r = 1,\ b = p_1^{\mu_1} \implies \left[\dfrac{1}{b}\right] = \left[\dfrac{1}{p_1^{\mu_1}}\right] \in \mathbb{Z}_{p_1^{\infty}}$
 
-    Sea ahora $ r > 1$, lo que haremos será separar $ p_1^{\mu_1}$ del resto. Entonces $ p_1^{\mu_1},\ p_2^{\mu_2}\cdots p_{r}^{\mu_{r}}$ son coprimos y aplicando Bezout:
+    Sea ahora $ r > 1$, lo que haremos será separar $ p_1^{\mu_1}$ del resto. Entonces $ p_1^{\mu_1},\ p_2^{\mu_2}\cdots p_{r}^{\mu_{r}}$ son coprimos y aplicando Bézout:
 
     $$ \exists u,v \in \mathbb{Z} :\ p_1^{\mu_1}u + p_2^{\mu_2} \cdots p_{r}^{\mu_{r}} = 1 $$
 
@@ -2722,6 +2722,260 @@ $$ \begin{pmatrix} 1 & 0 & 0 & 0\\
 0 & 0 & -6 & -12 \end{pmatrix} \xrightarrow{C_4-2C_3} \begin{pmatrix} 1 & 0 & 0 & 0\\ 0 & -1 & 0 & 0\\ 0 & 0 & -6 & 0 \end{pmatrix} \xrightarrow{(-1)F_2} \begin{pmatrix} diag(1,1,-6) & 0 \\ 0 & 0 \end{pmatrix}  $$
 
 
+\end{exercise}
+
+
+\begin{exercise}
+    $ $
+    Descomponemos primero cada componente:
+    $$ \mathbb{Z}_{24}:\ 24 = 2^3\cdot 3 \to (2^3,3) $$
+    $$ \mathbb{Z}_{30}:\ 30 = 2\cdot 3\cdot 5 \to (2,3,5) $$
+    $$ \mathbb{Z}_{75}:\ 75 = 3\cdot 5^2 \to (3,5^2) $$
+
+    Entonces por el teorema chino de los resto, los divisores elementales son: $ 2,2^3,3,3,3,5,5^2$.
+
+    Para los factores invariantes usamos la prueba del teorema 5.3:
+    $$ 
+    \left\{
+    \begin{array}{ll}
+        d_{t-2} = 3
+        d_{t-1} = 2\cdot 3\cdot 5 = 30\\
+        d_{t} = 2^3\cdot 3\cdot 5 = 600
+    \end{array}
+    \right.
+    $$
+
+    Se construye de abajo a arriba. Para $ d_{t}$ tomamos cada primo de los divisores elementales elevado al mayor exponente con el que aparece. Seguimos con $ d_{t-1}$ con el segundo mayor exponente etc.
+\end{exercise}
+
+
+\begin{exercise}
+    $$ M = \langle a,b,c | 4a+4b+2c, 2a-4b+3c \rangle = M(C)  $$
+
+    $$ C = \begin{pmatrix} 4 & 2\\ 4 & -4 \\ 2 & 3 \end{pmatrix}  $$
+    $$ 
+    \begin{aligned}
+        \mathbb{Z}^2 & \to & \mathbb{Z}a \oplus \mathbb{Z}b \oplus \mathbb{Z}c\\ 
+        e_1 & \mapsto 4a + 4b + 2c\\ 
+        e_2 & \mapsto 2a-4b+3c
+    \end{aligned}
+    $$
+
+    Y haremos transformaciones elementales para llegar a la forma normal:
+    \begin{itemize}
+        \item $ C_1 \leftrightarrow C_2$
+        \item $ F_3-F_1$
+        \item $ F_1 \leftrightarrow F_3$
+        \item $ F_2+4F_1,\ F_3-2F_1$
+        \item $ C_2+2C_1$
+        \item $ F_3+2F_2$
+    \end{itemize}
+
+    Y nos queda:
+    $$ C' =  \begin{pmatrix} 
+    1 & 0 \\
+    0 & -4 \\ 
+    0 & 0
+    \end{pmatrix} = P C Q ^{-1} $$
+
+    $$ \left\{
+    \begin{array}{l}
+        s = 1\\ t = 1\\ m = 3
+    \end{array}
+    \right\} \implies \text{el rango libre de torsión es 1} $$
+
+    Factores invariantes: 4, luego el único divisor elemental es $ 2^2$, $ M \cong \mathbb{Z}_{4}\oplus \mathbb{Z}$
+
+    Vamos a calcular una descomposición interna (aunque no la pida el ejercicio):
+
+    Queremos ahora encontrar una descomposición en suma directa interna $ M = M_1 \oplus M_2$ con $ M_1 \cong \mathbb{Z}_{4}$ y $ M_2 \cong \mathbb{Z}$
+
+    Para esto necesitamos $ P ^{-1}$. Para calcular esta matriz hay que hacer las transformaciones que hemos hecho anteriormente en orden inverso a la matriz identidad. El resultado es:
+    $$ P ^{-1} = \begin{pmatrix} 
+    2 & -2 & 1\\ 
+    -4 & 1 & 0\\ 
+    3 & -2 & 1
+    \end{pmatrix}  $$
+
+    $$  M(C) = \dfrac{\mathbb{Z}}{(1)} \oplus \dfrac{\mathbb{Z}}{(4)} \oplus \dfrac{\mathbb{Z}}{(0)} \to M = M(C) $$
+
+    Tomando $ \{a,b,c\}$ como base de $ \mathbb{Z}a \oplus \mathbb{Z}b \oplus \mathbb{Z}c$, vemos las imágenes que han de tener $ \{e_1,e_2,e_3\}$
+
+    $$ \overline{e_1} = \overline{0} \mapsto 0 $$
+    $$ \overline{e_2} \mapsto \overline{P ^{-1} e_2} = \overline{-2a+b-2c} $$
+    $$ \overline{e_3} \mapsto \overline{P ^{-1} e_3} = \overline{a+c}$$
+
+    Entonces, $ M = (\overline{-2a+b-2c}) \oplus (\overline{a+c})$
+
+\end{exercise}
+
+\begin{exercise}$ $
+
+    Hacemos solo el de 324 = $ 2^2\cdot 3^{4}$. Sabemos que:
+
+    \begin{equation}
+        M = \left(  \bigoplus_{j=1}^{r_1} \dfrac{\mathbb{Z}}{(2^{n_{1j}})} \right)\oplus \left( \bigoplus_{j=1}^{r_2} \dfrac{\mathbb{Z}}{(3^{n_{2j}})} \right) 
+        \label{ej11}
+        \end{equation}
+
+    Con $ 0 < n_{i_1} \leq  n_{i_2} \leq  ... \leq  n_{i_1r_1}$
+
+    $$ 2^2 3 ^{4} = \left( \prod_{j=1}^{r_1} 2^{n_{1j}} \right) \left( \prod_{j=1}^{r_2} 3^{n_{2j}} \right) = 2^{\sum\limits_{j=1}^{r_1} n_{1j}} \cdot 3^{\sum\limits_{j=1}^{r_2}n_{2j}} $$
+
+    Entonces igualando exponentes:
+
+    $$ \sum\limits_{j=1}^{r_1} n_{1j} = 2 \hspace{10mm} \sum\limits_{j=1}^{r_2}n_{2j} = 4 $$
+
+    Tomando entonces los posibles valores de $ n_{ij}$ para que se den esas igualdades, tenemos los posibles grupos pedidos sustituyendo en \eqref{ej11}. Estos posibles valores son:
+    
+    $$ (2,2,3^{4}),(2,2,3,3^3),(2,2,3^2,3^2),(2,2,3,3,3^2),(2,2,3,3,3,3),$$ 
+    $$(2^2,3^{4}),(2^2,3,3^3),(2^2,3^2,3^2),(2^2,3,3,3^2),(2^2,3,3,3,3) $$
+
+
+\end{exercise}
+
+\begin{exercise}
+$ $
+
+    \begin{flushright}
+        \textbf{Apartado a)}
+    \end{flushright}
+    
+    Por el ejercicio 11 de la teoría sabemos que $ g = f_{C}$ para una única $ C \in M_{n\times n}(\mathbb{Z})$
+
+    $$ M = \dfrac{\mathbb{Z}^{n}}{\operatorname{Im}(g)} = \dfrac{\mathbb{Z}^{n}}{\operatorname{Im}(f_{C})} = M(C) $$
+
+    Entonces $ M= M(C)$ es finito $ \iff M(C')$ es finito, siendo $ C'$ la forma normal de $ C$.
+
+    Recordemos que:
+    \begin{equation}
+        C = \left(
+       \begin{array}{c|c}
+           diag(1,...,1,d_1,...,d_t) & 0\\ 
+           \hline
+           0 & 0
+       \end{array}\right)
+        \label{ej12}
+        \end{equation}
+    
+
+    $M(C')$ es finito $ \iff n-s-t\footnote{Tamaño de la matriz de ceros en la parte inferior derecha de $ C'$} = 0\iff C' = \operatorname{diag}(1,...,1,d_1,...,d_t)$ 
+
+    Como $ A$ es un DIP y $ C' = P C Q$ con $ C,C' \in M_{n \times n}(A),\ P,Q \in GL_{n}(A) \implies$
+    $$ \det(C') = \underbrace{\det(P)\det(Q)}_{\in \mathcal{U}(A}\det(C) \implies $$
+
+    Se tiene que $ \det(C')$ y $ \det(C)$ son asociados en $ A$. Hasta ahora tenemos:
+
+    $ M$ finito $ \stackrel{?}{\iff} \det(C) \ne 0 \iff \det(C') \ne 0 \iff d_1\cdots d_{t} \ne 0$
+
+    Para comprobar la equivalencia que no tenemos, vemos que $ M$ finito $ \iff d_1\cdots d_{t} \ne 0$
+
+    En el caso en el que no haya $ d_i$, tenemos que $ M = 0$. Vamos con el caso general:
+
+    $ \noindent \impliedby$
+
+    $$ M \cong \mathbb{Z}_{d_1} \oplus ... \oplus \mathbb{Z}_{d_{t}} \implies |M| = |d_1 \cdots d_{t}| = |\det(C)| = |\det(g)|$$
+
+    $ \noindent \implies $
+
+    Directo.
+
+    \begin{flushright}
+        \textbf{Apartado b)}
+    \end{flushright}
+    
+    Lo hemos visto al hacer $ \impliedby$ en el apartado anterior.
+
+\end{exercise}
+
+\begin{exercise}
+    $ $
+    
+    \noindent $ a) \implies b)$
+
+    $$ p(f)  = 0 \iff p(f)(v) = 0 \ \forall v \in V \iff\footnote{Viendo como módulo} p(x)v = 0 \ \forall v \in M = V \iff p(x) M = 0$$
+
+    Donde para la última implicación se ha usado que:
+    ''$ A-$módulo'' = ''$A$-módulo anulado por $ I$'' $ (I \ideal A)$, entonces $ M $ es un $ \dfrac{K[X]}{(p(x))}-$esp. vectorial.
+
+    $ K' = \dfrac{K[X]}{(p(x))} $ y sea $ \{v_1,...,v_t\}$, es $ K'-$base de $ M$ sii se tiene una descomposición en suma directa interna de $ K'$-subesp. vect. $ M = K'v_1 \oplus ... \oplus K'v_{t}$ sii $ M = K[x]v_1 \oplus ... \oplus K[x]v_{t}$, como $ K[X]$-submódulo.
+
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+
+    $ K[x]v_j = K-$subesp. vectorial de $ V$ generado por $ \{f^{k}(v_j):\ k \in \mathbb{N}\}$. Ya que se tiene que:
+    $$ K[x]v_j = \{ \left( \sum\limits_{k=0}^{s}\lambda_kx^{k}  \right) v_j :\ \sum\limits_{}^{} \lambda_kx^{k} \in K [X]  \} = \{\sum\limits_{k=0}^{s} \lambda_kf^{k}(v_j):\ \lambda_k \in K \ \forall k \in \mathbb{N}  \} = $$ 
+    $$= \langle f^{k}(v_j):\ k = 0,1,...   \rangle  $$
+
+    \begin{flushright}
+        \textbf{Fin de la observación}
+    \end{flushright}
+    
+
+    Como se tiene que:
+    $$ p(x) = x^{d}+\lambda_{d-1}x^{d-1}+...+\lambda_1x+\lambda_0   $$
+
+    Llegamos a:
+    $$ 0 = p(f)(v_j) = f^{d}(v_j) + \lambda_{d-1}f^{d-1}(v_j)+...+\lambda_1 f(v_j) + \lambda_0 1_{v}(v_j) \implies f^{d}(v_j) = $$  $$ = - \sum\limits_{i=0}^{d-1}\lambda_k f^{k}(v_j) \implies f^{d}(v_j) \in \langle v_j,f(v_j),...,f^{d-1}(v_j)  \rangle  $$
+
+    Luego $ \{v_j,f(v_j),...,f^{d-1}(v_j)\}$ es conjunto generador, vemos que es base (es LI). Supongamos:
+
+    $$ \sum\limits_{k=0}^{d-1} \mu_{k}f^{k}(v_j) = 0,\ \mu_{k} \in K \ \forall k $$
+
+    Si algún $ \mu_{k} $ es no nulo, entonces $ G:= \sum\limits_{k=0}^{d-1 \mu_{k}x^{k}}$ y se tiene que $ G(x)v_j =0$. Entonces $ p(x)$ y $ G(x)$ son coprimos y por la identidad de Bézout $ \exists F(x),H(x) \in K[X]$ tales que $ F(x)p(x) +H(x)G(x) = 1$, luego se tiene:
+
+    $$ v_j = 1 v_j = \Big ( F(x)+p(x)+H(x)G(x) \Big ) v_j = F(f)(\underbrace{p(f)(v_j)}_{=0}) + H(f)(\underbrace{G(f)(v_j)}_{=0}) = 0$$
+
+    Lo que es una contradicción.
+
+    Como conclusión, si se tiene $ (V,f)$ arbitrario y $ v \in V \setminus \{0\}$, entonces $ K[X]v = \langle f^{k}(v):\ k \in N  \rangle $ y una base suya es $ \{v,f(v),...,f^{d-1}(v)\}$ donde $ d = \operatorname{deg}(F)$ para $ (F) = ann_{A}(M)$
+
+    \noindent $ b) \implies a)$
+
+    Sea $ \bigcup_{j=1}^{t} \{v_j,f(v_j),...,f^{d-1}(v_j)\}$ base de $ V$
+    \begin{flushright}
+        \textbf{Observación}
+    \end{flushright}
+    $$ \langle v_j ,f(v_j),...,f^{d-1}(v_j) \rangle  = K[X]v_j $$
+
+    Entonces:
+    $$ 
+    \begin{matrix}
+        \text{Como esp. vectorial:}&  V & = \bigoplus_{j=1}^{t} &  \langle v_j, f(v_j) ,...,f^{d-1}(v_j)\rangle \\ 
+        \text{Como módulos} & M & = \bigoplus_{j=1}^{t} & K[X]v_j & =\footnote{Ya que $ p(x)M = 0$} \bigoplus_{j=1}^{t} \dfrac{K[X]}{(p(x))}v_j
+    \end{matrix}
+        $$
+        
+\end{exercise}
+
+
+\setcounter{ex}{16}
+
+\begin{exercise}
+    $$ \phi_{C}(x) = (x^2-x+1)^2 $$
+    $$ C' = \bigoplus_{j=1}^{t} C_{n_j} (x^2-x+1) $$
+    $$ \phi_{C}(x) = \phi_{C'}(x) = \prod_{j}^{} (x^2-x+1)^{n_j} $$
+
+
+    $$ \left\{
+    \begin{array}{l}
+        C_2(x^2-x+1) \to pmin = (x^2-x+1)\\ 
+        C_1(x^2-x+1) \oplus C_1(x^2-x+1) \to pmin es x^2-x+1
+    \end{array}
+    \right. $$
+
+    El segundo caso se da sii $ C^2-C+I = 0$. Sí se cumple, así que $ C' = C_1(x^2-x+1) \oplus C_1(x^2-x+1)$.
+
+    Por el teorema 6.9, tenemos que $ F = F_1$ y $ |F_1| = 2$.
+
+    Necesitoamos entonces $ v_1,v_2 \in F_1$ tales que $ v_1,v_2 \in \operatorname{Ker}(C^2-C+I)$ induzcan una base en $ \dfrac{\operatorname{Ker}(C^2-C+I)}{\operatorname{Ker}(C^2-C+I)} = \dfrac{\mathbb{R}^{4}}{0}$ como $ \dfrac{K[X]}{(x^2-x+1)}$-esp. vectorial.
+
+    En este caso queremos $ v_1,v_2 \in \mathbb{R}^2 = M_{(V,f_{c})}  $ sean una base como $ \dfrac{K[X]}{(x^2-x+1)}$-esp. vectorial.
+
+    Necesito $ v_1,v_2 \in \mathbb{R}^{4}$ tales que $ \{v_1,f(v_1),v_2,f(v_2)\}$ base de $ V$ como $ \mathbb{R}-$esp. vectorial. Tomamos $ v_1 = e_1$ y $ v_2 = e_4$ nos queda:
+    $$ \{e_1,e_1+e_2+e_3+e_4,e_4,-e_3\} $$
+    
 \end{exercise}
 
 \end{document}
