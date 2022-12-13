@@ -2978,4 +2978,125 @@ $ $
     
 \end{exercise}
 
+\begin{exercise}
+    \textbf{Ejercicio planteado}
+
+    Dado $ M$, $ A-$módulo siendo $ A$ un DIP. Se tiene $ v_{g}(p_i)$ la multiplicidad geométrica de cada $ p_i$ en la descomposición de $ M$. Demostrar entonces que:
+    $$ v_{g}(p_i) = \operatorname{dim}_{A/(p)} ann_{M}(p_i) $$
+\end{exercise}
+
+Tendremos entonces el caso particular $ f: V \to V$ un $ K$-endomorfismo y $ \operatorname{dim}V < \infty$, entonces $ M_{B}(f) \sim C' = \bigoplus_{i=1}^{k} \left( \bigoplus_{j=1}^{r} C_{nij}(p_i) \right)$
+$$ v_{g}(p_i) = r_i = \operatorname{dim}_{K[X]/(p_i(x))} \operatorname{Ker}(p_i(f)) = \dfrac{\operatorname{dim}_{K} \operatorname{Ker}(p_i(f))}{\operatorname{deg}(p_i)} = \dfrac{\operatorname{dim}V - \operatorname{rang} (p_i(f))}{\operatorname{deg}(p_i)} $$
+
+Y otro caso aún más particular:
+
+$ p_i(x) = x - \lambda_i $ para $ \lambda_i $ valor propio de $ f$.
+$$ v_{g}(\lambda_i ):= v_{g}(x-\lambda_i ) = \operatorname{V}-\operatorname{rang}(p_i(f)) = \text{nº bloques de Jordan que aparecen en }C' $$
+
+
+Utilizaremos esto en otros ejercicios.
+
+
+
+\setcounter{ex}{27}
+\begin{exercise}
+$ $ 
+
+\begin{flushright}
+    \textbf{Apartado b)}
+\end{flushright}
+
+Tenemos $ \operatorname{dim}V = 6$, $ d_{f}(x) = (x+3)^2(x+1)^2$
+$$ u_{f}(x) = (x+3)^{m_1}(x+1)^{m_2} $$
+
+Donde se tiene que $ 2\leq m_i$ y $ m_1+m_2 = 6$
+
+Por lo tanto, las combinaciones posibles de $ m_1,m_2$ son $ \{(2,4),(3,3),(4,2)\}$. Vemos cada caso:
+
+El polinomio cada característico en cada caso es $ (x+3)^2(x+1)^{4}$, $ (x+3)^3(x+1)^3$ y $ (x+3)^{4}(x+1)^2$.
+
+Los divisores elementales en cada caso son:
+\begin{itemize}
+    \item $ (x+3)^2,(x+1)^2,(x+1)^2$ o $ (x+3)^2,(x+1),(x+1),(x+1)^2$
+    \item $ x+3,(x+3)^2,x+1,(x+1)^2$
+    \item $ (x+3)^2,(x+3)^2,(x+1)^2$ o $ x+3,x+3,(x+3)^2,(x+1)^2$
+\end{itemize}
+
+El método para ver los factores invariantes lo hemos estudiado en otros ejercicios ya.
+
+Vamos con la multiplicidad en cada caso. Usamos el ejercicio propuesto y su caso particular. Lo vemos para cada caso.
+
+\begin{itemize}
+    \item (1,2) o (1,3)
+    \item (2,2)
+    \item (2,1) o (3,1)
+\end{itemize}
+
+Por último, esto son las posibles formas de Jordan:
+
+\begin{itemize}
+    \item $ J_2(-3) \oplus J_2(-1) \oplus J_2(-1)$ o $ J_2(-3) \oplus J_1(-1) \oplus J_1(-1) \oplus J_2(-1)$
+    \item $ J_1(-3) \oplus J_2(-3) \oplus J_1(-1) \oplus J_2(-1)$ 
+\end{itemize}
+
+\end{exercise}
+
+\begin{exercise}
+    $$ n(-1) = \operatorname{min} \{s > 0: \operatorname{rang}(C+I)^{s} = \operatorname{rang}(C+I)^{s+1}\} \implies M(x+1) = \operatorname{Ker}(((C+I)^{n(-1)})) = $$  $$=  \{v \in V:\ (C+I)^{t}v = 0 \text{ para algún } t>0\} = \bigcup_{t>0} \operatorname{Ker}(((C+I))^{t})$$
+
+    \begin{flushright}
+        \textbf{Apartado c)}
+    \end{flushright}
+    
+    Nos pude una base $ \mathcal{B}'    $ de $ \operatorname{Ker}(((C+I))^{n(-1)})$ tal que $ M_{\mathcal{B}'} (f|_{\operatorname{Ker}(((C+I)^{n(-1)}))})  = $  suma diagonal de los bloques $J_{h}(-1) $
+
+    Tenemos que ver cómo lidiar con esta matriz tan grande sin hacer una gran cantidad de cálculos. Recordemos que dada una matrix $ D \in M_{n\times n}(\mathbb{K})$, entonces $ \operatorname{rang(D)} = \operatorname{dim} \operatorname{Im}(f_{D})$ con $ \operatorname{Im}(f_{D}) = \langle De_1, De_2,...,De_n \rangle $
+
+    Vemos que $ \operatorname{rang}((C+I)^3) = 4$ y además $ \operatorname{Im}((C+I)^3) = \langle e_1,e_6,e_7,e_8   \rangle $
+    $$ \operatorname{Im}((C+I)^{4}) = (C+I)(\operatorname{Im}((C+I)^3)) = \langle (C+I)e_1, (C+I)e_6,(C+I)e_7,(C+I)e_8 \rangle = \langle e_6, -e_1,e_7,e_8 \rangle  $$
+
+    Parece razonable pensar que:
+    $$ \operatorname{rang}(C+I)^{s} = \operatorname{rang}((C+I)^3) \ \forall s \geq  3 \implies n(-1) \leq  3 $$
+
+    Vamos a hacer un esquema de cada imagen de los vectores de la base:
+$$
+    \begin{array}{c|c|c}
+        e_1 & (C+I) e_i & (C+I)^2e_i\\ 
+        \hline
+        e_1 & e_6 & -e_1\\
+        e_2 & -e_7 &-e_7 \\ 
+        e_3 & e_8 & e_8\\ 
+        e_4 & -e_3 & -e_8\\ 
+        e_5 & e_2 & -e_7\\ 
+        e_6 & -e_1 & -e_6 \\ 
+        e_7 & e_7 & e_7\\ 
+        e_8 & e_8 & e_8
+        
+    \end{array}
+$$
+
+Entonces $ \operatorname{rang}(C+I) = 6 $ y $ \operatorname{rang}(C+I)^2 = 4$
+
+$ n(-1) = 2 \implies$ existe al menos un bloque de Jordan $ J_2(-1)$ y ninguno más grande.
+
+$$ v_{g}(-1) = \operatorname{dim} \operatorname{Ker}(C+I) = 8 - \operatorname{rang}(C+I) = 2 $$
+Luego hay dos bloques de la forma $ J_{h} (-1)$
+
+$$ \mu_1 : = \mu_1(x+1) = \operatorname{rang}(C+I)^{0} + \operatorname{rang}(C+I)^2 -2 \operatorname{rang}(C+I) = 8+4-2\cdot 6=0 \implies  $$
+$ J_2(-1)\oplus J_2(-1)$ es la suma de bloques de Jordan asociados a $ \lambda  = -1$
+
+\begin{flushright}
+    \textbf{Apartado c)}
+\end{flushright}
+
+Necesitamos vectores $ v_1,v_2\in \operatorname{Ker}((C+I)^2) $ que induzcan una base de $ \dfrac{\operatorname{Ker}((C+I)^2)}{\operatorname{Ker}((C+I))}$. Cuando tengamos eso, susaremos la proposición 7.4 para tener
+$$ \operatorname{Ker}((C+I)^2) = M(x+1) = \mathbb{R}[x]v_1 \oplus \mathbb{R}[x]v_2 $$
+
+Donde $ \operatorname{Ker}((C+I)^2) = W(v_1)\oplus W(v_2)$ con $ W(v_1)$ está formada por la base $ \{(C+I)v_1,v_1\},\ \{(C+I)v_2,v_2\}$ y $ W(v_2)$ por $ \{(C+I)v_2,v_2\}$. Luego la base de Jordan que se nos queda es $ \mathcal{B}' = \{(C+I)v_1,v_1,(C+I)v_2,v_2\}$
+
+Podemos tomar $ v_1 = e_4+e_8$ y $ v_2 = e_5+e_7$
+
+\end{exercise}
+
+
 \end{document}
