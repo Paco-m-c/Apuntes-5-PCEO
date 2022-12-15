@@ -3,7 +3,9 @@
 \usepackage{verbatim}
 \usepackage[hypertexnames=false]{hyperref}
 \usepackage{amstext} 
-\usepackage{array}   
+\usepackage{array}
+\usepackage{fancyvrb}
+
 \newcolumntype{C}{>{$}c<{$}} 
 
 
@@ -1296,16 +1298,85 @@ Recordemos que podemos contruir los números reales a paritr de $ \mathbb{Q}$ ut
 
 \chapter{Teoremas Fundamentales del Análisis Funcional}
 
-\chapter{Hahn-Banach}
-
+\section{Teorema de Hahn-Banach}
 \begin{theorem}
-    \textbf{Teorema de Hanh Banach}
+    \textbf{Teorema de Hanh-Banach}
 
     Sea $ (X,\|\cdot \|_{X})$ normado y $ f: X \to \mathbb{R}$ lineal y acotado. Definimos una aplicación bilineal $ \langle X, X' \rangle $ que lleva a cada $ u \in X$ y cada $ f \in X'$ a $ f(u)$
 
 \end{theorem}
 
 Este teorema permite extender el teorema de Riesz a un espacio normado y su dual.
+
+Recomiendo ver la parte de Hahn Banach en el libro. Aquí dejo lo que tengo apuntado
+
+\begin{Verbatim}
+    Para Hahn Banach hay un PDF
+    Aun así hay cosas en el libro (3.1.3)
+    Def de funcional de Minkowski y Hahn Banach en este (¿3.1.4?).
+    Se hace en el libro con el Teorema de Mazur (3.7.5) y dos teoremas de separación (3.7.7/9).
+
+\end{Verbatim}
+
+\section{Teorema de la acotación uniforme}
+
+{\color{red}Los conjuntos de primera y segunda categoría no entran. Los teoremas que los usan se han visto sin esa noción.}
+
+\begin{definition}
+    \textbf{Espacios de Baire}
+
+    Dado un esp. topoógico $ (X,\mathcal{T})$, se dice que $ X$ es \textbf{de Baire} si para cualquier sucesión de abiertos y densos se cumple que su intersección es densa.
+\end{definition}
+
+
+\begin{theorem}
+    \textbf{Baire}
+
+    Si $ (M,d)$ es un espacio métrico completo, entonces $ M$ es un espacio de Baire.
+\end{theorem}
+
+\begin{demonstration}
+    Ver libro. (3.3.3)
+\end{demonstration}
+
+\begin{theorem}
+    \textbf{De la acotación uniforme}
+
+    Sea $ \{T_i: E \to F\} \text{ una familia de aplicaciones lineales entre }E \text{ y } F \text{ espacios de Banach}$. Supongamos que $ \sup \{\|T_i(x)\|:\ i \in I\} < + \infty \ \forall x \in E$. Entonces, $ \sup \{\|T_i\|:\ i \in I\} < + \infty$
+\end{theorem}
+
+\begin{demonstration}
+
+    (Creo que hay que usar el teorema de Ascoli, no lo sé). Se puede seguir más o menos la demo del libro (3.3.5).
+
+    Sea $ O_n:= \{x \in E:\ \|T_i(x)\|\leq n \ \forall i \in I\}$, por lo tanto $ \bigcup_{n=1}^{\infty} O_n = E$. Por el teorema de Baire, $ \exists n_0$ tal que $ \forall n \geq  n_0$ $  \stackrel{\circ}{O_n} \ne \emptyset \implies $ $ O_n$ contiene una bola de centro el origen y de radio suficientemente pequeño. Luego están acotadas por la bola unidad.
+\end{demonstration}
+
+\section{Teoremas de la aplicación abierta y de la gráfica cerrada}
+
+\begin{theorem}
+    \textbf{de la Aplicación abierta}
+
+    Sea $ T: E \to F$ una aplicación lineal, sobreyectiva y continua entre espacios de Banach. Entonces $ T$ es abierta ($ T$ lleva abiertos a abiertos).
+\end{theorem}
+
+Este teorema es equivalente al siguiente:
+
+\begin{theorem}
+    \textbf{de la Gráfica cerrada}
+
+    Sea $ T : E\to F$ una aplicación lineal entre espacios de Banach. Sea $ G(T):= \{(x,y) \in E \times F:\ y = Tx\}$, es decir, la gráfica de la función. Si $ G(T)$ es cerrado en $ E \times F$, entonces $ T$ es continua.
+\end{theorem}
+
+Para demostrar estos teoremas, necesitamos la definición de conjunto CS-compacto y CS-cerrado y algunas propiedades. Ver libro (3.4.1,3.4.2,3.4.4)
+
+Demostraremos el primero de los teoremas
+
+\begin{demonstration}
+    Se hace para la bola unidad, es CS-compacto, entonces su imagen también y es CS-compacto (y CS-cerrado) y usando 3.4.4. La clasura de la bola unidad tiene interior no vacío por Baire. Entonces tiene un punto interior. El final lo ves en tu casa.
+\end{demonstration}
+
+El segundo de los teoremas se demuestra con el primero. Un saludo.
 
 \chapter{Ejercicios}
 
